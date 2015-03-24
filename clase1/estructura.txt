@@ -1,13 +1,14 @@
 Estructura de la presentación "Data Warehouse":
 
-1. Historia: origen. (Agregar)
-  1.1 Business intelligence. (Agregar)
+1. Business intelligence.
+  1.1 Historia.
 2. ¿Qué es Data Warehouse?.
 3. Características del DW.
-4. Arquitectura del DW. (Agregar)
-5. OLTP vs. Data Warehouse (Agregar)
-6. Data Mart. (Agregar)
-  6.1 Top-Down, Bottom-Up. (Agregar)
+4. Arquitectura del DW.
+5. OLTP vs. Data Warehouse.
+6. Data Mart.
+  6.1 Top-Down.
+  6.2 Bottom-Up.
 7. Modelo multidimensional.
 8. Base de datos multidimensionales. (Agregar)
 9. Esquemas dimensionales.
