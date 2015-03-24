@@ -42,7 +42,7 @@
 
 \fbckg{negro}
 \begin{frame}
-\pointedsl{Business intelligence}
+\pointedsl{{\LARGE Business intelligence}}
 \end{frame}
 
 \fbckg{negro}
@@ -68,18 +68,27 @@ Dato + Análisis = Conocimiento.
 
 \fbckg{negro}
 \begin{frame}
-\pointedsl{¿Qué es DW?}
+\pointedsl{{\large ¿Qué es un Data Warehouse?}}
 \end{frame}
 
 
-% \fbckg{negro}
-% \begin{frame}
-% \misc{\textbf{Data Warehouse} (DW o DWH), es una colección de datos orientada a un ámbito determinado, integrado, no volátil y variable en el tiempo, que ayuda a la toma de decisiones en la entidad en la que se utiliza. Se trata, sobre todo, de un expediente completo de una organización, más allá de la información transaccional y operacional. Almacenado en una base de datos diseñada para favorecer el análisis y la divulgación eficiente de datos.}
-% \end{frame}
+\fbckg{negro}
+\begin{frame}
+\misc{
+Definición en términos de las características del DW:
+\newline
+
+\textbf{Data Warehouse} (DW o DWH), es una colección de datos orientada a un ámbito determinado, integrado, no volátil y variable en el tiempo, que ayuda a la toma de decisiones en la entidad en la que se utiliza.
+}
+\end{frame}
 
 \fbckg{negro}
 \begin{frame}
-\misc{Un \textbf{Data Warehouse} (DW o DWH), es un sistema que extrae, limpia, ajusta, y entrega los
+\misc{
+Una definición más amplia que la anterior:
+\newline
+
+Un \textbf{Data Warehouse}, es un sistema que extrae, limpia, ajusta, y entrega los
 datos de origen en un almacén de datos dimensional, y luego apoya e implementa
 consultas y análisis, con el propósito de la toma de decisiones.}
 \end{frame}
@@ -91,7 +100,7 @@ consultas y análisis, con el propósito de la toma de decisiones.}
 
 \fbckg{negro}
 \begin{frame}
-\misc{\includegraphics[width=0.9\linewidth]{componentes}}
+\misc{\includegraphics[scale=0.25,center]{componentes}}
 \end{frame}
 
 \fbckg{negro}
@@ -123,6 +132,59 @@ consultas y análisis, con el propósito de la toma de decisiones.}
 }
 \end{frame}
 
+\fbckg{negro}
+\begin{frame}
+\pointedsl{OLTP vs. DW}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\includegraphics[scale=0.27,center]{OltpVSDW}}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\pointedsl{Data mart}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{Los \textbf{Data marts} (DM), son subconjuntos de datos de un data warehouse para áreas específicas.
+
+Entre las características de un data mart destacan:
+\begin{itemize}
+  \item Usuarios limitados.
+  \item Área específica.
+  \item Tiene un propósito específico.
+  \item Tiene una función de apoyo.
+\end{itemize}
+}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Top-Down}: primero se define el DW y luego se desarrollan, construyen y cargan los
+DM a partir del mismo.
+\newline
+
+\includegraphics[scale=0.16,center]{Top-Down}
+}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\pointedsl{{\LARGE Metodologías de diseño}}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Bottom-Up}: se definen previamente los DM y luego se integran
+en un DW centralizado.
+\newline
+
+\includegraphics[scale=0.16,center]{Bottom-Up}
+}
+\end{frame}
 
 % \fbckg{blank}
 % \begin{frame}
