@@ -23,3 +23,12 @@ Damos lo siguiente?
 - Cubo multidimensional.
 - ROLAP, MOLAP, HOLAP.
 - Bibliografia.
+
+Preguntas:
+- Star Schemas Vs. OLAP.
+Dimensional models implemented in relational database management systems are
+referred to as star schemas because of their resemblance to a star-like structure.
+Dimensional models implemented in multidimensional database environments are
+referred to as online analytical processing (OLAP) cubes.
+- En las bases de datos multidimensionales se utilizan tanto en ROLAP
+como MOLAP?.
