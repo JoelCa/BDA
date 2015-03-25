@@ -186,6 +186,112 @@ en un DW centralizado.
 }
 \end{frame}
 
+\fbckg{negro}
+\begin{frame}
+\pointedsl{{\LARGE Modelo dimensional}}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{El modelado dimensional es una técnica de diseño lógico de una base de datos, útil para el procesamiento analítico en línea (OLAP), que tiene como ideas centrales el rendimiento y lograr la facilidad de comprensión para el usuario.
+\newline
+
+Hay dos conceptos básicos, centrales e importantes:
+\begin{itemize}
+  \item Hechos (métricas).
+  \item Dimensiones.
+\end{itemize}
+}
+
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\pointedsl{{\LARGE Esquema dimensional}}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{Sabemos que la relación entre todas las tablas de una base de datos se denomina esquema de base de datos. Para un cierto grupo de bases de datos, en las cuales se realizan consultas sobre datos históricos, generalmente se utilizan diseños llamados esquemas dimensionales.
+\newline
+
+Un \textbf{esquema dimensional} separa físicamente las medidas que cuantifican el negocio (hechos) de los elementos que los describen (dimensiones).
+}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Esquema estrella}
+\newline
+
+
+En este tipo de esquemas idea central es tener,
+
+
+\textbf{Tabla de hechos}
+
+rodeada de
+
+\textbf{Tablas de dimensiones}
+}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Esquema estrella}
+\newline
+Supongamos que queremos realizar un análisis sobre el importe ganado por cliente, según el producto y para una fecha específica.
+}
+\begin{center}
+\includegraphics[scale=0.7]{estrella}
+\end{center}
+
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Esquema de copo de nieve}
+\newline
+
+Este otro tipo de esquemas, es similar al esquema de estrella salvo por cierto detalle, las dimensiones pueden, a su vez, estar conectadas con otras tablas de dimensiones.
+
+Tendremos,
+
+
+\textbf{Tabla de hechos}
+
+rodeada de 
+
+\textbf{Tablas de dimensiones}
+
+conectadas con
+
+\textbf{Nuevas tablas de dimensiones}
+}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Esquema de copo de nieve}}
+
+\begin{center}
+\includegraphics[scale=0.5]{copoNieve}
+\end{center}
+
+\end{frame}
+
+% \begin{frame}
+% \pgfsetfillopacity{1}
+% 
+% 
+% \def\FrameCommand{\fboxsep=0cm \colorbox{\strcolor}} \MakeFramed {\FrameRestore}
+% some test text
+% some test text
+% \endMakeFramed
+% 
+% \end{frame}
+
+
 % \fbckg{blank}
 % \begin{frame}
 % \framedsl{\pitem{pointed slogan} \pitem{framed slogan} \fitem{beamer features}}
