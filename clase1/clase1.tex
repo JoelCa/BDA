@@ -47,7 +47,8 @@
 
 \fbckg{negro}
 \begin{frame}
-\misc{El término "Business Intelligence" fue acuñado originalmente por Richard Millar Devens en 'Cyclopædia of Commercial and Business Anecdotes'en 1865. Devens utilizó el término para describir cómo el banquero, Sir Henry Furnese, obtuvo beneficios por recibir y procesar la información sobre su entorno, antes que sus competidores.
+\misc{El término "\textbf{Business Intelligence}" fue acuñado originalmente por Richard Millar Devens en 'Cyclopædia of Commercial and Business Anecdotes'en 1865. Devens utilizó el término para describir cómo el banquero, Sir Henry Furnese, obtuvo beneficios por recibir y procesar la información sobre su entorno, antes que sus competidores.
+\newline
 
 La inteligencia de negocios, tal como se entiende, hoy en día se dice que ha evolucionado desde los sistemas de apoyo a las decisiones (DSS), que se inició en la década de 1960 y desarrolló a mediado de los años 80's.
 }
@@ -241,13 +242,12 @@ rodeada de
 \fbckg{negro}
 \begin{frame}
 \misc{\textbf{Esquema estrella}
-\newline
-Supongamos que queremos realizar un análisis sobre el importe ganado por cliente, según el producto y para una fecha específica.
-}
-\begin{center}
-\includegraphics[scale=0.7]{estrella}
-\end{center}
+%Supongamos que queremos realizar un análisis sobre el importe ganado por cliente, según el producto y para una fecha específica.
 
+\begin{center}
+\includegraphics[scale=0.7]{Esquema_Estrella}
+\end{center}
+}
 \end{frame}
 
 \fbckg{negro}
@@ -255,7 +255,7 @@ Supongamos que queremos realizar un análisis sobre el importe ganado por client
 \misc{\textbf{Esquema de copo de nieve}
 \newline
 
-Este otro tipo de esquemas, es similar al esquema de estrella salvo por cierto detalle, las dimensiones pueden, a su vez, estar conectadas con otras tablas de dimensiones.
+Este otro tipo de esquemas, es similar al esquema de estrella, salvo que las dimensiones pueden estar conectadas con otras tablas de dimensiones.
 
 Tendremos,
 
@@ -274,13 +274,44 @@ conectadas con
 
 \fbckg{negro}
 \begin{frame}
-\misc{\textbf{Esquema de copo de nieve}}
+\misc{\textbf{Esquema de copo de nieve}
 
 \begin{center}
 \includegraphics[scale=0.5]{copoNieve}
 \end{center}
-
+}
 \end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Esquema de constelación}
+\newline
+
+Este esquema es una combinación de los dos anteriores, utiliza lo mejor de cada uno, la simplicidad del esquema estrella junto con el cierto nivel de normalización del esquema copo de nieve. Está compuesto de la siguiente forma:
+
+\textbf{Una o más tablas de hechos}
+
+rodeada de
+
+\textbf{Tablas de dimensiones}
+
+conectadas (posiblemente) con
+
+\textbf{Nuevas tablas de dimensiones}
+}
+\end{frame}
+
+\fbckg{negro}
+\begin{frame}
+\misc{\textbf{Esquema de constelación}
+
+\begin{center}
+\includegraphics[width=8cm,height=8cm,keepaspectratio]{esquema_constelacion}
+\end{center}
+
+}
+\end{frame}
+
 
 % \begin{frame}
 % \pgfsetfillopacity{1}
