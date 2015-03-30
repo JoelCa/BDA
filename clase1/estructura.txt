@@ -10,13 +10,13 @@ Estructura de la presentación "Data Warehouse":
   6.1 Top-Down.
   6.2 Bottom-Up.
 7. Modelo multidimensional.
-8. Base de datos multidimensionales. (Agregar)
+8. Base de datos multidimensionales. (Lo sacamos?)
 9. Esquemas dimensionales.
-  9.1 Esquema estrella (Agregar la desnormalización)
-    9.1.1 Tabla de Dimensión Tiempo. (Agregar)
-  9.2 Esquema copo de nieve. (Agregar)
-  9.3 Esquema constelación. (Agregar)
-10. Ventajas/desventajas del DW. (Agregar)
+  9.1 Esquema estrella.
+  9.2 Esquema copo de nieve.
+  9.3 Esquema constelación.
+10. Dimensión tiempo.
+11. Ventajas/desventajas del DW. (Agregar)
 
 
 Damos lo siguiente?
