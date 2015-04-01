@@ -95,7 +95,7 @@ Una definición más amplia que la anterior:
 
 Un \textbf{Data Warehouse}, es un sistema que extrae, limpia, ajusta, y entrega los
 datos de origen en un almacén de datos dimensional, y luego apoya e implementa
-consultas y análisis, con el propósito de la toma de decisiones.}
+consultas y análisis, con el propósito de asistir en la toma de decisiones.}
 \end{frame}
 
 \fbckg{negro}
@@ -146,12 +146,12 @@ consultas y análisis, con el propósito de la toma de decisiones.}
 
 \fbckg{negro}
 \begin{frame}
-\misc{\includegraphics[scale=0.27,center]{OltpVSDW}}
+\misc{\includegraphics[scale=0.27,center]{OltpVSDW3}}
 \end{frame}
 
 \fbckg{negro}
 \begin{frame}
-\pointedsl{Data mart}
+\pointedsl{Data marts}
 \end{frame}
 
 \fbckg{negro}
@@ -161,7 +161,6 @@ consultas y análisis, con el propósito de la toma de decisiones.}
 Entre las características de un data mart destacan:
 \begin{itemize}
   \item Usuarios limitados.
-  \item Área específica.
   \item Tiene un propósito específico.
   \item Tiene una función de apoyo.
 \end{itemize}
@@ -170,7 +169,7 @@ Entre las características de un data mart destacan:
 
 \fbckg{negro}
 \begin{frame}
-\pointedsl{{\LARGE Metodologías de diseño}}
+\pointedsl{{\Large Metodologías de diseño}}
 \end{frame}
 
 \fbckg{negro}
@@ -203,7 +202,7 @@ en un DW centralizado.
 \misc{El modelado dimensional es una técnica de diseño lógico de una base de datos, útil para el procesamiento analítico en línea (OLAP), que tiene como ideas centrales el rendimiento y lograr la facilidad de comprensión para el usuario.
 \newline
 
-Hay dos conceptos básicos, centrales e importantes:
+Hay dos conceptos centrales:
 \begin{itemize}
   \item Hechos (métricas).
   \item Dimensiones.
@@ -250,7 +249,7 @@ rodeada de
 %Supongamos que queremos realizar un análisis sobre el importe ganado por cliente, según el producto y para una fecha específica.
 
 \begin{center}
-\includegraphics[scale=0.7]{esquema_estrella}
+\includegraphics[scale=0.7]{esquema_estrella2}
 \end{center}
 }
 \end{frame}
@@ -341,14 +340,16 @@ conectadas (posiblemente) con
 \fbckg{negro}
 \begin{frame}
 \misc{
-Un caso particular entre las dimensiones que se definirán en el data warehouse es el de la dimensión de tiempo. Al momento de definir la granularidad y estructuración de la misma se debe tener en cuenta la dinámica del negocio (o ámbito) que se desea evaluar ya que de ésto depende la calidad y flexibilidad de la información ofrecida.
+Un caso particular entre las dimensiones que se definirán en el data warehouse es el de la \textbf{dimensión de tiempo}.
+
+En un DW, la creación y el mantenimiento de una tabla de dimensión tiempo es obligatoria. Por ello, decimos que un DW es una \textbf{base de datos temporal}.
 
 Tenemos diferentes elecciones para el tipo del campo clave:
 \begin{itemize}
-  \item Tipo date
+  \item Tipo Date.
   \item Tipo Entero: \\
-  $\textendash$ Autoincremental (1,2,3,...,35200,...) \\
-  $\textendash$ yyyyMMdd (por ejemplo 20150310)
+  $\textendash$ Autoincremental (1,2,3,...,35200,...). \\
+  $\textendash$ yyyyMMdd (por ejemplo 20150310).
 \end{itemize}
 }
 
