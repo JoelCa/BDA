@@ -1,7 +1,6 @@
 Estructura de la presentación "Data Warehouse":
 
 1. Business intelligence.
-  1.1 Historia.
 2. ¿Qué es Data Warehouse?.
 3. Características del DW.
 4. Arquitectura del DW.
@@ -15,26 +14,4 @@ Estructura de la presentación "Data Warehouse":
   8.2 Esquema copo de nieve.
   8.3 Esquema constelación.
 9. Dimensión tiempo.
-10. Ventajas/desventajas del DW. (Agregar)
-
-
-Damos lo siguiente?
-- Cubo multidimensional.
-- ROLAP, MOLAP, HOLAP.
-- Bibliografia.
-
-Preguntas:
-- Star Schemas Vs. OLAP.
-Dimensional models implemented in relational database management systems are
-referred to as star schemas because of their resemblance to a star-like structure.
-Dimensional models implemented in multidimensional database environments are
-referred to as online analytical processing (OLAP) cubes.
-- En las bases de datos multidimensionales se utilizan tanto en ROLAP
-como MOLAP?.
-- Dar 2 definiciones de Data Warehouse.
-
-
-------------------------
-Ahora vamos a hacer una comparación entre el procesamiento de
-transacciones (es decir, a una base de datos transaccional)
-y el análisis hecho a la información contenida en el DW
+10. Ventajas/desventajas del DW.
