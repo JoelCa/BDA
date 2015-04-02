@@ -20,16 +20,15 @@
 
 %%%% SLIDE ELEMENTS
 \newcommand{\structureopacity}{0.75} %opacity for the structure elements (boxes and dots)
-\newcommand{\strcolor}{blue} %elements colour (predefined blue; orange; green)
+\newcommand{\strcolor}{white} %elements colour (predefined blue; orange; green)
 
 %%%% TEXT COLOUR
-\newcommand{\yourowntexcol}{white}
+\newcommand{\yourowntexcol}{black}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%
 %%% TITLE SLIDE DATA %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%
-\fbckg{nexus}
 \newcommand{\titlephrase}{Data Warehouse}
 \newcommand{\name}{Javier Bonet \\ Joel Catacora \\}
 \newcommand{\affil}{Base de datos avanzada}
@@ -41,12 +40,12 @@
 
 \startingslide %this generates titlepage from the data above
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{{\LARGE Business intelligence}}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{%El término "\textbf{Business Intelligence}" fue acuñado originalmente por Richard Millar Devens en 'Cyclopædia of Commercial and Business Anecdotes'en 1865. Devens utilizó el término para describir cómo el banquero, Sir Henry Furnese, obtuvo beneficios por recibir y procesar la información sobre su entorno, antes que sus competidores.
 % \newline
@@ -57,7 +56,7 @@ En 1989, Howard Dresner (un analista de Gartner Group) propuso la "\textbf{intel
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{Se denominada \textbf{Business intelligence} (BI), al conjunto de estrategias que integran, por un lado el almacenamiento, y
 por el otro, el procesamiento de grandes cantidades de datos, con el principal objetivo de
@@ -70,13 +69,13 @@ Dato + Análisis = Conocimiento.
 \end{frame}
 
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{{\large ¿Qué es un Data Warehouse?}}
 \end{frame}
 
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{
 Definición en términos de las características del DW:
@@ -86,7 +85,7 @@ Definición en términos de las características del DW:
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{
 Una definición más amplia que la anterior:
@@ -97,27 +96,11 @@ datos de origen en un almacén de datos dimensional, y luego apoya e implementa
 consultas y análisis, con el propósito de asistir en la toma de decisiones.}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{Características}
 \end{frame}
 
-\fbckg{negro}
-\begin{frame}
-\itemized{
-\item \textbf{Integrado}: Se integran datos provenientes de múltiples fuentes, posiblemente distintas.
-}
-\end{frame}
-
-\fbckg{negro}
-\begin{frame}
-\itemized{
-\item \textbf{Integrado}: Se integran datos provenientes de múltiples fuentes, posiblemente distintas.
-\item \textbf{No volátil}: Una vez almacenados los datos en el DW, la información que éstos representan no debe perderse.
-}
-\end{frame}
-
-\fbckg{negro}
 \begin{frame}
 \itemized{
 \item \textbf{Integrado}: Se integran datos provenientes de múltiples fuentes, posiblemente distintas.
@@ -126,34 +109,34 @@ consultas y análisis, con el propósito de asistir en la toma de decisiones.}
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{Arquitectura}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \begin{center}
 \misc{\includegraphics[scale=0.3]{arquitectura}}
 \end{center}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{OLTP vs. DW}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\includegraphics[scale=0.27,center]{OltpVSDW3}}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{Data marts}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{Los \textbf{Data marts} (DM), son subconjuntos de datos de un data warehouse para áreas específicas.
 
@@ -166,12 +149,12 @@ Entre las características de un data mart destacan:
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{{\Large Metodologías de diseño}}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Top-Down}: primero se define el DW y luego se desarrollan, construyen y cargan los
 DM a partir del mismo.
@@ -181,7 +164,7 @@ DM a partir del mismo.
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Bottom-Up}: se definen previamente los DM y luego se integran
 en un DW centralizado.
@@ -191,12 +174,12 @@ en un DW centralizado.
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{{\LARGE Modelo dimensional}}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{El modelado dimensional es una técnica de diseño lógico de una base de datos, útil para el procesamiento analítico en línea (OLAP), que tiene como ideas centrales el rendimiento y lograr la facilidad de comprensión para el usuario.
 \newline
@@ -210,12 +193,12 @@ Hay dos conceptos centrales:
 
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{{\LARGE Esquema dimensional}}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{Sabemos que la relación entre todas las tablas de una base de datos se denomina esquema de base de datos. Para un cierto grupo de bases de datos, en las cuales se realizan consultas sobre datos históricos, generalmente se utilizan diseños llamados \textbf{esquemas dimensionales}.
 \newline
@@ -224,7 +207,7 @@ Un \textbf{esquema dimensional} separa físicamente las medidas que cuantifican 
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Esquema estrella}
 \newline
@@ -242,7 +225,7 @@ rodeada de
 \end{frame}
 
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Esquema estrella}
 %Supongamos que queremos realizar un análisis sobre el importe ganado por cliente, según el producto y para una fecha específica.
@@ -253,7 +236,7 @@ rodeada de
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Esquema estrella}
 
@@ -269,7 +252,7 @@ Si se normaliza la tabla "PRODUCTOS", obtendremos lo siguiente:
 
 
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Esquema de copo de nieve}
 \newline
@@ -291,7 +274,7 @@ conectadas con
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Esquema de copo de nieve}
 
@@ -301,7 +284,7 @@ conectadas con
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Esquema de constelación}
 \newline
@@ -320,7 +303,7 @@ conectadas (posiblemente) con
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Esquema de constelación}
 
@@ -331,12 +314,12 @@ conectadas (posiblemente) con
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{{\LARGE Dimensión tiempo}}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{
 Un caso particular entre las dimensiones que se definirán en el data warehouse es el de la \textbf{dimensión de tiempo}.
@@ -353,12 +336,12 @@ Tenemos diferentes elecciones para el tipo del campo clave:
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \pointedsl{{\LARGE Ventajas/Desventajas}}
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Ventajas:}
 \begin{itemize}
@@ -371,7 +354,7 @@ Tenemos diferentes elecciones para el tipo del campo clave:
 }
 \end{frame}
 
-\fbckg{negro}
+
 \begin{frame}
 \misc{\textbf{Desventajas:}
 \begin{itemize}
