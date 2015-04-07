@@ -1,0 +1,8 @@
+Estructura de la presentación OLAP:
+
+- ¿Que es OLAP?
+- Implementaciones
+  - ROLAP
+  - MOLAP
+  - HOLAP
+- Productos 
