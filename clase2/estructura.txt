@@ -1,8 +1,10 @@
 Estructura de la presentación OLAP:
 
 - ¿Que es OLAP?
+- Características
+- Relación del modelo dimensional con OLAP
 - Implementaciones
   - ROLAP
   - MOLAP
   - HOLAP
-- Productos 
+- Productos (solo nombrarlos)
