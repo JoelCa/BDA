@@ -1,8 +1,17 @@
 Estructura de la presentación OLAP:
 
 - ¿Que es OLAP?
+- Cubo OLAP
 - Características
 - Relación del modelo dimensional con OLAP
+- Operaciones
+  - Drill-down
+  - Drill-up
+  - Pivot
+  - Drill-through
+  - Drill-across
+  - Roll-across
+  - Page
 - Implementaciones
   - ROLAP
   - MOLAP
