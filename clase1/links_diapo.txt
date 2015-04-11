@@ -1,0 +1,31 @@
+Links y libros, donde saqué información, para armar 
+la presentación Data Warehouse.
+
+BI:
+http://es.wikipedia.org/wiki/Inteligencia_empresarial
+hefesto-v2, página 6
+
+¿Qué es un DW?:
+http://es.wikipedia.org/wiki/Almac%C3%A9n_de_datos
+
+OLTP VS. DW:
+hefesto-v2, página 42
+
+Data Marts:
+http://en.wikipedia.org/wiki/Data_mart
+
+Metodologías de diseño:
+hefesto-v2, página 74
+
+Esquema estrella:
+hefesto-v2, página 37-38
+
+Esquema de copo de nieve:
+hefesto-v2, página 39
+
+Esquema de constelación:
+hefesto-v2, página 41
+
+Ventajas/desventajas:
+http://es.wikipedia.org/wiki/Almac%C3%A9n_de_datos
+
