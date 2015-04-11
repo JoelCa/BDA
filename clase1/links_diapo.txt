@@ -7,6 +7,7 @@ hefesto-v2, página 6
 
 ¿Qué es un DW?:
 http://es.wikipedia.org/wiki/Almac%C3%A9n_de_datos
+The Data Warehouse ETL Toolkit, página 58
 
 OLTP VS. DW:
 hefesto-v2, página 42
