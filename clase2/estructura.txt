@@ -1,7 +1,6 @@
 Estructura de la presentación OLAP:
 
 - ¿Que es OLAP?
-- Dar una definición matemática
 - Cubo OLAP
 - Características
 - Relación del modelo dimensional con OLAP
