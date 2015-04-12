@@ -1,9 +1,11 @@
 Estructura de la presentación OLAP:
 
 - ¿Que es OLAP?
+- Dar una definición matemática
 - Cubo OLAP
 - Características
 - Relación del modelo dimensional con OLAP
+    - Hacer referencia a las jerarquias (que pueden ser las mismas del DW)
 - Operaciones
   - Drill-down
   - Drill-up
