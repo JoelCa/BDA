@@ -4,7 +4,8 @@ Estructura de la presentación OLAP:
 - Cubo OLAP
 - Características
 - Relación del modelo dimensional con OLAP
-    - Hacer referencia a las jerarquias (que pueden ser las mismas del DW)
+  (página 78, 159 de [S._Nagabhushana] Data Warehousing OLAP and Data Mining)
+  - Hacer referencia a las jerarquias (que pueden ser las mismas del DW)
 - Operaciones
   - Drill-down
   - Drill-up
@@ -18,3 +19,5 @@ Estructura de la presentación OLAP:
   - MOLAP
   - HOLAP
 - Productos (solo nombrarlos)
+
+
