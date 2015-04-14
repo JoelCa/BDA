@@ -45,3 +45,6 @@ campo1 campo2 precio
 
 1	2	14
 1	1	10
+
+
+1 2 3 7 8 10 11 y 12 14 adaptado 17
