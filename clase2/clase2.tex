@@ -43,7 +43,7 @@
 
 \fbckg{white}
 \begin{frame}
-\pointedsl{{\LARGE Definición}}
+\pointedsl{{\LARGE ¿Qué es OLAP?}}
 \end{frame}
 
 
@@ -51,14 +51,7 @@
 \begin{frame}
 \misc
 {
-  El procesamiento analítico en línea es una solución utilizada en el campo de la inteligencia de negocios, cuyo objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla.
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\misc
-{Las técnicas OLAP (On-Line Analytical Processing), o FASMI (Análisis Rápido de Información Compartida Multidimensional), o incluso OLTP (On Line Transaction Processing) fueron iniciadas por E.F. Codd, considerado el padre de las bases de datos relacionales, y se refiere al método que permite a los usuarios de bases de datos multidimensionales generar resúmenes on-line descriptivos o comparativos de datos y otras consultas analíticas. OLAP está incluido en el amplio campo de la Inteligencia de Negocios (BI), sus aplicaciones típicas se circunscriben en los siguientes ámbitos: los informes de negocio de ventas, marketing, informes de gestión, gestión del rendimiento empresarial (BMP), presupuestos y previsiones, informes financieros, etc.
+El \textbf{procesamiento analítico en línea} (OLAP) es una solución utilizada en el campo de la inteligencia de negocios, cuyo objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla.
 }
 \end{frame}
 
@@ -66,7 +59,7 @@
 \begin{frame}
 \misc
 {
-El concepto OLAP puede ser definido con solo 5 palabras, Fast Analysis of Shared Multidimensional Information, (Análisis Rápido de Información Compartida Multidimensional)  o FASMI.
+El concepto OLAP puede ser definido con solo 5 palabras: Análisis Rápido de Información Compartida Multidimensional, (Fast Analysis of Shared Multidimensional Information, o FASMI).
 }
 \end{frame}
 
@@ -75,11 +68,11 @@ El concepto OLAP puede ser definido con solo 5 palabras, Fast Analysis of Shared
 \misc
 {
 \begin{itemize}
-  \item Rápida: el sistema está dirigido a proporcionar la mayoría de las respuestas a los usuarios en cinco segundos.
-  \item Análisis: el sistema puede hacer frente a cualquier lógica de negocio y análisis estadístico que sea relevante para el usuario, en forma relativamente sencilla.
-  \item Compartida: significa que el sistema implementa todos los requisitos de seguridad de la confidencialidad.
-  \item Multidimensionalidad: El sistema debe proveer una vista conceptual multidimensional de los datos.
-  \item Información: se refiere a todos los datos y la información derivada, que sea relevante para la aplicación.
+  \item \textbf{Rápida}: el sistema está dirigido a proporcionar la mayoría de las respuestas a los usuarios en pocos segundos.
+  \item \textbf{Análisis}: el sistema puede hacer frente a cualquier lógica de negocio y análisis estadístico que sea relevante para el usuario, en forma relativamente sencilla.
+  \item \textbf{Compartida}: significa que el sistema implementa todos los requisitos de seguridad de la confidencialidad.
+  \item \textbf{Multidimensionalidad}: el sistema debe proveer una vista conceptual multidimensional de los datos.
+  \item \textbf{Información}: se refiere a todos los datos y la información derivada, que sea relevante para la aplicación.
 \end{itemize}
 }
 \end{frame}
@@ -113,6 +106,20 @@ El concepto OLAP puede ser definido con solo 5 palabras, Fast Analysis of Shared
 \item \textbf{Visión multidimensional de los datos}
 \item \textbf{Soporta cálculos complejos}
 \item \textbf{Inteligencia respecto del tiempo}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{\LARGE{Agregaciones}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Los \textbf{agregados} se utilizan en los modelos dimensionales del Data Warehouse para producir efectos positivos sobre el tiempo que toma una consulta sobre grandes conjuntos de datos. El uso más común de los agregados es tomar una dimensión y cambiar su granularidad.
+Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión, creando así nuevas tablas dimensionales y de hecho, que encajan en este nuevo nivel de granularidad. 
 }
 \end{frame}
 

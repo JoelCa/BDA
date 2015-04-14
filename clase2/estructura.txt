@@ -1,11 +1,11 @@
 Estructura de la presentación OLAP:
 
 - ¿Que es OLAP?
+- Características generales
+- Reglas de Codd (las mas importantes)
 - Cubo OLAP
-- Características
-- Relación del modelo dimensional con OLAP
-  (página 78, 159 de [S._Nagabhushana] Data Warehousing OLAP and Data Mining)
-  - Hacer referencia a las jerarquias (que pueden ser las mismas del DW)
+- Jerarquia
+- Agregaciones (como se arma una tabla de agregación con un ejemplo)
 - Operaciones
   - Drill-down
   - Drill-up
@@ -17,7 +17,31 @@ Estructura de la presentación OLAP:
 - Implementaciones
   - ROLAP
   - MOLAP
+  - MDDB vs. RDBMS
   - HOLAP
 - Productos (solo nombrarlos)
 
+Dudas:
+- Drill Down/up se define en base a una jerarquia?
+- A qué se refiere On-Line, en las siglas de OLAP?
+- HOLAP tiene MDDB y RDB?
+- Damos productos comerciales de OLAP?
 
+
+(página 78, 159 de [S._Nagabhushana] Data Warehousing OLAP and Data Mining)
+jerarquia: página 214, the data warehouse toolkit.
+
+
+
+select sum(precio)
+from tabla
+
+24
+
+campo1 campo2 precio
+1	2	5
+1	2	9
+1	1	10
+
+1	2	14
+1	1	10
