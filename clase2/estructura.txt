@@ -26,11 +26,12 @@ Dudas:
 - A qué se refiere On-Line, en las siglas de OLAP?
 - HOLAP tiene MDDB y RDB?
 - Damos productos comerciales de OLAP?
-
+- Drill Up = Roll-up?
 
 (página 78, 159 de [S._Nagabhushana] Data Warehousing OLAP and Data Mining)
-jerarquia: página 214, the data warehouse toolkit.
-
+jerarquia: 
+- página 214, The data warehouse toolkit
+- página 169, Data Warehousing OLAP and Data Mining.
 
 
 select sum(precio)

@@ -196,9 +196,70 @@ El concepto OLAP puede ser definido con solo 5 palabras: Análisis Rápido de In
 \misc
 {
 Los \textbf{agregados} se utilizan en los modelos dimensionales del Data Warehouse para producir efectos positivos sobre el tiempo que toma una consulta sobre grandes conjuntos de datos. El uso más común de los agregados es tomar una dimensión y cambiar su granularidad.
-Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión, creando así nuevas tablas dimensionales y de hecho, que encajan en este nuevo nivel de granularidad. 
+Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión, creando así nuevas tablas de dimendiones y de hecho, que encajan en este nuevo nivel de granularidad. 
 }
 \end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Ejemplo}
+
+Este esquema copo de nieve, tiene una sola tabla de echos \textit{Sales}, dos métricas (\textit{units and dollars}) y cuatro tablas de dimensiones (\textit{Product, Mfr, Customer, Time, y Customer}).
+
+\begin{center}
+\includegraphics[scale=0.5]{aggregate_tables_1}
+\end{center}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Ejemplo}
+
+Creamos una tabla agregada, Agg\_1:
+ 
+\begin{center}
+\includegraphics[scale=0.5]{aggregate_tables_2}
+\end{center}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{Veamos como las columnas del esquema original se han combinado en la tabla Agg\_1:
+
+\begin{itemize}
+  \item La dimensión \textit{Time} se "colapsó" en la tabla de agregación, omitiendo las columnas \textit{month} y \textit{day}.
+  \item Las dos tablas de la dimensión \textit{Product} se "colapsaron" en la tabla de agregación.
+  \item La dimensión \textit{Customer} se "perdió".
+  \item Para cada métrica en la tabla de hechos (\textit{units, dollars}), hay uno o más métricas en la tabla de agregación (\textit{sum units, min units, max units, sum dollars}).
+  \item También hay una nueva métrica, \textit{row count}, que representa la métrica "conteo".
+\end{itemize}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Ejemplo}
+
+Otra tabla agregada, Agg\_2:
+
+\begin{center}
+\includegraphics[scale=0.6]{aggregate_tables_3}
+\end{center}
+
+Varias dimensiones colapsaron: \textit{Time} en el nivel \textit{Quarter}; \textit{Customer} en el nivel \textit{State};
+y \textit{Payment Method} a nivel \textit{Payment Method}. Pero la dimensión \textit{Product} se conservó.}
+\end{frame}
+
 
 \fbckg{white}
 \begin{frame}
@@ -210,6 +271,20 @@ Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser pa
 \misc
 {
 El cubo OLAP puede ser pensado como una extensión de la matriz multidimensional de una hoja de cálculo, de ahí el nombre del hipercubo. Técnicamente, el cubo de datos es una representación multidimensional de datos, junto con todos los agregados posible, es decir, los agregados que resultan mediante la selección de un subconjunto propio de las dimensiones y sumando sobre todas las dimensiones restantes.
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Un cubo OLAP es una representación abstracta de la proyección de una relación de un RDBMS (Sistema administrador de bases de datos relacionales).
+Dada una relación de orden N, tenemos una proyección que dispone de los campos X, Y, Z como clave de la relación y de W como atributo residual.
+Categorizando esto como una función se tiene que:
+$f : (X,Y,Z) \rightarrow  W$
+
+Los atributos X, Y, Z se corresponden con los ejes del cubo, mientras que el valor de W devuelto por cada tripleta (X, Y, Z) se corresponde con el dato o elemento que se rellena en cada celda del cubo.
+
 }
 \end{frame}
 
