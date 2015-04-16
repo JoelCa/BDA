@@ -59,7 +59,7 @@ El \textbf{procesamiento analítico en línea} (OLAP) es una solución utilizada
 \begin{frame}
 \misc
 {
-El concepto OLAP puede ser definido con solo 5 palabras: Análisis Rápido de Información Compartida Multidimensional, (Fast Analysis of Shared Multidimensional Information, o FASMI).
+El concepto OLAP puede definirse mediante 5 palabras: Análisis Rápido de Información Compartida Multidimensional, (Fast Analysis of Shared Multidimensional Information, o FASMI).
 }
 \end{frame}
 
@@ -227,7 +227,7 @@ Dimension producto $\Longrightarrow$ categoría-subcategoría-producto
 \misc
 {
 Los \textbf{agregados} se utilizan en los modelos dimensionales del Data Warehouse para producir efectos positivos sobre el tiempo que toma una consulta sobre grandes conjuntos de datos. El uso más común de los agregados es tomar una dimensión y cambiar su granularidad.
-Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión, creando así nuevas tablas de dimendiones y de hecho, que encajan en este nuevo nivel de granularidad. 
+Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión. Se crean así, nuevas tablas de dimensiones y tablas de hechos, que encajan en este nuevo nivel de granularidad. 
 }
 \end{frame}
 
@@ -235,12 +235,12 @@ Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser pa
 \begin{frame}
 \misc
 {
-\textbf{Ejemplo}
+\textbf{Ejemplo:}
 
 Este esquema copo de nieve, tiene una sola tabla de echos \textit{Sales}, dos métricas (\textit{units and dollars}) y cuatro tablas de dimensiones (\textit{Product, Mfr, Customer, Time, y Customer}).
 
 \begin{center}
-\includegraphics[scale=0.5]{aggregate_tables_1}
+\includegraphics[scale=0.4]{aggregate_tables_1}
 \end{center}
 }
 \end{frame}
@@ -249,9 +249,9 @@ Este esquema copo de nieve, tiene una sola tabla de echos \textit{Sales}, dos m�
 \begin{frame}
 \misc
 {
-\textbf{Ejemplo}
+\textbf{Ejemplo:}
 
-Creamos una tabla agregada, Agg\_1:
+Creamos una tabla agregada, \textbf{Agg\_1}:
  
 \begin{center}
 \includegraphics[scale=0.5]{aggregate_tables_2}
@@ -262,7 +262,7 @@ Creamos una tabla agregada, Agg\_1:
 \fbckg{white}
 \begin{frame}
 \misc
-{Veamos como las columnas del esquema original se han combinado en la tabla Agg\_1:
+{Veamos como las columnas del esquema original se han combinado en la tabla \textbf{Agg\_1}:
 
 \begin{itemize}
   \item La dimensión \textit{Time} se "colapsó" en la tabla de agregación, omitiendo las columnas \textit{month} y \textit{day}.
@@ -281,10 +281,10 @@ Creamos una tabla agregada, Agg\_1:
 {
 \textbf{Ejemplo}
 
-Otra tabla agregada, Agg\_2:
+Otra tabla agregada, \textbf{Agg\_2}:
 
 \begin{center}
-\includegraphics[scale=0.6]{aggregate_tables_3}
+\includegraphics[scale=0.5]{aggregate_tables_3}
 \end{center}
 
 Varias dimensiones colapsaron: \textit{Time} en el nivel \textit{Quarter}; \textit{Customer} en el nivel \textit{State};
@@ -318,5 +318,7 @@ Los atributos X, Y, Z se corresponden con los ejes del cubo, mientras que el val
 
 }
 \end{frame}
+
+
 
 \end{document}
