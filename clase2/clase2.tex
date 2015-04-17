@@ -2,6 +2,10 @@
 \usepackage[utf8]{inputenc}
 \usepackage{times}
 
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+
 
 \graphicspath{{img/}}
 
@@ -227,9 +231,41 @@ Dimension producto $\Longrightarrow$ categoría-subcategoría-producto
 \misc
 {
 Los \textbf{agregados} se utilizan en los modelos dimensionales del Data Warehouse para producir efectos positivos sobre el tiempo que toma una consulta sobre grandes conjuntos de datos. El uso más común de los agregados es tomar una dimensión y cambiar su granularidad.
-Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión. Se crean así, nuevas tablas de dimensiones y tablas de hechos, que encajan en este nuevo nivel de granularidad. 
+Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión. Se crean así, nuevas tablas de dimensiones y tablas de hechos, que encajan en este nuevo nivel de granularidad.
 }
 \end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{ej1_agregados}
+
+                Esquema de nivel base que usa la parte inferior del nivel de je-rarquías dimensionales.
+        \end{subfigure}%
+        ~ \quad
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{ej2_agregados}
+                
+                Esquema agregado, que resulta en datos de un nivel más alto en las jerarquía dimensionales.
+        \end{subfigure}
+\end{figure}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Tener datos agregados en el modelo dimensional hace que el entorno sea más complejo.
+Para hacer esta complejidad adicional transparente para el usuario, la funcionalidad conocida como \textit{navegación de agregados}, se utiliza para consultar las tablas dimensionales y de hecho, con el nivel de granularidad correcto.
+La navegación global examina esencialmente la consulta para ver si se puede responder mediante una tabla de agregación más pequeño.
+}
+\end{frame}
+
 
 \fbckg{white}
 \begin{frame}
