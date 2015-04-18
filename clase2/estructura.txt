@@ -1,11 +1,12 @@
 Estructura de la presentación OLAP:
 
-- ¿Que es OLAP?
-- Características generales
+- Repaso (Javier, Joel)
+- ¿Que es OLAP? (Joel)
+- Características generales (Joel)
 - Reglas de Codd (las mas importantes)
-- Cubo OLAP
 - Jerarquia
-- Agregaciones (como se arma una tabla de agregación con un ejemplo)
+- Agregaciones (Joel)
+- Cubo OLAP (Javier, Joel)
 - Operaciones
   - Drill-down
   - Drill-up
@@ -15,11 +16,10 @@ Estructura de la presentación OLAP:
   - Roll-across
   - Page
 - Implementaciones
-  - ROLAP
-  - MOLAP
+  - ROLAP (Joel)
+  - MOLAP (Joel)
   - MDDB vs. RDBMS
   - HOLAP
-- Productos (solo nombrarlos)
 
 Dudas:
 - Drill Down/up se define en base a una jerarquia?
@@ -49,3 +49,5 @@ campo1 campo2 precio
 
 
 1 2 3 7 8 10 11 y 12 14 adaptado 17
+
+OLAP solutions: chapter 5, page 120-121
