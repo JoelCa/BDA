@@ -388,8 +388,13 @@ Responderíamos, "Estamos siguiendo las ventas mensuales."
 \newline
 
 
+<<<<<<< HEAD
 Entonces, utilizando los conceptos dados en la charla \textit{Data Warehouse}, tenemos tres \textbf{hechos},
 y dos \textbf{dimensiónes}, el \textit{tiempo}, y las \textit{variables}.
+=======
+Entonces, utilizando los conceptos dados en la charla \textit{Data Warehouse}, tenemos un \textbf{hecho}, las \textit{variables},
+y una \textbf{dimensión}, el \textit{tiempo}.
+>>>>>>> af91b6226f7559fe4d93e45e50b3f946cdb7b6c7
 }
 \end{frame}
 
@@ -397,7 +402,7 @@ y dos \textbf{dimensiónes}, el \textit{tiempo}, y las \textit{variables}.
 \begin{frame}
 \misc
 {
-¿Qué sucede cuando añadimos una tercera dimensión llamada \textit{products} (productos)?.
+¿Qué sucede cuando añadimos una segunda dimensión llamada \textit{products} (productos)?.
 Tenemos un cubo.
 
 \begin{center}
@@ -418,5 +423,112 @@ El conjunto de datos tridimensionales que consiste de \textit{variables}, \texti
 
 }
 \end{frame}
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{\LARGE{Operaciones}}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \underline{Slice:}\\
+  Consiste en obtener una rebanada del cubo que se está visualizando
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.15]{slice}
+  \end{center}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \underline{Dice:}\\
+  Seleccionar valores específicos para 2 o más dimensiones de las dimensiones que se visualizan
+  y con esto obtener un subcubo 
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.15]{dice}
+  \end{center}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \underline{Drill Down:}\\
+  Al aplicar esta operación buscamos obtener un mayor nivel de detalle
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.5]{drill_down}
+  \end{center}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \underline{Drill Up:}\\
+  Menor nivel de detalle y, por ende, mayor nivel de sumarización
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.2]{drill_up}
+  \end{center}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \underline{Pivot:}\\
+  Aplicando esta operacion ofrecemos al usuario una presentación alternativa de la información rotando los ejes de datos
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.3]{pivot}
+  \end{center}
+}
+\end{frame}
+
 
 \end{document}
