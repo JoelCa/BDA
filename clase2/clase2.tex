@@ -362,7 +362,7 @@ Los atributos X, Y, Z se corresponden con los ejes del cubo, mientras que el val
 \begin{frame}
 \misc
 {
-Comenzemos con un ejemplo de datos bidimensionales. \textit{Sales}, \textit{costs}, y \textit{margin}, (ventas, costos y márgenes) por \textit{mes}.
+Tomaremos como ejemplo el siguiente conjunto de datos:
 \begin{center}
 \includegraphics[scale=0.4]{cube_1}
 \end{center}
@@ -374,13 +374,13 @@ Comenzemos con un ejemplo de datos bidimensionales. \textit{Sales}, \textit{cost
 \begin{frame}
 \misc
 {
-Individualmente, \textit{sales}, \textit{costs}, y \textit{margin} representan \textbf{métricas}.
+\textit{Sales}, \textit{costs}, y \textit{margin} representan \textit{variables}.
 
 Si alguien pregunta, "¿Qué estás midiendo?".
 
 Le respondemos, "ventas, costos y márgenes".
 
-Los meses representan la organización de los datos.
+Mientras que, los meses representan la organización de los datos.
 
 Ante la pregunta, "¿De dónde consigue sus datos?", o "¿con qué frecuencia está haciendo mediciones?".
 
@@ -389,7 +389,7 @@ Responderíamos, "Estamos siguiendo las ventas mensuales."
 
 
 Entonces, utilizando los conceptos dados en la charla \textit{Data Warehouse}, tenemos tres \textbf{hechos},
-y una \textbf{dimensión}, el \textit{tiempo}.
+y dos \textbf{dimensiónes}, el \textit{tiempo}, y las \textit{variables}.
 }
 \end{frame}
 
@@ -406,5 +406,17 @@ Tenemos un cubo.
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\misc
+{
+El conjunto de datos tridimensionales que consiste de \textit{variables}, \textit{time}, y \textit{products}, se puede mostrar en una pantalla en términos de: fila, columna y página.
+
+\begin{center}
+\includegraphics[scale=0.3]{cube_3}
+\end{center}
+
+}
+\end{frame}
 
 \end{document}
