@@ -345,19 +345,6 @@ El cubo OLAP puede ser pensado como una extensión de la matriz multidimensional
 }
 \end{frame}
 
-\fbckg{white}
-\begin{frame}
-\misc
-{
-Un cubo OLAP es una representación abstracta de la proyección de una relación de un RDBMS (Sistema administrador de bases de datos relacionales).
-Dada una relación de orden N, tenemos una proyección que dispone de los campos X, Y, Z como clave de la relación y de W como atributo residual.
-Categorizando esto como una función se tiene que:
-$f : (X,Y,Z) \rightarrow  W$
-
-Los atributos X, Y, Z se corresponden con los ejes del cubo, mientras que el valor de W devuelto por cada tripleta (X, Y, Z) se corresponde con el dato o elemento que se rellena en cada celda del cubo.
-
-}
-\end{frame}
 
 \fbckg{white}
 \begin{frame}
@@ -418,20 +405,6 @@ El conjunto de datos tridimensionales que consiste de \textit{variables}, \texti
 }
 \end{frame}
 
-% \fbckg{white}
-% \begin{frame}
-% \misc
-% {
-% ¿Cómo organizamos la información en pantalla?.
-% Tratar de utilizar un cubo como base para una visualización de cuatro o más dimensiones puede ser muy complicado.
-% Ahora, ¿qué ángulo tiene que ver con la relación entre las variables, las tiendas,
-% tiempo, y productos? ¿Tiene algún sentido decir que las tiendas son perpendiculares a los productos o que los clientes son perpendiculares a tiempo?
-% El uso del MTS, permite añadir facilmente una cuarta dimensión al modelo.
-% El MTS muestra el número de puntos de datos extraídos del evento y su organización lógica.
-% Muestra más información estructural que un cubo, y puede mostrarnos un número arbitrario de dimensiones.
-% Si desea una representación útil de los datos en forma numérica, es necesario utilizar algún tipo de visualización en forma de rejilla.
-% }
-% \end{frame}
 
 \fbckg{white}
 \begin{frame}
@@ -468,6 +441,74 @@ Cualquier unión de los intervalos, de cada uno de los tres segmentos, está con
 \misc
 {
 Para ver los datos en la pantalla, tenemos que mappear múltiples dimensiones lógicas en dos dimensiones físicas (la pantalla).
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.7\textwidth}
+                \includegraphics[width=\textwidth]{cube_5}
+
+                Variables anidadas con productos.
+        \end{subfigure}
+        
+        
+        \ \hfil
+        
+        
+        \begin{subfigure}[b]{0.7\textwidth}
+                \includegraphics[width=\textwidth]{cube_6}
+                
+                Productos anidados con variables
+        \end{subfigure}
+\end{figure}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Efectos de combinar dimensiones:
+
+{
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.4\textwidth}
+          $\textendash$ Cambia la forma de los datos visibles. La longi-tud de una lista unidimensional es igual al producto de las longitudes de cada una de las dos dimensiones.
+          
+          $\textendash$ Cambia el conjunto de vecinos que rodean cualquier punto.
+        \end{subfigure}
+        ~
+        \begin{subfigure}[b]{0.4\textwidth}
+          \includegraphics[width=\textwidth]{cube_7}
+        \end{subfigure}
+\end{figure}
+}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Ahora tenemos un conjunto de datos que consiste de: \textit{products}, \textit{times}, \textit{stores}, \textit{customers}, \textit{variables}, y \textit{scenarios}.
+\begin{figure}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+                \includegraphics[width=\textwidth]{cube_8}
+        \end{subfigure}%
+        ~
+        \begin{subfigure}[b]{0.55\textwidth}
+                \includegraphics[width=\textwidth]{cube_9}
+        \end{subfigure}
+\end{figure}
+
 }
 \end{frame}
 
