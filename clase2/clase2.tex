@@ -397,7 +397,7 @@ y dos \textbf{dimensiónes}, el \textit{tiempo}, y las \textit{variables}.
 \begin{frame}
 \misc
 {
-¿Qué sucede cuando añadimos una segunda dimensión llamada \textit{products} (productos)?.
+¿Qué sucede cuando añadimos una tercera dimensión llamada \textit{products} (productos)?.
 Tenemos un cubo.
 
 \begin{center}
@@ -418,22 +418,27 @@ El conjunto de datos tridimensionales que consiste de \textit{variables}, \texti
 }
 \end{frame}
 
+% \fbckg{white}
+% \begin{frame}
+% \misc
+% {
+% ¿Cómo organizamos la información en pantalla?.
+% Tratar de utilizar un cubo como base para una visualización de cuatro o más dimensiones puede ser muy complicado.
+% Ahora, ¿qué ángulo tiene que ver con la relación entre las variables, las tiendas,
+% tiempo, y productos? ¿Tiene algún sentido decir que las tiendas son perpendiculares a los productos o que los clientes son perpendiculares a tiempo?
+% El uso del MTS, permite añadir facilmente una cuarta dimensión al modelo.
+% El MTS muestra el número de puntos de datos extraídos del evento y su organización lógica.
+% Muestra más información estructural que un cubo, y puede mostrarnos un número arbitrario de dimensiones.
+% Si desea una representación útil de los datos en forma numérica, es necesario utilizar algún tipo de visualización en forma de rejilla.
+% }
+% \end{frame}
+
 \fbckg{white}
 \begin{frame}
 \misc
 {
-¿Cómo organizamos la información en pantalla?.
-Tratar de utilizar un cubo como base para una visualización de cuatro o más dimensiones puede ser muy complicado.
-Ahora, ¿qué ángulo tiene que ver con la relación entre las variables, las tiendas,
-tiempo, y productos? ¿Tiene algún sentido decir que las tiendas son perpendiculares a los productos o que los clientes son perpendiculares a tiempo?
+¿Qué sucede si intentamos añadir una dimensión tienda (\textit{ store}) al cubo?.
 
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\misc
-{
 Presentamos una nueva metáfora para representar datos, o eventos generadores de datos, que es capaz de reproducir cualquier número de dimensiones.
 
 La llamamos, \textbf{estructura de tipo multidimensional} (\textit{Multidimensional Type Structures}, o MTS).
@@ -458,6 +463,13 @@ Cualquier unión de los intervalos, de cada uno de los tres segmentos, está con
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Para ver los datos en la pantalla, tenemos que mappear múltiples dimensiones lógicas en dos dimensiones físicas (la pantalla).
+}
+\end{frame}
 
 \fbckg{white}
 \begin{frame}
