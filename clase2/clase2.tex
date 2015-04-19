@@ -341,7 +341,9 @@ la cual es implementada por el motor OLAP, para consultar las tablas dimensional
 \begin{frame}
 \misc
 {
-El cubo OLAP puede ser pensado como una extensión de la matriz multidimensional de una hoja de cálculo, de ahí el nombre del hipercubo. Técnicamente, el cubo de datos es una representación multidimensional de datos, junto con todos los agregados posible, es decir, los agregados que resultan mediante la selección de un subconjunto propio de las dimensiones y sumando sobre todas las dimensiones restantes.
+OLAP utiliza hipercubos o cubos, de la misma manera que las bases de datos utilizan tablas. Toda la navegación, informes y análisis se hacen en términos de hipercubos.
+
+Por lo tanto, un "cubo" de datos se refiere a una representación multidimensional de los datos en forma de "cubo" (obviamente, sólo en el espacio tridimensional).
 }
 \end{frame}
 
@@ -350,7 +352,7 @@ El cubo OLAP puede ser pensado como una extensión de la matriz multidimensional
 \begin{frame}
 \misc
 {
-Tomaremos como ejemplo el siguiente conjunto de datos:
+Construiremos un cubo, tomando como ejemplo el siguiente conjunto de datos:
 \begin{center}
 \includegraphics[scale=0.4]{cube_1}
 \end{center}
@@ -362,21 +364,21 @@ Tomaremos como ejemplo el siguiente conjunto de datos:
 \begin{frame}
 \misc
 {
-\textit{Sales}, \textit{costs}, y \textit{margin} representan \textit{variables}.
+Decimos que \textit{sales}, \textit{costs}, y \textit{margin} representan \textbf{variables}.
 
 Si alguien pregunta, "¿Qué estás midiendo?".
 
 Le respondemos, "ventas, costos y márgenes".
 
-Mientras que, los meses representan la organización de los datos.
-
 Ante la pregunta, "¿De dónde consigue sus datos?", o "¿con qué frecuencia está haciendo mediciones?".
 
-Responderíamos, "Estamos siguiendo las ventas mensuales."
+Responderíamos, "Estamos siguiendo las ventas mensuales." Los meses representan la organización de los datos.
 \newline
 
-Entonces, utilizando los conceptos dados en la charla \textit{Data Warehouse}, tenemos tres \textbf{hechos},
-y dos \textbf{dimensiónes}, el \textit{tiempo}, y las \textit{variables}.
+Entonces, hay dos \textbf{dimensiónes}, el \textit{tiempo} y las \textit{variables}.
+
+Este enfoque de \textbf{dimensiónes genéricas}, utiliza invariablemente una \textbf{dimensión de hechos}, o \textbf{variables}.
+Tratar los \textbf{hechos} como miembros de una dimensión de medidas, implica la creación de una dimensión de datos. 
 }
 \end{frame}
 
@@ -397,7 +399,7 @@ Tenemos un cubo.
 \begin{frame}
 \misc
 {
-El conjunto de datos tridimensionales que consiste de \textit{variables}, \textit{time}, y \textit{products}, se puede mostrar en una pantalla en términos de: fila, columna y página.
+El conjunto de datos tridimensionales, que consiste de \textit{variables}, \textit{time}, y \textit{products}, se puede mostrar en una pantalla en términos de: \textbf{fila}, \textbf{columna} y \textbf{página}.
 
 \begin{center}
 \includegraphics[scale=0.3]{cube_3}
@@ -410,9 +412,10 @@ El conjunto de datos tridimensionales que consiste de \textit{variables}, \texti
 \begin{frame}
 \misc
 {
-¿Qué sucede si intentamos añadir una dimensión tienda (\textit{ store}) al cubo?.
+¿Qué pasa si intentamos añadir una cuarta dimensión \textit{tienda}, al cubo?. La metáfora del cubo se rompe.
+\newline
 
-Presentamos una nueva metáfora para representar datos, o eventos generadores de datos, que es capaz de reproducir cualquier número de dimensiones.
+Presentamos una nueva estructura para representar datos, o eventos generadores de datos, que es capaz de reproducir cualquier número de dimensiones.
 
 La llamamos, \textbf{estructura de tipo multidimensional} (\textit{Multidimensional Type Structures}, o MTS).
 
@@ -424,16 +427,21 @@ Cada dimensión está representada por una línea. Cada miembro dentro de una di
 \begin{frame}
 \misc
 {
-Siguiendo el ejemplo de tres dimensiones, hay tres líneas:
+Siguiendo el ejemplo, tenemos tres líneas:
 
-una para el \textit{tiempo}, una de los \textit{productos}, y una de las \textit{variables}.
+Una para el \textit{tiempo}, una de los \textit{productos}, y por último, una para las \textit{variables}.
 
-Cualquier unión de los intervalos, de cada uno de los tres segmentos, está conectado a un evento y a un elemento del cubo.
+Cualquier unión de los intervalos de cada una de los tres líneas, está conectada a un evento y a un elemento del cubo.
 
 \begin{center}
 \includegraphics[scale=0.3]{cube_4}
 \end{center}
 }
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{\large{Hipercubos en una pantalla}}
 \end{frame}
 
 \fbckg{white}
@@ -449,9 +457,12 @@ Para ver los datos en la pantalla, tenemos que mappear múltiples dimensiones l�
 \begin{frame}
 \misc
 {
+El mapeo de dos dimensiones en una dimensión, implica la creación de una versión unidimensional.
+El método típico consiste en anidar una dimensión dentro de la otra.
+
 \begin{figure}
         \centering
-        \begin{subfigure}[b]{0.7\textwidth}
+        \begin{subfigure}[b]{0.55\textwidth}
                 \includegraphics[width=\textwidth]{cube_5}
 
                 Variables anidadas con productos.
@@ -461,7 +472,7 @@ Para ver los datos en la pantalla, tenemos que mappear múltiples dimensiones l�
         \ \hfil
         
         
-        \begin{subfigure}[b]{0.7\textwidth}
+        \begin{subfigure}[b]{0.55\textwidth}
                 \includegraphics[width=\textwidth]{cube_6}
                 
                 Productos anidados con variables
@@ -497,7 +508,8 @@ Efectos de combinar dimensiones:
 \begin{frame}
 \misc
 {
-Ahora tenemos un conjunto de datos que consiste de: \textit{products}, \textit{times}, \textit{stores}, \textit{customers}, \textit{variables}, y \textit{scenarios}.
+Siguiendo el ejemplo, que ahora consiste de: \textit{products}, \textit{times}, \textit{stores}, \textit{customers}, \textit{variables}, y \textit{scenarios};
+vemos una posible representación, en base a filas, columnas y páginas:
 \begin{figure}
         \centering
         \begin{subfigure}[b]{0.5\textwidth}
@@ -516,7 +528,7 @@ Ahora tenemos un conjunto de datos que consiste de: \textit{products}, \textit{t
 \misc
 {
 La capacidad de cambiar fácilmente las vistas de los mismos datos, mediante la reconfiguración de cómo se muestran las dimensiones, es uno de los grandes beneficios
-que proveen los sistemas multidimensionales, a la navegación de los usuarios finales.
+que proveen los sistemas multidimensionales, en la navegación de los usuarios finales.
 Esto se debe a la separación de la estructura de datos (MTS), de su visualización (rejilla multidimensional).
 }
 \end{frame}
@@ -538,7 +550,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \fbckg{white}
 \begin{frame}
 \misc
-{ Vista clásica:
+{ Vista clásica OLAP:
 \begin{center}
 \includegraphics[scale=0.4]{cube_10}
 \end{center}
