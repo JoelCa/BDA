@@ -7,6 +7,7 @@ Estructura de la presentación OLAP:
 - Jerarquia
 - Agregaciones (Joel)
 - Cubo OLAP (Javier, Joel)
+  - Hipercubos en pantalla
 - Operaciones
   - Drill-down
   - Drill-up
@@ -22,10 +23,10 @@ Estructura de la presentación OLAP:
   - HOLAP
 
 Dudas:
-- Drill Down/up se define en base a una jerarquia?
+- Drill Down/up se define en base a una jerarquia? Sí.
 - A qué se refiere On-Line, en las siglas de OLAP?
-- HOLAP tiene MDDB y RDB?
-- Damos productos comerciales de OLAP?
+- HOLAP tiene MDDB y RDB? 
+- Damos productos comerciales de OLAP? No.
 - Drill Up = Roll-up?
 
 (página 78, 159 de [S._Nagabhushana] Data Warehousing OLAP and Data Mining)
