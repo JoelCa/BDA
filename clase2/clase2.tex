@@ -251,8 +251,10 @@ El concepto OLAP puede definirse mediante 5 palabras: Análisis Rápido de Infor
 \begin{frame}
 \misc
 {
-Los \textbf{agregados} se utilizan en los modelos dimensionales del Data Warehouse para producir efectos positivos sobre el tiempo que toma una consulta sobre grandes conjuntos de datos. El uso más común de los agregados es tomar una dimensión y cambiar su granularidad.
-Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión. Se crean así, nuevas tablas de dimensiones y tablas de hechos, que encajan en este nuevo nivel de granularidad.
+El modelo dimensional permite optimizar el rendimiento de las consulta mediante agregados.
+
+Un \textbf{agregado} es un resumen pre-calculado almacenado en un DW, por lo general en un esquema separado.
+Los agregados típicamente se calculan en base a los registros en el nivel más detallado (o base). Se utilizan para mejorar el rendimiento del DW, para aquellas consultas que requieren sólo de datos sumarizados, o de alto nivel.
 }
 \end{frame}
 
@@ -260,6 +262,7 @@ Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser pa
 \begin{frame}
 \misc
 {
+\textbf{Ejemplo:}
 \begin{figure}
         \centering
         \begin{subfigure}[b]{0.5\textwidth}
@@ -280,6 +283,14 @@ Los esquemas agregados proporcionan mejoras en el rendimiento debido a que tiene
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\misc
+{
+El uso más común de los agregados es tomar una dimensión y cambiar su granularidad.
+Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser parcialmente resumida para adaptarse a la nueva dimensión. Se crean así, nuevas tablas de dimensiones y tablas de hechos, que encajan en este nuevo nivel de granularidad.
+}
+\end{frame}
 
 \fbckg{white}
 \begin{frame}
@@ -684,5 +695,21 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\pointedsl{MDDB vs. RDB}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Bases de datos multidimensionales}: las MDDBs almacena los datos en un "hipercubo", es decir, una matriz multidimensional, que está paginada dentro y fuera de la memoria, según sea necesario.
+
+\item \textbf{Bases de datos relacionales}: las RDBs guardan los datos como tablas, con filas y columnas que no mappean directamente con la vista multidimensional que tienen los usuarios de los datos. Se utilizan, lenguaje de consulta estructurado (SQL) para recuperar los datos del RDBMS.
+\end{itemize}
+}
+\end{frame}
 
 \end{document}
