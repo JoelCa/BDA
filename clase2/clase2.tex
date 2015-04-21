@@ -75,7 +75,7 @@ Recordamos los distintos tipo de tecnologías que menciona- mos en la charla \te
 \begin{frame}
 \misc
 {
-El \textbf{procesamiento analítico en línea} (OLAP) es una solución utilizada en el campo de la inteligencia de negocios, cuyo objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla.
+El \textbf{procesamiento analítico en línea} (On-Line Analytical Processing, OLAP) es una solución utilizada en el campo de la inteligencia de negocios, cuyo objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla.
 }
 \end{frame}
 
@@ -96,40 +96,8 @@ El concepto OLAP puede definirse mediante 5 palabras: Análisis Rápido de Infor
   \item \textbf{Análisis}: el sistema puede hacer frente a cualquier lógica de negocio y análisis estadístico que sea relevante para el usuario, en forma relativamente sencilla.
   \item \textbf{Compartida}: significa que el sistema implementa todos los requisitos de seguridad de la confidencialidad.
   \item \textbf{Multidimensionalidad}: el sistema debe proveer una vista conceptual multidimensional de los datos.
-  \item \textbf{Información}: se refiere a todos los datos y la información derivada, que sea relevante para la aplicación.
+  \item \textbf{Información}: se refiere a todos los datos y a la información derivada, que sea relevante para la aplicación.
 \end{itemize}
-}
-\end{frame}
-
-
-
-\fbckg{white}
-\begin{frame}
-\pointedsl{{\LARGE Características}}
-\end{frame}
-
-
-\fbckg{white}
-\begin{frame}
-\itemized{
-\item \textbf{Soportar cálculos complejos}
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\itemized{
-\item \textbf{Soportar cálculos complejos}
-\item \textbf{Rapidez de respuesta}
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\itemized{
-\item \textbf{Soportar cálculos complejos}
-\item \textbf{Rapidez de respuesta}
-\item \textbf{Inteligencia respecto del tiempo}
 }
 \end{frame}
 
@@ -225,7 +193,7 @@ El concepto OLAP puede definirse mediante 5 palabras: Análisis Rápido de Infor
 
 \fbckg{white}
 \begin{frame}
-\pointedsl{\LARGE{Jerarquías}}
+\pointedsl{Jerarquías}
 \end{frame}
 
 \fbckg{white}
@@ -251,10 +219,8 @@ El concepto OLAP puede definirse mediante 5 palabras: Análisis Rápido de Infor
 \begin{frame}
 \misc
 {
-El modelo dimensional permite optimizar el rendimiento de las consulta mediante agregados.
-
-Un \textbf{agregado} es un resumen pre-calculado almacenado en un DW, por lo general en un esquema separado.
-Los agregados típicamente se calculan en base a los registros en el nivel más detallado (o base). Se utilizan para mejorar el rendimiento del DW, para aquellas consultas que requieren sólo de datos sumarizados, o de alto nivel.
+Un \textbf{agregado} es un resumen precalculado, almacenado en un DW, por lo general en un esquema separado.
+Los agregados típicamente se calculan en base a los registros en el nivel más detallado (o base) de su jerarquía. Se utilizan para mejorar el rendimiento de aquellas consultas que requieren sólo de datos sumarizados, o de alto nivel.
 }
 \end{frame}
 
@@ -268,17 +234,18 @@ Los agregados típicamente se calculan en base a los registros en el nivel más 
         \begin{subfigure}[b]{0.5\textwidth}
                 \includegraphics[width=\textwidth]{ej1_agregados}
 
-                Esquema de nivel base que usa la parte inferior del nivel de je-rarquías dimensionales.
+                \textbf{Esquema de nivel base} que usa la parte inferior del nivel de je-rarquías dimensionales.
         \end{subfigure}%
         ~ \quad
         \begin{subfigure}[b]{0.5\textwidth}
                 \includegraphics[width=\textwidth]{ej2_agregados}
                 
-                Esquema agregado, que resulta en datos de un nivel más alto en las jerarquía dimensionales.
+                \textbf{Esquema agregado}, que resulta en datos en un nivel más alto en la jerarquía dimensional.
         \end{subfigure}
 \end{figure}
 
-Los esquemas agregados proporcionan mejoras en el rendimiento debido a que tienen un número significativamente menor de registros.
+Los \textbf{esquemas agregados} proporcionan mejoras en el rendimiento, ya que tienen un número significativamente menor de registros,
+en relación al esquema que se quiere resumir.
 
 }
 \end{frame}
@@ -298,7 +265,7 @@ Al cambiar la granularidad de la dimensión, la tabla de hechos tiene que ser pa
 {
 \textbf{Ejemplo:}
 
-Este esquema copo de nieve, tiene una sola tabla de echos \textit{Sales}, dos métricas (\textit{units and dollars}) y cuatro tablas de dimensiones (\textit{Product, Mfr, Customer, Time, y Customer}).
+Este esquema copo de nieve, tiene una sola tabla de hechos \textit{Sales}, dos métricas (\textit{units and dollars}) y cuatro tablas de dimensiones (\textit{Product, Mfr, Customer, Time, y Customer}).
 
 \begin{center}
 \includegraphics[scale=0.4]{aggregate_tables_1}
@@ -310,9 +277,7 @@ Este esquema copo de nieve, tiene una sola tabla de echos \textit{Sales}, dos m�
 \begin{frame}
 \misc
 {
-\textbf{Ejemplo:}
-
-Creamos una tabla agregada, \textbf{Agg\_1}:
+A partir del esquema anterior, creamos una \textbf{tabla agregada}, que llamamos \textbf{Agg\_1}:
  
 \begin{center}
 \includegraphics[scale=0.5]{aggregate_tables_2}
@@ -323,11 +288,11 @@ Creamos una tabla agregada, \textbf{Agg\_1}:
 \fbckg{white}
 \begin{frame}
 \misc
-{Veamos como las columnas del esquema original se han combinado en la tabla \textbf{Agg\_1}:
+{Veamos como se combinaron las columnas del esquema original, en la tabla agregada \textbf{Agg\_1}:
 
 \begin{itemize}
-  \item La dimensión \textit{Time} se "colapsó" en la tabla de agregación, omitiendo las columnas \textit{month} y \textit{day}.
-  \item Las dos tablas de la dimensión \textit{Product} se "colapsaron" en la tabla de agregación.
+  \item La dimensión \textit{Time} "colapsó" en la tabla de agregación, omitiendo las columnas \textit{month} y \textit{day}.
+  \item Las dos tablas de la dimensión \textit{Product} "colapsaron" en la tabla de agregación.
   \item La dimensión \textit{Customer} se "perdió".
   \item Para cada métrica en la tabla de hechos (\textit{units, dollars}), hay uno o más métricas en la tabla de agregación (\textit{sum units, min units, max units, sum dollars}).
   \item También hay una nueva métrica, \textit{row count}, que representa la métrica "conteo".
@@ -340,16 +305,15 @@ Creamos una tabla agregada, \textbf{Agg\_1}:
 \begin{frame}
 \misc
 {
-\textbf{Ejemplo}
 
-Otra tabla agregada, \textbf{Agg\_2}:
+Veamos otra prosible tabla agregada, \textbf{Agg\_2}:
 
 \begin{center}
 \includegraphics[scale=0.5]{aggregate_tables_3}
 \end{center}
 
-Varias dimensiones colapsaron: \textit{Time} en el nivel \textit{Quarter}; \textit{Customer} en el nivel \textit{State};
-y \textit{Payment Method} a nivel \textit{Payment Method}. Pero la dimensión \textit{Product} se conservó.}
+Varias dimensiones colapsaron: \textit{Time} en el nivel \textit{month}; \textit{Customer} en el nivel \textit{state};
+y \textit{Payment Method} a nivel \textit{payment method}. Mientras que la dimensión \textit{Product} se mantuvo tal como estaba en el esquema original.}
 \end{frame}
 
 
@@ -372,9 +336,9 @@ la cual es implementada por el motor OLAP, para consultar las tablas dimensional
 \begin{frame}
 \misc
 {
-OLAP utiliza hipercubos o cubos, de la misma manera que las bases de datos utilizan tablas. Toda la navegación, informes y análisis se hacen en términos de hipercubos.
+OLAP utiliza \textbf{hipercubos} o \textbf{cubos}, de la misma manera que las bases de datos utilizan tablas. Toda la navegación, informes y análisis se hacen en términos de hipercubos.
 
-Por lo tanto, un "cubo" de datos se refiere a una representación multidimensional de los datos en forma de "cubo" (obviamente, sólo en el espacio tridimensional).
+Por lo tanto, un "cubo" de datos se refiere a una representación multidimensional de los datos en dicha forma (obviamente, sólo en el espacio tridimensional).
 }
 \end{frame}
 
@@ -404,12 +368,12 @@ Le respondemos, "ventas, costos y márgenes".
 Ante la pregunta, "¿De dónde consigue sus datos?", o "¿con qué frecuencia está haciendo mediciones?".
 
 Responderíamos, "Estamos siguiendo las ventas mensuales." Los meses representan la organización de los datos.
+
+Entonces, hay dos dimensiones, el \textit{tiempo} y las \textit{variables}.
 \newline
 
-Entonces, hay dos \textbf{dimensiónes}, el \textit{tiempo} y las \textit{variables}.
-
-Este enfoque de \textbf{dimensiónes genéricas}, utiliza invariablemente una \textbf{dimensión de hechos}, o \textbf{variables}.
-Tratar los \textbf{hechos} como miembros de una dimensión de medidas, implica la creación de una dimensión de datos. 
+Este enfoque de \textbf{dimensiones genéricas}, utiliza invariable- mente una \textbf{dimensión de hechos}, o \textbf{variables}.
+Tratar a los \textbf{hechos} como miembros de una dimensión, implica la creación de una \textbf{dimensión de datos}. 
 }
 \end{frame}
 
@@ -433,7 +397,7 @@ Tenemos un cubo.
 El conjunto de datos tridimensionales, que consiste de \textit{variables}, \textit{time}, y \textit{products}, se puede mostrar en una pantalla en términos de: \textbf{fila}, \textbf{columna} y \textbf{página}.
 
 \begin{center}
-\includegraphics[scale=0.3]{cube_3}
+\includegraphics[scale=0.32]{cube_3}
 \end{center}
 }
 \end{frame}
@@ -443,12 +407,12 @@ El conjunto de datos tridimensionales, que consiste de \textit{variables}, \text
 \begin{frame}
 \misc
 {
-¿Qué pasa si intentamos añadir una cuarta dimensión \textit{tienda}, al cubo?. La metáfora del cubo se rompe.
+¿Qué pasa si intentamos añadir una cuarta dimensión \textit{tienda}, al cubo?. El cubo como metáfora visual se rompe.
 \newline
 
 Presentamos una nueva estructura para representar datos, o eventos generadores de datos, que es capaz de reproducir cualquier número de dimensiones.
 
-La llamamos, \textbf{estructura de tipo multidimensional} (\textit{Multidimensional Type Structures}, o MTS).
+La llamamos, \textbf{estructura de tipo multidimensional} (\textit{Multidi- mensional Type Structures}, o MTS).
 
 Cada dimensión está representada por una línea. Cada miembro dentro de una dimensión está representado por un intervalo, dentro del segmento correspondiente.
 }
@@ -479,7 +443,9 @@ Cualquier unión de los intervalos de cada una de los tres líneas, está conect
 \begin{frame}
 \misc
 {
-Para ver los datos en la pantalla, tenemos que mappear múltiples dimensiones lógicas en dos dimensiones físicas (la pantalla).
+Para ver los datos en la pantalla, tenemos que mapear múltiples dimensiones lógicas en dos dimensiones físicas
+
+(la pantalla).
 }
 \end{frame}
 
@@ -488,7 +454,7 @@ Para ver los datos en la pantalla, tenemos que mappear múltiples dimensiones l�
 \begin{frame}
 \misc
 {
-El mapeo de dos dimensiones en una dimensión, implica la creación de una versión unidimensional.
+Mapear dos dimensiones en una dimensión, implica crear una versión unidimensional de las dos dimensiones.
 El método típico consiste en anidar una dimensión dentro de la otra.
 
 \begin{figure}
@@ -496,7 +462,7 @@ El método típico consiste en anidar una dimensión dentro de la otra.
         \begin{subfigure}[b]{0.55\textwidth}
                 \includegraphics[width=\textwidth]{cube_5}
 
-                Variables anidadas con productos.
+                Variables anidadas en productos.
         \end{subfigure}
         
         
@@ -506,7 +472,7 @@ El método típico consiste en anidar una dimensión dentro de la otra.
         \begin{subfigure}[b]{0.55\textwidth}
                 \includegraphics[width=\textwidth]{cube_6}
                 
-                Productos anidados con variables
+                Productos anidados en variables
         \end{subfigure}
 \end{figure}
 }
@@ -559,8 +525,8 @@ vemos una posible representación, en base a filas, columnas y páginas:
 \misc
 {
 La capacidad de cambiar fácilmente las vistas de los mismos datos, mediante la reconfiguración de cómo se muestran las dimensiones, es uno de los grandes beneficios
-que proveen los sistemas multidimensionales, en la navegación de los usuarios finales.
-Esto se debe a la separación de la estructura de datos (MTS), de su visualización (rejilla multidimensional).
+que proveen los sistemas multidimensionales, a la navegación de los usuarios finales.
+Esto se debe a la separación de la estructura de datos (MTS), de su visualización (grilla multidimensional).
 }
 \end{frame}
 
@@ -569,7 +535,7 @@ Esto se debe a la separación de la estructura de datos (MTS), de su visualizaci
 \begin{frame}
 \misc
 {
-Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de datos multidimensionales:
+Hay algunas reglas básicas que hay que tener en cuenta en el análisis de datos multidimensionales:
 \begin{itemize}
   \item Debe tratar de utilizar páginas. Esto ayuda a maximizar el grado en que todo en la pantalla es relevante.
   \item Cuando necesita anidar múltiples dimensiones a través de las filas y columnas, generalmente es mejor anidar más dimensiones a través de las columnas que a través de las filas, ya que suele haber mas espacio vertical en la pantalla, que horizontal.
@@ -591,7 +557,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 
 \fbckg{white}
 \begin{frame}
-\pointedsl{\LARGE{Operaciones}}
+\pointedsl{Operaciones}
 \end{frame}
 
 
@@ -600,7 +566,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \misc
 {
   \underline{Slice:}\\
-  Consiste en obtener una rebanada del cubo que se está visualizando
+  Consiste en obtener una rebanada del cubo.
 }
 \end{frame}
 
@@ -608,6 +574,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \begin{frame}
 \misc
 {
+  \underline{Slice:}
   \begin{center}
   \includegraphics[scale=0.15]{slice}
   \end{center}
@@ -620,8 +587,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \misc
 {
   \underline{Dice:}\\
-  Seleccionar valores específicos para 2 o más dimensiones de las dimensiones que se visualizan
-  y con esto obtener un subcubo 
+  Podemos seleccionar valores específicos de 2 o más dimensiones. De esta forma, conseguimos un subcubo.
 }
 \end{frame}
 
@@ -629,6 +595,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \begin{frame}
 \misc
 {
+  \underline{Dice:}
   \begin{center}
   \includegraphics[scale=0.15]{dice}
   \end{center}
@@ -641,7 +608,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \misc
 {
   \underline{Drill Down:}\\
-  Al aplicar esta operación buscamos obtener un mayor nivel de detalle
+  Al aplicar esta operación, obtenemos un mayor nivel de detalle de los datos.
 }
 \end{frame}
 
@@ -649,6 +616,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \begin{frame}
 \misc
 {
+  \underline{Drill Down:}
   \begin{center}
   \includegraphics[scale=0.5]{drill_down}
   \end{center}
@@ -661,7 +629,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \misc
 {
   \underline{Drill Up:}\\
-  Menor nivel de detalle y, por ende, mayor nivel de sumarización
+  Menor nivel de detalle y, por ende, mayor nivel de sumarización de los datos.
 }
 \end{frame}
 
@@ -669,6 +637,7 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \begin{frame}
 \misc
 {
+  \underline{Drill Up:}
   \begin{center}
   \includegraphics[scale=0.2]{drill_up}
   \end{center}
@@ -681,7 +650,8 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \misc
 {
   \underline{Pivot:}\\
-  Aplicando esta operacion ofrecemos al usuario una presentación alternativa de la información rotando los ejes de datos
+  Ofrece al usuario una presentación alternativa de la informa- ción,
+  dado que permite a un analista girar el cubo en el espacio para ver sus diferentes caras.
 }
 \end{frame}
 
@@ -689,9 +659,30 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \begin{frame}
 \misc
 {
+  \underline{Pivot:}
   \begin{center}
   \includegraphics[scale=0.3]{pivot}
   \end{center}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{{\Large ROLAP (Próximamente)}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{MOLAP}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Los productos MOLAP se ejecutan sobre una base de datos multidimensional (MDDB).
+Por lo tanto, los datos se almacenan en forma de cubos multidimensionales y no en bases de datos relacionales. Las ventajas de este modelo es que proporciona un
+gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cuando éste es creado. Las desventajas de este modelo son que puede manejar sólo con una cantidad limitada de datos, ya que el cubo no se puede derivar de un gran volumen de datos.
 }
 \end{frame}
 
@@ -705,11 +696,20 @@ Hay algunas reglas básicas que usted debe tener en cuenta en el análisis de da
 \misc
 {
 \begin{itemize}
-  \item \textbf{Bases de datos multidimensionales}: las MDDBs almacena los datos en un "hipercubo", es decir, una matriz multidimensional, que está paginada dentro y fuera de la memoria, según sea necesario.
+  \item \textbf{Bases de datos multidimensionales}: las MDDBs alma- cenan los datos en un "hipercubo", es decir, una matriz multidimensional.
 
-\item \textbf{Bases de datos relacionales}: las RDBs guardan los datos como tablas, con filas y columnas que no mappean directamente con la vista multidimensional que tienen los usuarios de los datos. Se utilizan, lenguaje de consulta estructurado (SQL) para recuperar los datos del RDBMS.
+\item \textbf{Bases de datos relacionales}: las RDBs guardan los datos como tablas, con filas y columnas que no mapean directamente con la vista multidimensional que tienen los usuarios de los datos.
 \end{itemize}
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\pointedsl{{\Large HOLAP (Próximamente)}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{Fin de la charla}
+\end{frame}
 \end{document}
