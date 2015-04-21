@@ -703,7 +703,7 @@ Aplicando esta operación ofrecemos al usuario una presentación alternativa de 
 \misc
 {
 El \textbf{procesamiento analítico multidimensional en línea}, (multidimensional online analytical processing, MOLAP) consiste en herramientas que se ejecutan sobre una base de datos multidimensional (MDDB). La ventaja principal de este modelo es que proporciona un
-gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cuando éste es creado. Sin embargo este modelo solo puede manejar una cantidad limitada de datos, ya que el cubo no se puede derivar de un gran volumen de datos.
+gran rendimiento de consultas, dado que se pre-computan los datos en el cubo, cuando éste es creado. Sin embargo este modelo solo puede manejar una cantidad limitada de datos, ya que el cubo no se puede derivar de un gran volumen de datos.
 }
 \end{frame}
 
@@ -743,7 +743,7 @@ gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cua
 {
 \begin{itemize}
   \item \textbf{Tamaño}: las MDDBs están, generalmente limitados por el tamaño de los datos, aunque el límite en el tamaño ha ido aumentando gradualmente a lo largo de los años.
-  \item \textbf{Volatilidad de los datos de origen}: las RDBs tratan mejor la alta volátilidad de los datos. Los datos multidi- mensionales en hipercubos generalmente tardan mucho en cargarse y actualizarse.
+  \item \textbf{Volatilidad de los datos de origen}: las RDBs tratan mejor la alta volatilidad de los datos. Los datos multidi- mensionales en hipercubos generalmente tardan mucho en cargarse y actualizarse.
   \item \textbf{Protección de la inversión}: La mayoría de las empresas ya han realizado importantes inversiones en tecnología relaciona.
   El uso continuado de estas herramientas y habilidades para otro propósito proporciona un rendimiento adicional de la inversión.
 \end{itemize}
@@ -753,6 +753,26 @@ gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cua
 \fbckg{white}
 \begin{frame}
 \pointedsl{HOLAP}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+El \textbf{procesamiento analítico en línea híbrido} (Hybrid Online Analytical Process, HOLAP) es una combinación de ROLAP y MOLAP. HOLAP permite almacenar una parte de los datos como en un sistema MOLAP y el resto como en uno ROLAP.
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.4]{RDB&MDDB3}
+  
+  Bases de datos de relaciones, y multidimensionales.
+  \end{center}
+}
 \end{frame}
 
 \fbckg{white}
