@@ -1,13 +1,12 @@
 Estructura de la presentación OLAP:
 
-- Repaso (Javier, Joel)
+- Repaso (Joel)
 - ¿Que es OLAP? (Joel)
-- Características generales (Joel)
 - Reglas de Codd (las mas importantes)
 - Jerarquia
 - Agregaciones (Joel)
-- Cubo OLAP (Javier, Joel)
-  - Hipercubos en pantalla
+- Cubo OLAP
+  - Hipercubos en pantalla (Joel)
 - Operaciones
   - Drill-down
   - Drill-up
