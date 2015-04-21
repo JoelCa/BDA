@@ -682,6 +682,19 @@ Aplicando esta operación ofrecemos al usuario una presentación alternativa de 
 
 \fbckg{white}
 \begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.4]{RDB&MDDB}
+  
+  Bases de datos relacionales
+  \end{center}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
 \pointedsl{MOLAP}
 \end{frame}
 
@@ -696,6 +709,19 @@ gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cua
 
 \fbckg{white}
 \begin{frame}
+\misc
+{
+  \begin{center}
+  \includegraphics[scale=0.4]{RDB&MDDB2}
+  
+  Bases de datos multidimensionales
+  \end{center}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
 \pointedsl{MDDB vs. RDB}
 \end{frame}
 
@@ -704,7 +730,7 @@ gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cua
 \misc
 {
 \begin{itemize}
-  \item \textbf{Bases de datos multidimensionales}: las MDDBs alma- cenan los datos en un "hipercubo", es decir, una matriz multidimensional.
+  \item \textbf{Bases de datos multidimensionales}: las MDDBs alma- cenan los datos en un "hipercubo", es decir, una matriz de almacenamiento multidimensional optimizada.
 
 \item \textbf{Bases de datos relacionales}: las RDBs guardan los datos como tablas, con filas y columnas que no mapean directamente con la vista multidimensional que tienen los usuarios de los datos.
 \end{itemize}
@@ -713,11 +739,22 @@ gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cua
 
 \fbckg{white}
 \begin{frame}
-\pointedsl{{\Large HOLAP (Próximamente)}}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Tamaño}: las MDDBs están, generalmente limitados por el tamaño de los datos, aunque el límite en el tamaño ha ido aumentando gradualmente a lo largo de los años.
+  \item \textbf{Volatilidad de los datos de origen}: La alta volátil de los datos se trata mejor con la tecnología relacional. Los datos multidimensionales en hipercubos generalmente tardan mucho en cargarse y actualizarse.
+\end{itemize}
+}
 \end{frame}
 
 \fbckg{white}
 \begin{frame}
-\pointedsl{Fin de la charla}
+\pointedsl{HOLAP}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{Charla finalizada}
 \end{frame}
 \end{document}
