@@ -676,7 +676,7 @@ Aplicando esta operación ofrecemos al usuario una presentación alternativa de 
 \begin{frame}
 \misc
 {
- El \textbf{procesamiento analítico relacional en línea}, (relational online analytical processing, ROLAP) se trata de sistemas y herramientas OLAP construidos sobre una base de datos relacional (RDB). Las ventajas de este modelo es que puede manejar una gran cantidad de datos y puede aprovechar todas las funcionalidades de la base de datos relacionales. Las desventajas son que el rendimiento es lento, y cada informe ROLAP es una consulta SQL, con lo cual está limitado por las funcionalidades de SQL.
+ El \textbf{procesamiento analítico relacional en línea}, (relational online analytical processing, ROLAP) se trata de sistemas y herramientas OLAP construidos sobre una base de datos relacional (RDB). Las ventajas de este modelo es que puede manejar una gran cantidad de datos y puede aprovechar todas las funcionalidades de la base de datos relacionales. Tiene como desventaja, un rendimiento lento, y además cada informe ROLAP es una consulta SQL, con lo cual está limitado por las funcionalidades de SQL.
 }
 \end{frame}
 
@@ -687,7 +687,7 @@ Aplicando esta operación ofrecemos al usuario una presentación alternativa de 
   \begin{center}
   \includegraphics[scale=0.4]{RDB&MDDB}
   
-  Bases de datos relacionales
+  Bases de datos relacionales.
   \end{center}
 }
 \end{frame}
@@ -714,11 +714,26 @@ gran rendimiento de consultas, dado que se pre-computan los datos en el cubo, cu
   \begin{center}
   \includegraphics[scale=0.4]{RDB&MDDB2}
   
-  Bases de datos multidimensionales
+  Bases de datos multidimensionales.
   \end{center}
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{table}[h]
+\centering
+\begin{tabular}{|l|l|}
+\hline
+ROLAP                                                                                                                                  & MOLAP                                                                                                                                                                                                 \\ \hline
+\begin{tabular}[c]{@{}l@{}}{\footnotesize Los cubos son generados dinámicamente}\\ {\footnotesize al momento de ejecutar la consulta}\end{tabular}                     & \begin{tabular}[c]{@{}l@{}}{\footnotesize Cada vez que se requiere realizar}\\ {\footnotesize cambios sobre algún cubo, se debe} \\ {\footnotesize recalcularlo totalmente, para que se}\\ {\footnotesize reflejen las modificaciones llevadas}\\ {\footnotesize a cabo}\end{tabular} \\ \hline
+\begin{tabular}[c]{@{}l@{}}{\footnotesize Los datos de los cubos se deben calcular}\\ {\footnotesize cada vez que se ejecuta  una consulta}\\ {\footnotesize sobre ellos}\end{tabular} & \begin{tabular}[c]{@{}l@{}}{\footnotesize Los datos de los cubos no son}\\ {\footnotesize calculados en tiempo de ejecución}\end{tabular}                                                                                             \\ \hline
+\end{tabular}
+\end{table}
+}
+\end{frame}
 
 \fbckg{white}
 \begin{frame}
@@ -770,7 +785,7 @@ El \textbf{procesamiento analítico en línea híbrido} (Hybrid Online Analytica
   \begin{center}
   \includegraphics[scale=0.4]{RDB&MDDB3}
   
-  Bases de datos de relaciones, y multidimensionales.
+  Bases de datos relacionales, y multidimensionales.
   \end{center}
 }
 \end{frame}
