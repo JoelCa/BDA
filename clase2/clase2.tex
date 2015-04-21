@@ -669,7 +669,15 @@ Aplicando esta operación ofrecemos al usuario una presentación alternativa de 
 
 \fbckg{white}
 \begin{frame}
-\pointedsl{{\Large ROLAP (Próximamente)}}
+\pointedsl{ROLAP}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+ El \textbf{procesamiento analítico relacional en línea}, (relational online analytical processing, ROLAP) se trata de sistemas y herramientas OLAP construidos sobre una base de datos relacional (RDB). Las ventajas de este modelo es que puede manejar una gran cantidad de datos y puede aprovechar todas las funcionalidades de la base de datos relacionales. Las desventajas son que el rendimiento es lento, y cada informe ROLAP es una consulta SQL, con lo cual está limitado por las funcionalidades de SQL.
+}
 \end{frame}
 
 \fbckg{white}
@@ -681,9 +689,8 @@ Aplicando esta operación ofrecemos al usuario una presentación alternativa de 
 \begin{frame}
 \misc
 {
-Los productos MOLAP se ejecutan sobre una base de datos multidimensional (MDDB).
-Por lo tanto, los datos se almacenan en forma de cubos multidimensionales y no en bases de datos relacionales. Las ventajas de este modelo es que proporciona un
-gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cuando éste es creado. Las desventajas de este modelo son que puede manejar sólo con una cantidad limitada de datos, ya que el cubo no se puede derivar de un gran volumen de datos.
+El \textbf{procesamiento analítico multidimensional en línea}, (multidimensional online analytical processing, MOLAP) consiste en herramientas que se ejecutan sobre una base de datos multidimensional (MDDB). La ventaja principal de este modelo es que proporciona un
+gran rendimiento de consultas, dado que se precomputan los datos en el cubo, cuando éste es creado. Sin embargo este modelo solo puede manejar una cantidad limitada de datos, ya que el cubo no se puede derivar de un gran volumen de datos.
 }
 \end{frame}
 
