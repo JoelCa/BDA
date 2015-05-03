@@ -1,0 +1,13 @@
+Estructura de la clase "Herramientas y temáticas actuales de Data Warehouses y OLAP"
+
+- Temas en investigación
+  - Diseño conceptual del DW
+  - Ontologías para el diseño de un DW 
+  - Data Warehouse espacial (SOLAP)
+  - Fuzzy Data Warehouse
+  - Web Warehouse
+- Productos OLAP
+  - Comparación
+- Ejemplos con Mondrian
+  - Ejemplo con Saiku
+  - Ejemplo con Kettle
