@@ -5,12 +5,17 @@
 \usepackage{graphicx}
 \usepackage{caption}
 \usepackage{subcaption}
-\usepackage{ragged2e}
+\usepackage{ragged2e} %paquete para justificar texto
 
+\usepackage[backend=bibtex]{biblatex}
 
+\bibliography{bibliografia}
 \graphicspath{{img/}}
+\setbeamertemplate{bibliography item}[text]
 
-\addtobeamertemplate{block begin}{}{\justifying}  %new code
+
+
+
 
 %%% Beamer settings (do not change)
 \usetheme{default} 
@@ -50,6 +55,26 @@
 
 \fbckg{white}
 \begin{frame}
+\pointedsl{{\Large Temas en investigación}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Estos son algunos tópicos que están en desarrollo, y que veremos rapidamente:
+\begin{itemize}
+  \item El diseño de un Data Warehouse (DW)
+  \item Ontologías para el diseño de un Data Warehouse
+  \item Data Warehouse espaciales
+  \item Web Warehouse
+  \item Fuzzy Data Warehouse
+\end{itemize}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
 \pointedsl{{\Large Diseño general de un DW}}
 \end{frame}
 
@@ -57,9 +82,9 @@
 \begin{frame}
 \misc
 {
-\begin{block}{} %lo uso para justificar el texto
- Este método se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicado para fines analíticos. Por lo tanto, su diseño debe seguir las fases de diseño de bases de datos tradicionales, es decir, la especificación de los requisitos, diseño conceptual, diseño lógico y diseño físico, como se muestra en la figura. Sin embargo, hay diferencias significativas entre las fases del diseño de bases de datos y almacenes de datos, que se derivan de su diferente naturaleza.
-\end{block}
+
+ \justifying Este método, propuesto en \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicado para fines analíticos. Por lo tanto, su diseño debe seguir las fases de diseño de bases de datos tradicionales, es decir, la especificación de los requisitos, diseño conceptual, diseño lógico y diseño físico. Sin embargo, hay diferencias significativas entre las fases del diseño de bases de una datos tradicional y un DW, que se derivan de su diferentes naturalezas.
+
 \begin{center}
 \includegraphics[scale=0.25]{diseno1}  
 \end{center}
@@ -71,16 +96,39 @@
 \begin{frame}
 \misc
 {
-\begin{itemize}
-  \item \textbf{Especificación de los requerimientos}: determina, entre otras cosas, \textit{que} datos deben estar disponibles y \textit{cómo} deben organizarse. 
-  \item \textbf{Diseño conceptual}: la fase anterior debe proporcionar los elementos necesarios para la construcción de un esquema conceptual inicial del Data Warehouse.
-  \item \textbf{Diseño lógico}: primero, consiste en la transformación del esquema conceptual en un esquema lógico; y segundo, la especificación de los procesos ETL.
-  \item \textbf{Diseño físico}: abarca la implementación, tanto de los esquema del DW, como de los procesos ETL. Durante la fase de diseño físico, el esquema lógico se convierte en una estructura de base de datos física.
-\end{itemize}
 
+\begin{itemize}
+  \item \textbf{Especificación de los requerimientos}: \justifying determina, entre otras cosas, \textit{que} datos deben estar disponibles y \textit{cómo} deben organizarse. 
+  \item \textbf{Diseño conceptual}: \justifying la fase anterior debe proporcionar los elementos necesarios para la construcción de un esquema conceptual inicial del Data Warehouse.
+  \item \textbf{Diseño lógico}: \justifying primero, consiste en la transformación del esquema conceptual en un esquema lógico; y segundo, la especificación de los procesos ETL.
+  \item \textbf{Diseño físico}: \justifying abarca la implementación, tanto de los esquema del DW, como de los procesos ETL. Durante la fase de diseño físico, el esquema lógico se convierte en una estructura de base de datos física.
+\end{itemize}
 
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\pointedsl{{\Large Diseño conceptual}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\justifying Siguiendo \cite{VaismanZimanyi14}, vamos a utilizar el modelo \textbf{MultiDim} para definir los esquemas conceptuales, aunque también se pueden utilizar otros modelos conceptuales que proporcionan una representación abstracta de un esquema del DW.
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ Bibliografía:
+
+\printbibliography
+
+}
+\end{frame}
 
 \end{document}
