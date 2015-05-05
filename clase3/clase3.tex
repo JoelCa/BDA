@@ -7,6 +7,7 @@
 \usepackage{subcaption}
 \usepackage{ragged2e} %paquete para justificar texto
 
+
 \usepackage[backend=bibtex]{biblatex}
 
 \bibliography{bibliografia}
@@ -117,9 +118,80 @@ Estos son algunos tópicos que están en desarrollo, y que veremos rapidamente:
 \misc
 {
 \justifying Siguiendo \cite{VaismanZimanyi14}, vamos a utilizar el modelo \textbf{MultiDim} para definir los esquemas conceptuales, aunque también se pueden utilizar otros modelos conceptuales que proporcionan una representación abstracta de un esquema del DW.
-
 }
 \end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Presentamos los principales componentes del modelo:
+\begin{itemize}
+  \item \justifying Un \textbf{esquema} se compone de un conjunto de dimensiones y de un conjunto de hechos.
+  \item \justifying Una \textbf{dimensión} se compone de un nivel o una o más je-rarquías.
+  \item \justifying Una \textbf{jerarquía} está a su vez compuesto por un conjunto de niveles.
+  \item \justifying Un \textbf{nivel} es análogo a una entidad en el modelo E/R.
+  \item \justifying Un nivel tiene un conjunto de \textbf{atributos} que describen las características de sus miembros. Además, un nivel tiene uno o varios \textbf{identificadores}.
+\end{itemize}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \justifying Un \textbf{hecho} relaciona varios niveles. El mismo nivel puede participar varias veces con un hecho, mediante diferentes \textbf{roles}.  Cada rol se identifica por un nombre.
+  \item \justifying Un hecho puede contener atributos llamados \textbf{medidas}.
+  \item \justifying Las medidas se sumarizan a largo de dimensiones cuando se realizan operaciones roll-up. La \textbf{función de sumarización} asociada con una medida se puede especificar junto al nombre de la medida; SUM por defecto.
+  \item \justifying Podemos clasificar a las métricas como \textbf{aditiva}, \textbf{semiaditiva}, o \textbf{no aditiva}. Además, las medidas y los atributos de nivel puden \textbf{derivarse}, es decir que se calculan sobre la base de otras medidas o atributos en el esquema. Por defecto, las medidas son aditivas.
+\end{itemize}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
+
+\begin{center}
+\includegraphics[scale=0.22]{diseno2}
+
+{\footnotesize (a) Nivel, (b) jerarquía, (c) cardinalidades, (d) hecho con las medidas y niveles asociados, (e) tipos de medidas, (f) nombre de la jerarquía.}
+\end{center}
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{Ejemplo 1}:
+
+\begin{center}
+\includegraphics[scale=0.3]{diseno3}
+\end{center}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ 
+\begin{center}
+\includegraphics[scale=0.24]{diseno4}
+
+\textbf{Ejemplo 2}
+\vspace{2mm}
+
+\includegraphics[scale=0.2]{diseno5}
+
+\textbf{Ejemplo 3}
+\end{center}
+}
+\end{frame}
+
 
 \fbckg{white}
 \begin{frame}
