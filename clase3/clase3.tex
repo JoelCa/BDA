@@ -198,7 +198,46 @@ Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
 \pointedsl{{\Large Fuzzy Data Warehouse}}
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{Breve repaso de lógica difusa}
+\newline
 
+\justifying \textbf{Conjunto difuso}. Un conjunto difuso $A$ en $M$, tambien llamado universo del discurso, es caracterizado por una función
+$\mu_{A}(m)$, que asocia a cada elemento en $M$ un número en el intervalo $[0,1]$. Los números en el intervalo $[0,1]$ difinen la pertenencia
+de un elemento $m$ al conjunto difuso A, donde 1 implica plena pertenencia, y 0 implica ninguna pertenencia.
+Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas $\{ (m, \mu_{A}(m))\}$. Podemos representarlo como $Dom_{A}$
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Dominio del atributo}. Al conjunto de posibles valores que puede tener el atributo de una dimensión o un hecho, se lo llama dominio de un atributo o universo de discurso.
+
+\textbf{Atributo Objetivo}.  El atributo de una dimensión o hecho, que quiere ser clasificado como difuso, se lo llama atributo objetivo (target attribute, TA). Los miembros del TA se clasifican sobre un conjunto (S) que está representado por una variable lingüística.
+
+\textbf{Atributo de pertenencia a una clase}. Un atributo de pertenencia a una clase (Class Membership Attribute, CMA) para un TA, representado por $CMA_{TA}$, es un
+atributo que tiene un conjunto de términos lingüísticos $T_{1},T_{2}, \ldots , T_{k}$, a los que el atributo objetivo puede pertenecer. Es decir, para todos los
+posibles valores del TA ($Dom_{TA}$) hay una relación a un valor del CMA.
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Grado de pertenencia}. El grado de pertenencia $MD \in [0,1]$ es el grado en el que los valores del $TA$, están relacionados con los términos
+ligüísticos $T_{1},T_{2}, \ldots , T_{k}$ respectivos a los valores del $CMA$.
+
+\textbf{Función de pertenencia}. Una función de pertencia del $CMA$, es una función $\mu (TA)$ que es usada para calcular el grado de pertencia de un
+$TA$ al $CMA$, $\mu : TA \rightarrow [0,1]$.
+}
+\end{frame}
 
 
 \fbckg{white}
