@@ -195,6 +195,164 @@ Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
 
 \fbckg{white}
 \begin{frame}
+\pointedsl{{\Large Ontologías}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ 
+\justifying La utilización y el análisis de datos no estructurados como pueden ser los archivos de texto, la web semántica, etc., han sido incluidos entre las posibles fuentes de datos, ya que presentan una gran cantidad de información que pueden aportar para la tarea de toma de desiciones.
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Breve repaso de ontologías}
+\newline
+\newline
+
+\justifying \textbf{Object property}: Son relaciones entre instancias de 2 clases. Por ejemplo, ownedBy, podría ser una object type property con la clase Vehículo como dominio y la clase Persona como rango.
+
+\justifying \textbf{Data property}: Son como las object properties pero tienen como dominio una clase y rango un valor literal. Por ejemplo, si para una persona yo quisiera darle el nombre completo, entonces defino la data property fullName con dominio en Person y rango string.
+
+\justifying \textbf{Individuals}: Representan los objetos o instancias de las clases que tenemos definidas en nuestra ontología.
+
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Pasos a seguir para generar el DW}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Creación de tablas a partir de las clases}.
+\end{itemize}
+
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+
+\begin{center}
+\includegraphics[scale=0.15]{create_tables}
+\end{center}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Pasos a seguir para generar el DW}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Creación de tablas a partir de las clases}.
+  \item \textbf{Relaciones de subclase}.
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+
+\begin{center}
+\includegraphics[scale=0.15]{is_a}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\misc
+{ \textbf{\Large Pasos a seguir para generar el DW}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Creación de tablas a partir de las clases}.
+  \item \textbf{Relaciones de subclase}.
+  \item \textbf{Definiendo relaciones de propiedad de objetos}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+
+\begin{center}
+\includegraphics[scale=0.15]{object_property}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\misc
+{ \textbf{\Large Pasos a seguir para generar el DW}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Creación de tablas a partir de las clases}.
+  \item \textbf{Relaciones de subclase}.
+  \item \textbf{Definiendo relaciones de propiedad de objetos}
+  \item \textbf{Definiendo relaciones de propiedad de datos}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+
+\begin{center}
+\includegraphics[scale=0.15]{data_property}
+\end{center}
+\end{frame}
+
+
+\begin{frame}
+\misc
+{ \textbf{\Large Pasos a seguir para generar el DW}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Creación de tablas a partir de las clases}.
+  \item \textbf{Relaciones de subclase}.
+  \item \textbf{Definiendo relaciones de propiedad de objetos}
+  \item \textbf{Definiendo relaciones de propiedad de datos}
+  \item \textbf{Insertando datos en las tablas}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+
+\begin{center}
+\includegraphics[scale=0.1]{inserting_data}
+\end{center}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
 \pointedsl{{\Large Fuzzy Data Warehouse}}
 \end{frame}
 
