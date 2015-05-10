@@ -409,9 +409,9 @@ Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
 \newline
 
 \justifying \textbf{Conjunto difuso}. Un conjunto difuso $A$ en $M$, tambien llamado universo del discurso, es caracterizado por una función
-$\mu_{A}(m)$, que asocia a cada elemento en $M$ un número en el intervalo $[0,1]$. Los números en el intervalo $[0,1]$ difinen la pertenencia
+$\mu_{A}(m)$, que asocia a cada elemento en $M$, un número en el intervalo $[0,1]$. Los números en el intervalo $[0,1]$ difinen la pertenencia
 de un elemento $m$ al conjunto difuso A, donde 1 implica plena pertenencia, y 0 implica ninguna pertenencia.
-Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas $\{ (m, \mu_{A}(m))\}$. Podemos representarlo como $Dom_{A}$
+Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas $\{ (m, \mu_{A}(m))\}$.
 
 }
 \end{frame}
@@ -420,13 +420,15 @@ Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas
 \begin{frame}
 \misc
 {
-\textbf{Dominio del atributo}. Al conjunto de posibles valores que puede tener el atributo de una dimensión o un hecho, se lo llama dominio de un atributo o universo de discurso.
+\textbf{Conceptos básicos del modelo Fuzzy Data Warehouse}.
 
-\textbf{Atributo Objetivo}.  El atributo de una dimensión o hecho, que quiere ser clasificado como difuso, se lo llama atributo objetivo (target attribute, TA). Los miembros del TA se clasifican sobre un conjunto (S) que está representado por una variable lingüística.
+\begin{itemize}
+%   \item \justifying \textbf{Dominio del atributo}. Al conjunto de posibles valores que puede tener el atributo de una dimensión o un hecho, se lo llama dominio de un atributo. Podemos representarlo como $Dom_{A}$.
 
-\textbf{Atributo de pertenencia a una clase}. Un atributo de pertenencia a una clase (Class Membership Attribute, CMA) para un TA, representado por $CMA_{TA}$, es un
-atributo que tiene un conjunto de términos lingüísticos $T_{1},T_{2}, \ldots , T_{k}$, a los que el atributo objetivo puede pertenecer. Es decir, para todos los
-posibles valores del TA ($Dom_{TA}$) hay una relación a un valor del CMA.
+  \item \justifying El \textbf{atributo objetivo}, lo notamos $TA$, es un atributo de una dimensión o hecho, que quiere ser clasificado como difuso.
+
+  \item \justifying El \textbf{atributo de pertenencia a una clase}, para un TA, es un atributo que tiene un conjunto de términos lingüísticos $T_{1},T_{2}, \ldots , T_{k}$. Lo notamos $CMA_{TA}$.
+\end{itemize}
 }
 \end{frame}
 
@@ -435,11 +437,33 @@ posibles valores del TA ($Dom_{TA}$) hay una relación a un valor del CMA.
 \begin{frame}
 \misc
 {
-\textbf{Grado de pertenencia}. El grado de pertenencia $MD \in [0,1]$ es el grado en el que los valores del $TA$, están relacionados con los términos
-ligüísticos $T_{1},T_{2}, \ldots , T_{k}$ respectivos a los valores del $CMA$.
+\begin{itemize}
+%   \item \justifying El \textbf{grado de pertenencia}. $MD \in [0,1]$ es el grado con el que los valores del $TA$, están relacionados con los términos
+% ligüísticos $T_{1},T_{2}, \ldots , T_{k}$, del $CMA_{TA}$.
 
-\textbf{Función de pertenencia}. Una función de pertencia del $CMA$, es una función $\mu (TA)$ que es usada para calcular el grado de pertencia de un
-$TA$ al $CMA$, $\mu : TA \rightarrow [0,1]$.
+  \item \justifying La \textbf{función de pertenencia}, para un término lingüístico $t$ en $CMA_{TA}$, $\mu_{t} : TA \rightarrow [0,1]$,
+  es usada para calcular el grado de pertencia de un valor en TA, al término $t$.
+
+  \item \justifying El \textbf{atributo del grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene el conjunto de grados de pertencia del TA,
+  para cada término lingüístico en $CMA_{TA}$.
+\end{itemize}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \justifying La \textbf{tabla de clasificación fuzzy}, $FCTA$, es un tabla con dos atributos, los términos ligüísticos y sus identificadores.
+  
+  Es decir, $FCT_{TA} = \{ ID, CMA_{TA} \}$.
+  \item \justifying La \textbf{tabla de pertenencia difusa}, $FMT$, es una tabla que almacena los valores que representan el grado en que un valor está relacionado con un término lingüístico.
+  
+  Es decir, $FMT_{TA} = \{ ID, ID \, de \, TA, ID \, de \, CMA_{TA}, MDA_{TA} \}$.
+  
+  \item \justifying Un \textbf{modelo fuzzy Data Warehouse}, es un conjunto de tablas, $FDW = \{Dim, Fact, FCT_{TA}, FMT_{TA} \}$. 
+\end{itemize}
 }
 \end{frame}
 
