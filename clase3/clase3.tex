@@ -420,12 +420,55 @@ Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas
 \begin{frame}
 \misc
 {
-\textbf{Conceptos básicos del modelo Fuzzy Data Warehouse}.
+Una \textbf{variable lingüística} es una quintupla, $(X, T(X), G, M, F)$, definida como sigue:
+\begin{itemize}
+  \item $X$ es el nombre de la variable lingüística.
+  \item $T(X)$, es el conjunto de términos lingüísticos de X.
+  \item $G$ representa una regla sintáctica que genera el conjunto de términos lingüísticos.
+  \item $M$ es el universo de discurso.
+  \item $F$ es una regla semántica que define para cada término lingüístico, su significado en el sentido de un subconjunto borroso en M.
+\end{itemize}
+
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Ejemplo}
+
+Para ilustrar una variable lingüística, consideramos un conjuntos de películas. Cada película tiene una duración específica.
+Podemos definir una variable lingüística \textit{duration}. Podemos dividir \textit{duration} en un conjunto de términos lingüísticos $\{ very\,short, short, medium, long, very\,long \}$. Para cada duración de una película, la perteneciente a un término lingüística puede definirse utilizando una regla semántica.
+Dinimos la variable ligüística $duration$, como sigue:
+
+{\footnotesize $(X = duration, T(X) = \{ very\,short, short, medium, long, very\,long \}, G, M = [0,200], F)$}.
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{center}
+\includegraphics[scale=0.2]{fuzzy1}
+
+Representación gráfica de la variable lingüística $duration$
+\end{center}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Conceptos básicos del modelo Fuzzy Data Warehouse}, propuesto en \cite{Fasel14}.
 
 \begin{itemize}
 %   \item \justifying \textbf{Dominio del atributo}. Al conjunto de posibles valores que puede tener el atributo de una dimensión o un hecho, se lo llama dominio de un atributo. Podemos representarlo como $Dom_{A}$.
 
-  \item \justifying El \textbf{atributo objetivo}, lo notamos $TA$, es un atributo de una dimensión o hecho, que quiere ser clasificado como difuso.
+  \item \justifying El \textbf{atributo objetivo}, lo notamos $TA$, es un atributo, de una dimensión o hecho, que quiere ser clasificado como difuso.
 
   \item \justifying El \textbf{atributo de pertenencia a una clase}, para un TA, es un atributo que tiene un conjunto de términos lingüísticos $T_{1},T_{2}, \ldots , T_{k}$. Lo notamos $CMA_{TA}$.
 \end{itemize}
@@ -442,7 +485,7 @@ Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas
 % ligüísticos $T_{1},T_{2}, \ldots , T_{k}$, del $CMA_{TA}$.
 
   \item \justifying La \textbf{función de pertenencia}, para un término lingüístico $t$ en $CMA_{TA}$, $\mu_{t} : TA \rightarrow [0,1]$,
-  es usada para calcular el grado de pertencia de un valor en TA, al término $t$.
+  es utilizada para calcular los grados de pertencia de los valores en TA, al término $t$.
 
   \item \justifying El \textbf{atributo del grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene el conjunto de grados de pertencia del TA,
   para cada término lingüístico en $CMA_{TA}$.
@@ -458,12 +501,38 @@ Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas
   \item \justifying La \textbf{tabla de clasificación fuzzy}, $FCTA$, es un tabla con dos atributos, los términos ligüísticos y sus identificadores.
   
   Es decir, $FCT_{TA} = \{ ID, CMA_{TA} \}$.
-  \item \justifying La \textbf{tabla de pertenencia difusa}, $FMT$, es una tabla que almacena los valores que representan el grado en que un valor está relacionado con un término lingüístico.
+  \item \justifying La \textbf{tabla de pertenencia fuzzy}, $FMT$, es una tabla que almacena los valores que representan el grado en que un valor está relacionado con un término lingüístico.
   
   Es decir, $FMT_{TA} = \{ ID, ID \, de \, TA, ID \, de \, CMA_{TA}, MDA_{TA} \}$.
   
-  \item \justifying Un \textbf{modelo fuzzy Data Warehouse}, es un conjunto de tablas, $FDW = \{Dim, Fact, FCT_{TA}, FMT_{TA} \}$. 
+  \item \justifying Un \textbf{modelo Fuzzy Data Warehouse}, es un conjunto de tablas, $FDW = \{Dim, Fact, FCT_{TA}, FMT_{TA} \}$.
 \end{itemize}
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+
+\begin{center}
+\includegraphics[scale=0.25]{fuzzy2}
+
+El meta modelo de Fuzzy Data Warehouse
+\end{center}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\textbf{Beneficios del concepto}
+
+El uso términos lingüísticos puede proporcionar una interpretación más precisa de las medidas para los usuarios.
+En [FZ09], se propone un almacén de datos difuso para un sistema de análisis web. Se demuestra que las medidas en bruto de análisis web no siempre son fáciles de interpretar. No siempre es posible contar las visitas de los distintos usuarios con precisión.
+El concepto difuso sobre las visitas a páginas web proporciona una clasificación más precisa que la clasificación en bruto.
 }
 \end{frame}
 
@@ -474,7 +543,6 @@ Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas
 { Bibliografía:
 
 \printbibliography
-
 }
 \end{frame}
 
