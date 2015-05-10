@@ -8,13 +8,11 @@
 \usepackage{ragged2e} %paquete para justificar texto
 
 
-\usepackage[backend=bibtex]{biblatex}
+\usepackage[backend=bibtex]{biblatex  }
 
 \bibliography{bibliografia}
 \graphicspath{{img/}}
 \setbeamertemplate{bibliography item}[text]
-
-
 
 
 
@@ -438,10 +436,12 @@ Una \textbf{variable lingüística} es una quintupla, $(X, T(X), G, M, F)$, defi
 \misc
 {
 \textbf{Ejemplo}
+\newline
 
-Para ilustrar una variable lingüística, consideramos un conjuntos de películas. Cada película tiene una duración específica.
-Podemos definir una variable lingüística \textit{duration}. Podemos dividir \textit{duration} en un conjunto de términos lingüísticos $\{ very\,short, short, medium, long, very\,long \}$. Para cada duración de una película, la perteneciente a un término lingüística puede definirse utilizando una regla semántica.
-Dinimos la variable ligüística $duration$, como sigue:
+\justifying Consideramos un conjuntos de películas, donde cada película tiene una duración específica.
+Podemos definir una variable lingüística \textit{duration}, y podemos dividirla en un conjunto de términos lingüísticos {\footnotesize $\{ very\,short, short, medium, long, very\,long \}$. }
+
+Difinimos la variable ligüística $duration$, como sigue:
 
 {\footnotesize $(X = duration, T(X) = \{ very\,short, short, medium, long, very\,long \}, G, M = [0,200], F)$}.
 }
@@ -487,7 +487,7 @@ Representación gráfica de la variable lingüística $duration$
   \item \justifying La \textbf{función de pertenencia}, para un término lingüístico $t$ en $CMA_{TA}$, $\mu_{t} : TA \rightarrow [0,1]$,
   es utilizada para calcular los grados de pertencia de los valores en TA, al término $t$.
 
-  \item \justifying El \textbf{atributo del grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene el conjunto de grados de pertencia del TA,
+  \item \justifying El \textbf{atributo grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene el conjunto de grados de pertencia del TA,
   para cada término lingüístico en $CMA_{TA}$.
 \end{itemize}
 }
@@ -518,7 +518,7 @@ Representación gráfica de la variable lingüística $duration$
 \begin{center}
 \includegraphics[scale=0.25]{fuzzy2}
 
-El meta modelo de Fuzzy Data Warehouse
+El meta modelo Fuzzy Data Warehouse
 \end{center}
 
 }
@@ -529,9 +529,10 @@ El meta modelo de Fuzzy Data Warehouse
 \misc
 {
 \textbf{Beneficios del concepto}
+\newline
 
-El uso términos lingüísticos puede proporcionar una interpretación más precisa de las medidas para los usuarios.
-En [FZ09], se propone un almacén de datos difuso para un sistema de análisis web. Se demuestra que las medidas en bruto de análisis web no siempre son fáciles de interpretar. No siempre es posible contar las visitas de los distintos usuarios con precisión.
+\justifying El uso términos lingüísticos puede proporcionar una interpretación más precisa de las medidas para los usuarios.
+En \cite{Fase09}, se propone un Fuzzy Data Warehouse para un sistema de análisis web, donde se demuestra que las medidas para un análisis web no siempre son fáciles de interpretar, pues no es posible contar las visitas de distintos usuarios con precisión.
 El concepto difuso sobre las visitas a páginas web proporciona una clasificación más precisa que la clasificación en bruto.
 }
 \end{frame}
