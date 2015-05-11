@@ -1,0 +1,1 @@
+En el paper pxc3893765.pdf (pasa de una ontología a un DW) habla sobre ciertas cosas en los pasos del algoritmo que no me convencen mucho, por ejemplo cuando dice que puede pasar que no se encuentren las clases dominio y rango de una propiedad de objeto.

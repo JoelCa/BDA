@@ -8,7 +8,7 @@
 \usepackage{ragged2e} %paquete para justificar texto
 
 
-\usepackage[backend=bibtex]{biblatex  }
+\usepackage[backend=bibtex]{biblatex}
 
 \bibliography{bibliografia}
 \graphicspath{{img/}}
@@ -44,7 +44,7 @@
 \newcommand{\titlephrase}{Herramientas y temáticas actuales de Data Warehouses y OLAP}
 \newcommand{\name}{Javier Bonet \\ Joel Catacora \\}
 \newcommand{\affil}{Base de datos avanzada}
-\newcommand{\email}{13 de mayo del 2015}
+\newcommand{\email}{20 de mayo del 2015}
 
 
 \begin{document}
@@ -462,7 +462,19 @@ Representación gráfica de la variable lingüística $duration$
 \begin{frame}
 \misc
 {
-\textbf{Conceptos básicos del modelo Fuzzy Data Warehouse}, propuesto en \cite{Fasel14}.
+\textbf{¿Qué es un Fuzzy Data Warehouse (FDW)?}
+\newline
+
+\justifying FDW es un \textit{data warehouse}, que contiene datos difusos y permite el procesamiento difuso de los datos. Al incoorporar conceptos difusos, los sistemas de \textit{data warehouse} tienen la posibilidad de procesar datos a mayor nivel de abstracción y mejora el análisis de los datos imprecisos.
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\justifying Conceptos básicos del \textbf{Modelo Fuzzy Data Warehouse}, pro-puesto en \cite{Fasel14}:
 
 \begin{itemize}
 %   \item \justifying \textbf{Dominio del atributo}. Al conjunto de posibles valores que puede tener el atributo de una dimensión o un hecho, se lo llama dominio de un atributo. Podemos representarlo como $Dom_{A}$.
@@ -486,8 +498,8 @@ Representación gráfica de la variable lingüística $duration$
   \item \justifying La \textbf{función de pertenencia}, para un término lingüístico $t$ en $CMA_{TA}$, $\mu_{t} : TA \rightarrow [0,1]$,
   es utilizada para calcular los grados de pertencia de los valores en TA, al término $t$.
 
-  \item \justifying El \textbf{atributo grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene el conjunto de grados de pertencia del TA,
-  para cada término lingüístico en $CMA_{TA}$.
+  \item \justifying El \textbf{atributo grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene un conjunto de grados de pertencia del TA,
+  para términos lingüísticos en $CMA_{TA}$.
 \end{itemize}
 }
 \end{frame}
@@ -497,7 +509,7 @@ Representación gráfica de la variable lingüística $duration$
 \misc
 {
 \begin{itemize}
-  \item \justifying La \textbf{tabla de clasificación fuzzy}, $FCTA$, es un tabla con dos atributos, los términos ligüísticos y sus identificadores.
+  \item \justifying La \textbf{tabla de clasificación fuzzy}, $FCT$, es un tabla con dos atributos, los términos ligüísticos y sus identificadores.
   
   Es decir, $FCT_{TA} = \{ ID, CMA_{TA} \}$.
   \item \justifying La \textbf{tabla de pertenencia fuzzy}, $FMT$, es una tabla que almacena los valores que representan el grado en que un valor está relacionado con un término lingüístico.
