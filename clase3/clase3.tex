@@ -199,7 +199,7 @@ Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
 \begin{frame}
 \misc
 { 
-\justifying La utilización y el análisis de datos no estructurados como pueden ser los archivos de texto, la web semántica, etc., han sido incluidos entre las posibles fuentes de datos, ya que presentan una gran cantidad de información que pueden aportar para la tarea de toma de desiciones.
+\justifying Como se remarca en \cite{OntologyPaper} la utilización y el análisis de datos no estructurados como pueden ser los archivos de texto, la web semántica, etc., han sido incluidos entre las posibles fuentes de datos, ya que presentan una gran cantidad de información que pueden aportar para la tarea de toma de desiciones.
 
 }
 \end{frame}
@@ -561,6 +561,226 @@ Las principales ventajas de este enfoque son los siguientes:
 \end{itemize}
 }
 \end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{{\Large Web Warehouse}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{Motivación}
+\newline
+
+\justifying Como se menciona en \cite{WWPaper} la idea de Web Warehouse es algo similar a la de un DW, ya que en su arquitectura ya son bastante parecidos. De todos modos, hay ciertas consideraciones que se deben tener en cuenta cuando tratamos con datos a ser utilizados para un WW.
+
+}
+\end{frame}
+
+
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{{\Large Arquitectura}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+
+\begin{center}
+  \includegraphics[scale=0.15]{arquitectura}
+\end{center}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulo DSI}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulo DSI}
+  \item \textbf{Módulo integrador}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulo DSI}
+  \item \textbf{Módulo integrador}
+  \item \textbf{Módulos ETL y OLAP}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulo DSI}
+  \item \textbf{Módulo integrador}
+  \item \textbf{Módulos ETL y OLAP}
+  \item \textbf{Módulo DWQM}
+\end{itemize}
+
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{{\Large Ciclo de vida de un WW}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ 
+  El ciclo de vida está divido en 4 etapas como podemos observar en la siguiente imagen:
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+
+\begin{center}
+  \includegraphics[scale=0.15]{lifecycle}
+\end{center}
+
+}
+\end{frame}
+
+
+\fbckg{white}
+\begin{frame}
+\pointedsl{{\Large Calidad de Datos}}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ 
+  Como venimos mencionando, la calidad de los datos es uno de los puntos más importantes en la arquitectura de un WW. Para ésto planteamos 6 factores que intentan englobar todos los aspectos referentes a la calidad de los datos
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Precisión}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Precisión}
+  \item \textbf{Completitud}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Precisión}
+  \item \textbf{Completitud}
+  \item \textbf{Frescura}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Precisión}
+  \item \textbf{Completitud}
+  \item \textbf{Frescura}
+  \item \textbf{Consistencia}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Precisión}
+  \item \textbf{Completitud}
+  \item \textbf{Frescura}
+  \item \textbf{Consistencia}
+  \item \textbf{Unicidad}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\begin{itemize}
+  \item \textbf{Precisión}
+  \item \textbf{Completitud}
+  \item \textbf{Frescura}
+  \item \textbf{Consistencia}
+  \item \textbf{Unicidad}
+  \item \textbf{Confiabilidad}
+\end{itemize}
+
+}
+\end{frame}
+
 
 
 \fbckg{white}
