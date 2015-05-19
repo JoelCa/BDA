@@ -421,9 +421,9 @@ Una \textbf{variable lingüística} es una quintupla, $(X, T(X), G, M, F)$, defi
 \begin{itemize}
   \item $X$ es el nombre de la variable lingüística.
   \item $T(X)$, es el conjunto de términos lingüísticos de X.
-  \item \justifying $G$ representa una regla sintáctica que genera el conjunto de términos lingüísticos.
+  \item \justifying $G$ es regla sintáctica que genera el conjunto de términos lingüísticos.
   \item $M$ es el universo de discurso.
-  \item \justifying $F$ es una regla semántica que define para cada término lingüístico, su significado en el sentido de un subconjunto borroso en M.
+  \item \justifying $F$ es una regla semántica que define para cada término lingüístico, su significado en función de un subconjunto borroso en M.
 \end{itemize}
 
 }
@@ -539,11 +539,11 @@ El meta modelo Fuzzy Data Warehouse
 \begin{frame}
 \misc
 {
-\justifying Para una comprensión más certera de los valores numéricos, los usuarios requieren una interpretación en términos significativos, no numéricos.
-Una solución a esto es el uso de un enfoque fuzzy.
+\textbf{Ejemplo}
+\newline
 
-Por ejemplo, en \cite{Fasel09} se propone un Fuzzy Data Warehouse para un sistema de análisis web, donde se demuestra que las medidas para un análisis web no siempre son fáciles de interpretar, pues no es posible contar las visitas de distintos usuarios con precisión.
-El concepto difuso sobre las visitas a páginas web proporciona una clasificación más precisa que la clasificación en bruto.
+\justifying En \cite{Fasel09} se propone un Fuzzy Data Warehouse para un sistema de análisis web, donde se demuestra que las medidas no siempre son fáciles de interpretar, pues no es posible contar las vi-sitas de distintos usuarios con precisión.
+Entonces, el concepto difuso sobre las visitas a páginas web proporciona una clasificación más certera de los valores numéricos.
 }
 \end{frame}
 
@@ -551,15 +551,21 @@ El concepto difuso sobre las visitas a páginas web proporciona una clasificaci�
 \begin{frame}
 \misc
 {
-\textbf{Beneficios del concepto}
-\newline
+\textbf{Beneficios}
 
-Las principales ventajas de este enfoque son los siguientes:
 \begin{itemize}
-  \item Los datos pueden ser analizados en forma difusa y no difusa.
-  \item El modelo puede ser utilizado para el modelado de nuevos DWs, o aplicado a uno ya existente.
+  \item \justifying Los datos pueden ser analizados en forma difusa y no difusa.
+  \item \justifying El modelo puede ser utilizado para la creación nuevos DWs, o aplicado a uno ya existente.
+\end{itemize}
+
+\textbf{Desventajas}
+
+\begin{itemize}
+  \item Se basa en un enfoque relacional.
+  \item \justifying La estructura de las meta tablas no prevee la posibilidad de tener diferentes versiones de conceptos difusos, en función del tiempo.
 \end{itemize}
 }
+
 \end{frame}
 
 
@@ -574,7 +580,7 @@ Las principales ventajas de este enfoque son los siguientes:
 { \textbf{Motivación}
 \newline
 
-\justifying Un Web Warehouse es un DW en el cual la información es obtenida de las posibles fuentes de datos de la web y, por la naturaleza de la web, se debe tener muy en cuenta la calidad de los datos. Como se menciona en \cite{WWPaper} la idea de Web Warehouse es algo similar a la de un DW, ya que en su arquitectura ya son bastante parecidos.
+\justifying Un \textbf{Web Warehouse} es un DW, en el cual la información es obtenida de las posibles fuentes de datos de la web y, por la naturaleza de la web, se debe tener muy en cuenta la calidad de los datos. Como se menciona en \cite{WWPaper} la idea de Web Warehouse es algo similar a la de un DW, ya que en su arquitectura ya son bastante parecidos.
 
 }
 \end{frame}
@@ -791,17 +797,38 @@ Las principales ventajas de este enfoque son los siguientes:
 \misc
 {
 \justifying \textbf{Pentaho} es un conjunto de programas libres para generar inteligencia de negocios (Business
-Intelligence). Incluye herramientas integradas para generar informes, minería de datos, ETL, etc.
-Uno de sus productos es \textbf{Pentaho Analysis Services}, con nombre clave \textbf{Mondrian}, es un servidor de procesamiento analítico relacional en línea (ROLAP), open-source; escrito en java.
-Soporta MDX (multidimensional expressions), como lenguaje de consulta, y XML for Analysis (XMLA).
+Intelligence).
 
+\justifying Incluye herramientas integradas para generar informes, minería de datos, ETL, OLAP, etc, \dots.
 
-\justifying A continuación, mostraremos la herramienta OLAP \textbf{Saiku Community}, la cual nos provee de una interfaz gráfica, para analizar
-los datos, de manera sencilla e intuitiva.
+\justifying Uno de sus productos es \textbf{Pentaho Analysis Services}, con nombre clave \textbf{Mondrian}, es un servidor de procesamiento analítico relacional en línea (ROLAP), open-source; escrito en java.
+Soporta MDX, como lenguaje de consulta.
+\newline
+
+\justifying \textbf{MDX} (MultiDimensional eXpressions) es un lenguaje para definir y consultar las bases de datos OLAP; funciona sobre cubos de datos, dimensiones, jerarquías y miembros.
+MDX ha sido adoptado por una amplia mayoría de proveedores de he-rramientas OLAP, y se ha convertido en el estándar para los sistemas OLAP.
 
 }
 \end{frame}
 
+\fbckg{white}
+\begin{frame}
+\misc
+{
+\justifying A continuación, mostraremos la herramienta OLAP \textbf{Saiku Community}, la cual nos provee de una interfaz gráfica, para analizar
+los datos, de manera sencilla e intuitiva.
+\newline
+
+Otros servidores OLAP:
+
+\begin{itemize}
+  \item Microsoft Analysis Services
+  \item MicroStrategy Intelligence Server
+  \item SAS OLAP Server
+\end{itemize}
+
+}
+\end{frame}
 
 
 \fbckg{white}
