@@ -574,7 +574,7 @@ Las principales ventajas de este enfoque son los siguientes:
 { \textbf{Motivación}
 \newline
 
-\justifying Como se menciona en \cite{WWPaper} la idea de Web Warehouse es algo similar a la de un DW, ya que en su arquitectura ya son bastante parecidos. De todos modos, hay ciertas consideraciones que se deben tener en cuenta cuando tratamos con datos a ser utilizados para un WW.
+\justifying Un Web Warehouse es un DW en el cual la información es obtenida de las posibles fuentes de datos de la web y, por la naturaleza de la web, se debe tener muy en cuenta la calidad de los datos. Como se menciona en \cite{WWPaper} la idea de Web Warehouse es algo similar a la de un DW, ya que en su arquitectura ya son bastante parecidos.
 
 }
 \end{frame}
@@ -586,6 +586,68 @@ Las principales ventajas de este enfoque son los siguientes:
 \pointedsl{{\Large Arquitectura}}
 \end{frame}
 
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulo DSI:} 
+    \begin{itemize}
+      \item Proveer mecanismos para extraer datos de los diferentes WDS
+      \item Monitorear los DS y controlar periódicamente la calidad de los datos
+      \item Proveer mecanismos para reaccionar ante la degradación de los DS
+    \end{itemize}
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulo integrador:} Lleva a cabo la integración de los datos y provee los mismos en formato normalizado, construyendo con ellos la IDB
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulos ETL y OLAP:} Realizan las mismas funciones que las que conocemos y, además, tienen la tarea de propagar los metadatos
+\end{itemize}
+
+}
+\end{frame}
+
+\fbckg{white}
+\begin{frame}
+\misc
+{ \textbf{\Large Módulos de la arquitectura}
+\newline
+\newline
+
+\begin{itemize}
+  \item \textbf{Módulo DWQM:} Debe controlar la calidad de los datos del DW
+\end{itemize}
+
+}
+\end{frame}
+
 \fbckg{white}
 \begin{frame}
 \misc
@@ -594,68 +656,6 @@ Las principales ventajas de este enfoque son los siguientes:
 \begin{center}
   \includegraphics[scale=0.15]{arquitectura}
 \end{center}
-
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\misc
-{ \textbf{\Large Módulos de la arquitectura}
-\newline
-\newline
-
-\begin{itemize}
-  \item \textbf{Módulo DSI}
-\end{itemize}
-
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\misc
-{ \textbf{\Large Módulos de la arquitectura}
-\newline
-\newline
-
-\begin{itemize}
-  \item \textbf{Módulo DSI}
-  \item \textbf{Módulo integrador}
-\end{itemize}
-
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\misc
-{ \textbf{\Large Módulos de la arquitectura}
-\newline
-\newline
-
-\begin{itemize}
-  \item \textbf{Módulo DSI}
-  \item \textbf{Módulo integrador}
-  \item \textbf{Módulos ETL y OLAP}
-\end{itemize}
-
-}
-\end{frame}
-
-\fbckg{white}
-\begin{frame}
-\misc
-{ \textbf{\Large Módulos de la arquitectura}
-\newline
-\newline
-
-\begin{itemize}
-  \item \textbf{Módulo DSI}
-  \item \textbf{Módulo integrador}
-  \item \textbf{Módulos ETL y OLAP}
-  \item \textbf{Módulo DWQM}
-\end{itemize}
 
 }
 \end{frame}
