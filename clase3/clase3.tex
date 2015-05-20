@@ -61,10 +61,10 @@
 \begin{frame}
 \misc
 {
-Estos son algunos temas que están siendo investigados, y que veremos rapidamente:
+Estos son algunos temas que están siendo investigados, y que veremos rápidamente:
 \begin{itemize}
   \item El diseño de un Data Warehouse (DW).
-  \item Ontologías para el diseño de un Data Warehouse.
+  \item Ontologías para la creación de un Data Warehouse.
   \item Fuzzy Data Warehouse (FDW).
   \item Web Warehouse (WW).
 \end{itemize}
@@ -81,7 +81,7 @@ Estos son algunos temas que están siendo investigados, y que veremos rapidament
 \misc
 {
 
- \justifying Este método, propuesto en \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicado a fines analíticos. Por lo tanto, su diseño debe seguir las fases de diseño de bases de datos tradicionales, es decir, la especificación de los requisitos, diseño conceptual, diseño lógico y diseño físico. Sin embargo, hay diferencias significativas entre las fases del diseño de bases de una datos tradicional y un DW, que se derivan de su diferentes naturalezas.
+ \justifying El procedimiento, planteado en \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicado a fines analíticos. Por lo tanto, su diseño debe seguir las fases de diseño de bases de datos tradicionales, es decir, la especificación de los requisitos, diseño conceptual, diseño lógico y diseño físico. Sin embargo, hay diferencias significativas entre las fases del diseño de bases de una datos tradicional y un DW, que se derivan de su diferentes naturalezas.
 
 \begin{center}
 \includegraphics[scale=0.25]{diseno1}  
@@ -96,7 +96,7 @@ Estos son algunos temas que están siendo investigados, y que veremos rapidament
 {
 
 \begin{itemize}
-  \item \textbf{Especificación de los requerimientos}: \justifying determina, entre otras cosas, \textit{que} datos deben estar disponibles y \textit{cómo} deben organizarse. 
+  \item \textbf{Especificación de los requerimientos}: \justifying determina, entre otras cosas, \textit{qué} datos deben estar disponibles y \textit{como} deben organizarse. 
   \item \textbf{Diseño conceptual}: \justifying la fase anterior debe proporcionar los elementos necesarios para la construcción de un esquema conceptual inicial del Data Warehouse.
   \item \textbf{Diseño lógico}: \justifying primero, consiste en la transformación del esquema conceptual en un esquema lógico; y segundo, la especificación de los procesos ETL.
   \item \textbf{Diseño físico}: \justifying comprende la implementación del esquema lógico, y los procesos ETL. Durante la fase de diseño físico, el esquema lógico se convierte en una estructura de base de datos física.
@@ -199,7 +199,7 @@ Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
 \begin{frame}
 \misc
 { 
-\justifying Como se remarca en \cite{OntologyPaper} la utilización y el análisis de datos no estructurados como pueden ser los archivos de texto, la web semántica, etc., han sido incluidos entre las posibles fuentes de datos, ya que presentan una gran cantidad de información que pueden aportar para la tarea de toma de desiciones.
+\justifying Como se remarca en \cite{OntologyPaper} la utilización y el análisis de datos no estructurados, como pueden ser los archivos de texto, la web semántica, etc., han sido incluidos entre las posibles fuentes de datos, ya que presentan una gran cantidad de información que pueden aportar para la tarea de toma de decisiones.
 
 }
 \end{frame}
@@ -211,9 +211,9 @@ Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
 \newline
 \newline
 
-\justifying \textbf{Object property}: Son relaciones entre instancias de 2 clases. Por ejemplo, ownedBy, podría ser una object type property con la clase Vehículo como dominio y la clase Persona como rango.
+\justifying \textbf{Object property}: Son relaciones entre instancias de 2 clases. Por ejemplo, \textit{ownedBy}, podría ser una object type property con la clase \textit{Vehículo} como dominio y la clase \textit{Persona} como rango.
 
-\justifying \textbf{Data property}: Son como las object properties pero tienen como dominio una clase y rango un valor literal. Por ejemplo, si para una persona yo quisiera darle el nombre completo, entonces defino la data property fullName con dominio en Person y rango string.
+\justifying \textbf{Data property}: Son como las object properties pero tienen como dominio una clase y rango un valor literal. Por ejemplo, si para una persona yo quisiera darle el nombre completo, entonces defino la data property \textit{fullName} con dominio en \textit{Person} y rango \textit{string}.
 
 \justifying \textbf{Individuals}: Representan los objetos o instancias de las clases que tenemos definidas en nuestra ontología.
 
@@ -405,8 +405,8 @@ Estas son algunas de las notaciones del modelo \textbf{MultiDim}.
 { \textbf{Breve repaso de lógica difusa}
 \newline
 
-\justifying \textbf{Conjunto difuso}. Un conjunto difuso $A$ en $M$, tambien llamado universo del discurso, es caracterizado por una función
-$\mu_{A}(m)$, que asocia a cada elemento en $M$, un número en el intervalo $[0,1]$. Los números en el intervalo $[0,1]$ difinen la pertenencia
+\justifying \textbf{Conjunto difuso}. Un conjunto difuso $A$ en $M$, también llamado universo del discurso, es caracterizado por una función
+$\mu_{A}(m)$, que asocia a cada elemento en $M$, un número en el intervalo $[0,1]$. Los números en el intervalo $[0,1]$ definen la pertenencia
 de un elemento $m$ al conjunto difuso A, donde 1 implica plena pertenencia, y 0 implica ninguna pertenencia.
 Un conjunto difuso $A$ en $M$, puede ser representado como un conjunto de tuplas $\{ (m, \mu_{A}(m))\}$.
 
@@ -465,7 +465,7 @@ Representación gráfica de la variable lingüística $duration$
 \textbf{¿Qué es un Fuzzy Data Warehouse (FDW)?}
 \newline
 
-\justifying FDW es un \textit{data warehouse}, que contiene datos difusos y permite el procesamiento difuso de los datos. Al incoorporar conceptos difusos, los sistemas de \textit{data warehouse} tienen la posibilidad de procesar datos a mayor nivel de abstracción y mejora el análisis de los datos imprecisos.
+\justifying FDW es un \textit{data warehouse}, que contiene datos difusos y permite el procesamiento difuso de los datos. Al incorporar conceptos difusos, los sistemas de \textit{data warehouse} tienen la posibilidad de procesar datos a mayor nivel de abstracción y mejorar el análisis de los datos imprecisos.
 }
 \end{frame}
 
@@ -496,9 +496,9 @@ Representación gráfica de la variable lingüística $duration$
 % ligüísticos $T_{1},T_{2}, \ldots , T_{k}$, del $CMA_{TA}$.
 
   \item \justifying La \textbf{función de pertenencia}, para un término lingüístico $t$ en $CMA_{TA}$, $\mu_{t} : TA \rightarrow [0,1]$,
-  es utilizada para calcular los grados de pertencia de los valores en TA, al término $t$.
+  es utilizada para calcular los grados de pertenencia de los valores en TA, al término $t$.
 
-  \item \justifying El \textbf{atributo grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene un conjunto de grados de pertencia del TA,
+  \item \justifying El \textbf{atributo grado de pertenencia}, de un TA, lo notamos $MDA_{TA}$, tiene un conjunto de grados de pertenencia del TA,
   para términos lingüísticos en $CMA_{TA}$.
 \end{itemize}
 }
@@ -509,7 +509,7 @@ Representación gráfica de la variable lingüística $duration$
 \misc
 {
 \begin{itemize}
-  \item \justifying La \textbf{tabla de clasificación fuzzy}, $FCT$, es un tabla con dos atributos, los términos ligüísticos y sus identificadores.
+  \item \justifying La \textbf{tabla de clasificación fuzzy}, $FCT$, es un tabla con dos atributos, los términos lingüísticos y sus identificadores.
   
   Es decir, $FCT_{TA} = \{ ID, CMA_{TA} \}$.
   \item \justifying La \textbf{tabla de pertenencia fuzzy}, $FMT$, es una tabla que almacena el grado, en el que los valores del TA, están relacionados con los términos lingüísticos.
@@ -562,7 +562,7 @@ Entonces, el concepto difuso sobre las visitas a páginas web proporciona una cl
 
 \begin{itemize}
   \item Se basa en un enfoque relacional.
-  \item \justifying La estructura de las meta tablas no prevee la posibilidad de tener diferentes versiones de conceptos difusos, en función del tiempo.
+  \item \justifying La estructura de las meta tablas no considera la posibilidad de tener diferentes versiones de datos difusos, en función del tiempo.
 \end{itemize}
 }
 
@@ -702,7 +702,7 @@ Entonces, el concepto difuso sobre las visitas a páginas web proporciona una cl
 \begin{frame}
 \misc
 { 
-  Como venimos mencionando, la calidad de los datos es uno de los puntos más importantes en la arquitectura de un WW. Para ésto planteamos 6 factores que intentan englobar todos los aspectos referentes a la calidad de los datos
+  Como venimos mencionando, la calidad de los datos es uno de los puntos más importantes en la arquitectura de un WW. Para esto planteamos 6 factores que intentan englobar todos los aspectos referentes a la calidad de los datos
 }
 \end{frame}
 
@@ -799,7 +799,7 @@ Entonces, el concepto difuso sobre las visitas a páginas web proporciona una cl
 \justifying \textbf{Pentaho} es un conjunto de programas libres para generar inteligencia de negocios (Business
 Intelligence).
 
-\justifying Incluye herramientas integradas para generar informes, minería de datos, ETL, OLAP, etc, \dots.
+\justifying Incluye herramientas para generar informes, minería de datos, ETL, OLAP, etc, \dots
 
 \justifying Uno de sus productos es \textbf{Pentaho Analysis Services}, con nombre clave \textbf{Mondrian}, es un servidor de procesamiento analítico relacional en línea (ROLAP), open-source; escrito en java.
 Soporta MDX, como lenguaje de consulta.
@@ -815,11 +815,11 @@ MDX ha sido adoptado por una amplia mayoría de proveedores de he-rramientas OLA
 \begin{frame}
 \misc
 {
-\justifying A continuación, mostraremos la herramienta OLAP \textbf{Saiku Community}, la cual nos provee de una interfaz gráfica, para analizar
+\justifying A continuación, mostraremos la herramienta OLAP, \textbf{Saiku Community}, la cual nos provee de una interfaz gráfica, para analizar
 los datos, de manera sencilla e intuitiva.
 \newline
 
-Otros servidores OLAP:
+Otros servidores OLAP (algunos):
 
 \begin{itemize}
   \item Microsoft Analysis Services
@@ -834,7 +834,7 @@ Otros servidores OLAP:
 \fbckg{white}
 \begin{frame}
 \misc
-{ Bibliografía:
+{ \textbf{Bibliografía:}
 
 \printbibliography
 }
