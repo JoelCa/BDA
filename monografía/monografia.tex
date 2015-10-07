@@ -12,12 +12,13 @@
 \usepackage{amsmath}
 \usepackage{makeidx}
 \usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
 \makeindex 
 \graphicspath{{imagenes/}}                                % Setea el path de las imagenes
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}                        % Saca la línea horizontal del borde superior de las páginas
-\cfoot{Pag. \thepage \hspace{1pt} de \pageref{LastPage}}  % Escribe la cantidad de paginas en el pie de página
+\cfoot{Pág. \thepage \hspace{1pt} de \pageref{LastPage}}  % Escribe la cantidad de paginas en el pie de página
 \makeindex                                                % Crea el índice
 \onehalfspacing                                           % Setea un punto y medio de separación entre líneas
 \setlength{\parskip}{6pt}                                 % Setea 6 puntos de separación entre párrafos
@@ -27,6 +28,11 @@
 
 \title{}
 \author{}
+
+%Ésto está echo?
+%Títulos de capítulo: Arial ó Times New Roman, 14 puntos, negrita.
+%Subtítulos dentro de cada capítulo: Arial ó Times New Roman, 12 puntos, negrita (opcional:
+%subrayado). (pueden ir numerados).
 
 \begin{document}
 
@@ -78,7 +84,7 @@
   \maketitle
   \tableofcontents
 
-  \begin{flushleft}
+  %\begin{flushleft}
     \section{Introducción}
 
     Desde que una empresa u organización es creada, ésta comienza a recabar información relativa a las distintas transacciones realizadas al relacionarse
@@ -93,7 +99,7 @@
     en el proceso de toma de decisiones, es donde surge el concepto de Data Warehouse en el ámbito de las bases de datos.
 
     \vspace{0.5in}
-    \section{Data Warehose: Conceptos fundamentales}
+    \section{Data Warehouse: Conceptos fundamentales}
     
     Se denominada \textbf{Business Intelligence} (BI), al conjunto de estrategias que integran, por un lado el almacenamiento, y
     por el otro, el procesamiento de grandes cantidades de datos, con el principal objetivo de
@@ -105,7 +111,7 @@
     \end{center}
 
 
-    \subsection{Data Warehose}
+    \subsection{Data Warehouse}
     
     El concepto de Data Warehouse (al que de ahora en más se hará referencia con DW) ó de su traducción, almacén de datos, intenta presentar una solución
     al problema al cual se hizo énfasis en la introducción. Algunas definiciones formales se plantearan a continuación:
@@ -1151,7 +1157,7 @@
     \end{itemize}
     
     
-  \end{flushleft}
+  %\end{flushleft}
 
   \vspace{10in}
 
