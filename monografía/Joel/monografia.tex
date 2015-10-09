@@ -18,7 +18,7 @@
 \pagestyle{fancy}
 \fancyhf{}
 \renewcommand{\headrulewidth}{0pt}                        % Saca la línea horizontal del borde superior de las páginas
-\cfoot{Pág. \thepage \hspace{1pt} de \begin{NoHyper}\pageref{LastPage}\end{NoHyper}}  % Escribe la cantidad de paginas en el pie de página
+\cfoot{Pág. \thepage \hspace{1pt}}  % Escribe la cantidad de paginas en el pie de página
 \makeindex                                                % Crea el índice
 \onehalfspacing                                           % Setea un punto y medio de separación entre líneas
 \setlength{\parskip}{6pt}                                 % Setea 6 puntos de separación entre párrafos
@@ -26,8 +26,8 @@
 \renewcommand\refname{Referencias}
 \renewcommand\contentsname{Índice}
 \usepackage{hyperref} % For hyperlinks in the PDF
-%\usepackage{csquotes}
-%\usepackage[backend=bibtex,bibencoding=ascii, style=alphabetic-verb]{biblatex}
+\usepackage{csquotes}
+\usepackage[backend=bibtex,bibencoding=ascii, style=alphabetic-verb]{biblatex}
 \bibliography{bibliografia}
 
 \title{}
@@ -128,7 +128,7 @@
         \item \textbf{Integrado:} Se integran datos provenientes de múltiples fuentes, posiblemente distintas. Como se verá más adelante, el hecho de tener
         en consideración las fuentes heterogéneas es un punto muy importante al momento de obtener información.
         \item \textbf{No volátil:} Una vez almacenados los datos en el DW, la información que éstos representan no debe perderse. Cuando se dice
-        "no debe perderse", no quita que los datos puedan ser modificados, siempre y cuando se conserve la información del hecho que se representa.
+        ``no debe perderse'', no quita que los datos puedan ser modificados, siempre y cuando se conserve la información del hecho que se representa.
         \item \textbf{Variable en el tiempo:} La información histórica de la organización en cuestión se mantiene en el DW a lo largo del tiempo.
       \end{itemize}
       \item \textbf{Ralph Kimball}, otro autor reconocido en el tema, por su parte plantea a los DW como una simple copia de los datos transaccionales,
@@ -290,7 +290,7 @@
       misma que la que soporta el operativo de la empresa, el funcionamiento del sistema puede degradarse hasta afectar y paralizar a todos los usuarios
       conectados.
       \item Falta de integración que implica ``islas'' de datos. Muchas organizaciones disponen de múltiples sistemas de información, incorporados en
-      momentos distintos, para resolver problemáticas diferentes. Sus bases de datos no suelen estar integradas, lo que implica la existencia de "islas"
+      momentos distintos, para resolver problemáticas diferentes. Sus bases de datos no suelen estar integradas, lo que implica la existencia de ``islas''
       de información.
       \item Datos erróneos, obsoletos o incompletos. El tema de la calidad de los datos siempre es considerado como algo importante, pero esta labor nunca
       se lleva al extremo de garantizar la fiabilidad de la información aportada.
@@ -521,8 +521,8 @@
     
     \subsection{Reglas de Codd}
     
-    En 1993, E.F. Codd \& Associates publicó un informe, encargado por Arbor Software (ahora Hyperion Solutions), titulado "Providing OLAP to User-Analysts:
-    An IT Mandate".
+    En 1993, E.F. Codd \& Associates publicó un informe, encargado por Arbor Software (ahora Hyperion Solutions), titulado ``Providing OLAP to User-Analysts:
+    An IT Mandate''.
     En un comienzo Codd definió 12 reglas con el fin de evitar que la visión que él tenía sobre las bases de datos relacionales se perdiera, y con el correr
     de los años se extendieron a 18 \footnote{Se pueden observar en \cite{nagabhushana} Pag. 205}. A continuación se detallan las reglas más importantes 
     para los autores:
@@ -663,27 +663,27 @@
     
     \subsection{Hipercubo de datos}
     
-    En la construcción de cubos OLAP, las tablas de dimensiones son elementos que contienen atributos (o campos) que se utilizan para restringir y agrupar
-    los datos almacenados en una tabla de hechos cuando se realizan consultas sobre dichos datos en un DW o DM. Estos datos sobre dimensiones son parámetros
+    En la construcción de cubos OLAP, las tablas de dimensiones contienen atributos (o campos) que se utilizan para restringir y agrupar
+    los datos almacenados en una tabla de hechos cuando se realizan consultas sobre dichos datos en un DW o DM. Los datos en las dimensiones son parámetros
     de los que dependen otros datos que serán objeto de estudio y análisis y que están contenidos en la tabla de hechos. Las tablas de dimensiones ayudan a
-    realizar ese estudio/análisis aportando información sobre los datos de la tabla de hechos, por lo que puede decirse que en un cubo OLAP, la tabla de
-    hechos contiene los datos de interés y las tablas de dimensiones contienen metadatos sobre dichos hechos.
+    realizar un estudio/análisis aportando información sobre los datos de la tabla de hechos, por lo que puede decirse que en un cubo OLAP, la tabla de
+    hechos contiene los datos de interés y las tablas de dimensiones contienen metadatos sobre los hechos.
 
     El camino hacia la comprensión de los hipercubos no pasa a través de la longitud, ancho y alto de un cubo físico, el cubo es una metáfora visual. Hay
     límites naturales con respecto a lo que se puede hacer en una pantalla de dos dimensiones. Esta limitación ha hecho pensar largo y tendido a los
-    desarrolladores de software acerca de la forma óptima de representar la información con más de dos dimensiones en una pantalla de computadora plana a
-    efectos de la visualización y manipulación.
+    desarrolladores de software en busca de la forma óptima de representar la información, con más de dos dimensiones, en una pantalla de computadora plana a
+    efectos de su visualización y manipulación.
     
-    Para concretizar la idea de visualización de un cubo se utilizará el conjunto de datos de la Figura \ref{tab_cube} donde se pueden observar una basta cantidad de
-    métricas \textbf{(Sales, Direct Costs, Indirect Costs, Total Costs y Margin)} y una única dimensión (Month) que representa la dimensión de tiempo. Es
-    importante hacer la aclaración de que el conjunto de métricas se considera como una dimensión en sí misma, con lo cual hay 2 dimensiones en el esquema de
-    los datos del ejemplo planteado. Al agregarse una tercer dimensión (Products) se obtiene un cubo en el cual cada celda contiene el valor para un un mes,
-    un producto y una métrica determinada, como se puede apreciar en el gráfico de la Figura \ref{cube_2}.
+    Utilizaremos el conjunto de datos de la Figura \ref{tab_cube}, para explicar la visualización de un cubo. Se puede observar una basta cantidad de
+    métricas \textit{(Sales, Direct Costs, Indirect Costs, Total Costs y Margin)} y una única dimensión (\textit{Month}) que representa la dimensión de tiempo.
+    Es importante aclarar que el conjunto de métricas se considera como una dimensión en sí misma, con lo cual hay 2 dimensiones en el esquema de
+    los datos del ejemplo planteado. Al agregarse una tercera dimensión (\textit{Products}) se obtiene un cubo, en el cual cada celda contiene el valor para un un mes,
+    un producto y una métrica determinada, como se puede apreciar en la Figura \ref{cube_2}.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.5]{cube_1}
-        \caption{Conjunto de datos} \cite{olap_solutions} Pag. 48.
+        \caption{Conjunto de datos. \cite{olap_solutions}. Pag. 48.}
         \label{tab_cube}
       \end{center}
     \end{figure}
@@ -691,28 +691,28 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.6]{cube_2}
-        \caption{Cubo con 3 dimensiones: \textbf{Variable, Time, Product}} \cite{olap_solutions} Pag. 49.
+        \caption{Cubo con 3 dimensiones, \textit{Variable, Time, Product}. \cite{olap_solutions} Pag. 49.}
         \label{cube_2}
       \end{center}
     \end{figure}
     
     
-    Una de las opciones para poder representar este cubo tridimensional acotado por las restricciones de una pantalla de dos dimensiones es tomar una
-    "rebanada" del mismo. Ésto consiste en fijar una de las dimensiones (por ejemplo, la de Producto) a un valor determinado, con lo cual se obtendrá una
+    Una de las opciones para representar este cubo tridimensional en una pantalla de dos dimensiones , consiste en tomar una
+    ``rebanada'' del mismo. Ésto consiste en fijar una de las dimensiones (por ejemplo, la de \textit{Products}) a un valor determinado, con lo cual se obtendrá una
     tabla cuyas celdas contendran información para los cruces de los valores de las otras 2 dimensiones respecto al producto seleccionado. En la Figura
-    \ref{cube_3} se puede observar la visualización del cubo de la Figura \ref{cube_2} habiendo seleccionado el producto shoes. Al resultado obtenido se
-    lo llama página o rebanada.\par 
+    \ref{cube_3} se puede observar la visualización del cubo de la Figura \ref{cube_2} habiendo seleccionado el producto \textit{shoes}. Al resultado obtenido se
+    lo llama \textit{página} o \textit{rebanada}.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.5]{cube_3}
-        \caption{\textbf{Visualización de cubo:} "rebanada" del cubo seleccionando un valor específico de la dimensión product} \cite{olap_solutions} Pag. 51.
+        \caption{\textbf{Visualización del cubo}, ``rebanada'' del cubo seleccionando un valor específico de la dimensión \textit{Product}.} \cite{olap_solutions} Pag. 51.
         \label{cube_3}
       \end{center}
     \end{figure}
     
-    
-    Al añadir una cuarta dimensión al cubo, utilizando la técnica que se planteó hasta el momento, no será posible obtener una visualización del mismo en una
+    % Ésto es verdad?
+    Si se quiere añadir una cuarta dimensión al cubo, utilizando la técnica planteada hasta el momento, no será posible obtener una visualización del mismo en una
     pantalla de dos dimensiones. A partir de la anterior limitación, surge la necesidad de plantear una nueva estructura que permita la representación de los
     datos si que se restrinja la cantidad de dimensiones a utilizar, a éstas se las llama estructuras de tipo multidimensional (en inglés, Multidimensional Type
     Structures) o MTS. Cada dimensión se representa por una línea y cada miembro dentro de la dimensión será representado por un intervalo o segmento. Para
@@ -722,7 +722,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.6]{cube_4}
-        \caption{Ejemplo de representación utilizando \textbf{MTS}} \cite{olap_solutions} Pag. 55.
+        \caption{Ejemplo de representación utilizando \textbf{MTS}. \cite{olap_solutions} Pag. 55.}
         \label{cube_4}
       \end{center}
     \end{figure}
@@ -730,17 +730,17 @@
     
     \subsection{Hipercubo en pantalla}
     
-    Para poder lograr que los datos se visualicen de forma correcta por pantalla se deberá mapear las múltiples dimensiones lógicas en las dos dimensiones físicas
-    que utiliza el monitor, para ésto se debe comenzar por transformar dos dimensiones en una, lo cual se logra anidando una dimensión dentro de la otra. En las
-    Figuras \ref{cube_5} y \ref{cube_6} se muestran 2 formas en las que se puede llevar a cabo el procedimiento utilizando las dimensiones de las variables y los
-    productos. En la Figura \ref{cube_7} se puede observar un escenario más elaborado en el que se agregan las dimensiones de Tiendas (Stores), Clientes
-    (Customers) y Escenarios (Scenarios), donde se pueden apreciar múltiples anidamientos para obtener como resultado final una representación bidimensional de
-    las 6 dimensiones.
+    Para lograr que los datos se visualicen en pantalla de forma correcta, se deberá mapear las múltiples dimensiones lógicas en las dos dimensiones físicas
+    que utiliza el monitor, para ésto se debe comenzar por transformar dos dimensiones en una, ésto se logra anidando una dimensión dentro de la otra. En las
+    Figuras \ref{cube_5} y \ref{cube_6} se muestran dos formas distintas en las que se puede llevar a cabo éste procedimiento utilizando las dimensiones
+    \textit{Variable} y \textit{Product}. En la Figura \ref{cube_7}, vemos un escenario más elaborado en el que se agregan las dimensiones de
+    \textit{Stores} (Tiendas), \textit{Customers} (Tiendas) y \textit{Scenarios} (Tiendas), podemos apreciar múltiples anidamientos para 
+    obtener como resultado final una representación bidimensional de las seis dimensiones.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{cube_5}
-        \caption{Transformación de 2 dimensiones a 1: Variables anidadas en Productos} \cite{olap_solutions} Pag. 58.
+        \caption{Transformación de dos dimensiones a una. Variables anidadas en Productos. \cite{olap_solutions} Pag. 58.}
         \label{cube_5}
       \end{center}
     \end{figure}
@@ -748,7 +748,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{cube_6}
-        \caption{Transformación de 2 dimensiones a 1: Productos anidados en Variables} \cite{olap_solutions} Pag. 58.
+        \caption{Transformación de dos dimensiones a una. Productos anidados en Variables. \cite{olap_solutions} Pag. 58.}
         \label{cube_6}
       \end{center}
     \end{figure}
@@ -756,25 +756,23 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{cube_7}
-        \caption{Anidamiento de 6 dimensiones} \cite{olap_solutions} Pag. 60.
+        \caption{Anidamiento de 6 dimensiones. \cite{olap_solutions} Pag. 60.}
         \label{cube_7}
       \end{center}
     \end{figure}
     
     
     La capacidad de cambiar fácilmente las vistas de los datos, mediante la reconfiguración de cómo se muestran las dimensiones, es uno de los grandes beneficios
-    que proveen los sistemas multidimensionales, lo que es primordial en el momento en que los usuarios finales navegan en busca de información. La gran
-    flexibilidad provista para alterar la estructuración de los datos se debe en gran medida la las MTS.\par
+    que proveen los sistemas multidimensionales, lo que es primordial en el momento en que los usuarios finales navegan en busca de información.
     
     \vspace{0.2in}
-    Al analizar datos multidimensionales es de mucha utilidad tener en consideración las siguientes reglas básicas para poder comprender más a fondo el panorama
-    de los mismos y, así, lograr mejores resultados:
+    Para realizar un análisis de los datos multidimensionales, son de mucha utilidad las siguientes reglas básicas:
     
     \begin{itemize}
-      \item Tratar de utilizar páginas, lo cual permite visualizar la información de mayor relevancia en la pantalla.
+      \item Tratar de utilizar \textit{páginas}, lo cual permite visualizar la información de mayor relevancia en la pantalla.
       \item Cuando se necesite anidar múltiples dimensiones a través de las filas y columnas, generalmente, es mejor anidar más dimensiones en las columnas que
       a través de filas, ya que las pantallas suelen tener más espacio horizontal que vertical.
-      \item Antes de decidir cómo mostrar la información en la pantalla, resolver los siguientes interrogantes:
+      \item Antes de decidir cómo mostrar la información en la pantalla, debe resolver los siguientes interrogantes:
         \begin{enumerate}
           \item ¿Qué se quiere observar?
           \item ¿Qué se intenta comparar?
@@ -788,7 +786,7 @@
     ejemplos para lograr una mejor comprensión del lector y un mayor entendimiento:
     
     \begin{itemize}
-      \item \textbf{Slice:} En esta operación se selecciona un valor particular de una de las dimensiones del cubo, buscando con ésto obtener una "rebanada" del
+      \item \textbf{Slice:} En esta operación se selecciona un valor particular de una de las dimensiones del cubo, buscando con ésto obtener una ``rebanada'' del
       mismo.
       \item \textbf{Dice:} Seleccionar valores específicos de 2 o más dimensiones de las cuales se visualizan y así obtener un subcubo del cubo original.
       \item \textbf{Drill Down:} Esta operación busca ofrecer más detalle respecto a la información que actualmente se puede visualizar. Lo antedicho puede
