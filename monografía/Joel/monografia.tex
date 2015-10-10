@@ -30,6 +30,14 @@
 \usepackage[backend=bibtex,bibencoding=ascii, style=alphabetic-verb]{biblatex}
 \bibliography{bibliografia}
 
+% Paquetes para tener dos figuras verticales
+\usepackage{subcaption}
+\usepackage{cleveref}
+\captionsetup[subfigure]{subrefformat=simple,labelformat=simple}
+\renewcommand\thesubfigure{(\alph{subfigure})}
+%\setcounter{chapter}{1}
+
+
 \title{}
 \author{}
 
@@ -196,7 +204,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.39]{OltpVSDW3}
-        \caption{Cuadro comparativo entre el análisis OLTP y OLAP. \cite{hefestov2} Pag. 42.}
+        \caption{Cuadro comparativo entre el análisis OLTP y OLAP. \cite[p.~42]{hefestov2}.}
         \label{oltp_vs_olap}
       \end{center}
     \end{figure}
@@ -338,7 +346,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.15]{Top-Down}
-        \caption{Top Down} \cite{hefestov2} Pag. 74.
+        \caption{Top Down} \cite[p.~74]{hefestov2}
         \label{top_down}
       \end{center}
     \end{figure}
@@ -346,7 +354,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.15]{Bottom-Up}
-        \caption{Bottom Up} \cite{hefestov2} Pag. 74.
+        \caption{Bottom Up} \cite[p.~74]{hefestov2}
         \label{bottom_up}
       \end{center}
     \end{figure}
@@ -524,7 +532,7 @@
     En 1993, E.F. Codd \& Associates publicó un informe, encargado por Arbor Software (ahora Hyperion Solutions), titulado ``Providing OLAP to User-Analysts:
     An IT Mandate''.
     En un comienzo Codd definió 12 reglas con el fin de evitar que la visión que él tenía sobre las bases de datos relacionales se perdiera, y con el correr
-    de los años se extendieron a 18 \footnote{Se pueden observar en \cite{nagabhushana} Pag. 205}. A continuación se detallan las reglas más importantes 
+    de los años se extendieron a 18 \footnote{Se pueden observar en \cite[p.~205]{nagabhushana}}. A continuación se detallan las reglas más importantes 
     para los autores:
     
     \begin{itemize}
@@ -581,7 +589,7 @@
     
     \subsection{Jerarquías}
     
-    Las dimensiones en general, tienen distintos niveles \footnote{Se detalla en \cite{olap_solutions} Pag. 94.}, los cuales representan las
+    Las dimensiones en general, tienen distintos niveles \footnote{Se detalla en \cite[p.~94]{olap_solutions}}, los cuales representan las
     múltiples granularidades de la dimensión (menor o mayor nivel de detalle). Estos niveles forman parte de una jerarquía. El ejemplo más simple de
     jerarquía es el de la dimensión de tiempo, la cual puede ser: \textbf{Año > Mes > Día}. Tanto en la dimensión de
     tiempo como en cualquier otra existe la posibilidad de definir distintas jerarquías. Dos ejemplos sencillos se ilustran en la Figura
@@ -590,7 +598,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.5]{jerarquias}
-        \caption{Jerarquías de \textit{Tiempo} y \textit{Ubicación}. \cite{olap_solutions} Pag. 94.}
+        \caption{Jerarquías de \textit{Tiempo} y \textit{Ubicación}. \cite[p.~94]{olap_solutions}.}
         \label{jerarquias}
       \end{center}
     \end{figure}
@@ -609,7 +617,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.3]{esq_orig1}
-        \caption{\textbf{Esquema de nivel base}, contiene los datos en el nivel más detallado. \cite{nagabhushana} Pag. 172.}
+        \caption{\textbf{Esquema de nivel base}, contiene los datos en el nivel más detallado. \cite[p.~172]{nagabhushana}.}
         \label{sch_orig1}
       \end{center}
     \end{figure}
@@ -617,7 +625,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.3]{esq_agg1}
-        \caption{\textbf{Esquema agregado}, tiene datos en los niveles más alto de las jerarquías. \cite{nagabhushana} Pag. 172.}
+        \caption{\textbf{Esquema agregado}, tiene datos en los niveles más alto de las jerarquías. \cite[p.~172]{nagabhushana}.}
         \label{sch_agg1}
       \end{center}
     \end{figure}
@@ -683,7 +691,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.5]{cube_1}
-        \caption{Conjunto de datos. \cite{olap_solutions}. Pag. 48.}
+        \caption{Conjunto de datos. \cite[p.~48]{olap_solutions}.}
         \label{tab_cube}
       \end{center}
     \end{figure}
@@ -691,7 +699,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.6]{cube_2}
-        \caption{Cubo con 3 dimensiones, \textit{Variable, Time, Product}. \cite{olap_solutions} Pag. 49.}
+        \caption{Cubo con 3 dimensiones, \textit{Variable, Time, Product}. \cite[p.~49]{olap_solutions}.}
         \label{cube_2}
       \end{center}
     \end{figure}
@@ -706,7 +714,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.5]{cube_3}
-        \caption{\textbf{Visualización del cubo}, ``rebanada'' del cubo seleccionando un valor específico de la dimensión \textit{Product}.} \cite{olap_solutions} Pag. 51.
+        \caption{\textbf{Visualización del cubo}, ``rebanada'' del cubo seleccionando un valor específico de la dimensión \textit{Product}.} \cite[p.~51]{olap_solutions}.
         \label{cube_3}
       \end{center}
     \end{figure}
@@ -722,7 +730,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.6]{cube_4}
-        \caption{Ejemplo de representación utilizando \textbf{MTS}. \cite{olap_solutions} Pag. 55.}
+        \caption{Ejemplo de representación utilizando \textbf{MTS}. \cite[p.~55]{olap_solutions}.}
         \label{cube_4}
       \end{center}
     \end{figure}
@@ -740,7 +748,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{cube_5}
-        \caption{Transformación de dos dimensiones a una. Variables anidadas en Productos. \cite{olap_solutions} Pag. 58.}
+        \caption{Transformación de dos dimensiones a una. Variables anidadas en Productos. \cite[p.~58]{olap_solutions}.}
         \label{cube_5}
       \end{center}
     \end{figure}
@@ -748,7 +756,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{cube_6}
-        \caption{Transformación de dos dimensiones a una. Productos anidados en Variables. \cite{olap_solutions} Pag. 58.}
+        \caption{Transformación de dos dimensiones a una. Productos anidados en Variables. \cite[p.~58]{olap_solutions}.}
         \label{cube_6}
       \end{center}
     \end{figure}
@@ -756,7 +764,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{cube_7}
-        \caption{Anidamiento de 6 dimensiones. \cite{olap_solutions} Pag. 60.}
+        \caption{Anidamiento de 6 dimensiones. \cite[p.~60]{olap_solutions}.}
         \label{cube_7}
       \end{center}
     \end{figure}
@@ -782,40 +790,44 @@
     
     \subsection{Operaciones}
     
-    A continuación se detallan las operaciones que los autores consideran como las más importantes dentro del ámbito OLAP, y junto con las mismas se grafican
-    ejemplos para lograr una mejor comprensión del lector y un mayor entendimiento:
+    Veremos las operaciones OLAP que los autores consideran más importantes, y junto con las mismas se ilustran
+    ejemplos, en base a un cubo de tres dimensiones, \textit{Locations}, \textit{Time}, y \textit{Item}:
     
     \begin{itemize}
       \item \textbf{Slice:} En esta operación se selecciona un valor particular de una de las dimensiones del cubo, buscando con ésto obtener una ``rebanada'' del
-      mismo.
-      \item \textbf{Dice:} Seleccionar valores específicos de 2 o más dimensiones de las cuales se visualizan y así obtener un subcubo del cubo original.
-      \item \textbf{Drill Down:} Esta operación busca ofrecer más detalle respecto a la información que actualmente se puede visualizar. Lo antedicho puede
-      lograrse de 2 formas, bajar un nivel en la jerarquía de una dimensión en particular o agregar una dimensión para sumar aún más información sobre el contexto.
-      \item \textbf{Drill up:} En contraposición con la anterior operación, lo que se intenta lograr es visualizar menos información, lo cual puede realizarse
-      subiendo un nivel en la jerarquía de una dimensión o eliminando alguna de las dimensiones. De esta forma información con un nivel de abstracción más alto.
-      \item \textbf{Pivot:} Aplicando esta operación se ofrece al usuario una presentación alternativa de la información rotando los ejes de datos.
+      mismo. Ver Figura \ref{slice}.
+      \item \textbf{Dice:} Se seleccionan valores específicos de dos o más dimensiones, y así se obteniene un subcubo del cubo original. Ver Figura \ref{dice}.
+      \item \textbf{Drill Down:} Esta operación ofrece más detalle de la información visualizada, previo a ser aplicada. Ésto puede
+      lograrse de dos formas, bajar un nivel en la jerarquía de una dimensión en particular o añadir otra dimensión, para sumar aún más información sobre el contexto.
+      Ver Figura \ref{drill_down}.
+      \item \textbf{Drill up:} En contraposición con la operación anterior, \textit{drill up} permite visualizar menos información, lo cual puede realizarse
+      subiendo un nivel en la jerarquía de una dimensión o eliminando alguna de las dimensiones. De ésta forma, se obtiene información con un nivel más alto
+      de abstracción. Ver Figura \ref{drill_up}.
+      \item \textbf{Pivot:} Ofrece al usuario una presentación alternativa de la información rotando los ejes de datos. Ver Figura \ref{pivot}.
     \end{itemize}
     
     \begin{figure}
-      \begin{center}
-        \includegraphics[scale=0.4]{slice}
-        \caption{Operación Slice} \cite{operaciones}
-        \label{slice}
-      \end{center}
+        \centering
+        \begin{subfigure}[b]{0.5\textwidth}
+          \includegraphics[width=\textwidth]{slice}
+          \caption{Operación Slice. \cite{operaciones}}
+          \label{slice}      
+        \end{subfigure}%
+        ~
+        \begin{subfigure}[b]{0.5\textwidth}
+          \includegraphics[width=\textwidth]{dice}
+          \caption{Operación Dice. \cite{operaciones}}
+          \label{dice}
+        \end{subfigure}
+    \caption{
+    \label{slice-dice}%
+    Operaciones}
     \end{figure}
-    
-    \begin{figure}
-      \begin{center}
-        \includegraphics[scale=0.4]{dice}
-        \caption{Operación Dice} \cite{operaciones}
-        \label{dice}
-      \end{center}
-    \end{figure}
-    
+      
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.8]{drill_down}
-        \caption{Operación Drill Down} \cite{operaciones}
+        \caption{Operación Drill Down. \cite{operaciones}}
         \label{drill_down}
       \end{center}
     \end{figure}
@@ -823,7 +835,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{drill_up}
-        \caption{Operación Drill Up} \cite{operaciones}
+        \caption{Operación Drill Up. \cite{operaciones}}
         \label{drill_up}
       \end{center}
     \end{figure}
@@ -831,20 +843,18 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{pivot}
-        \caption{Operación Pivot} \cite{operaciones}
+        \caption{Operación Pivot. \cite{operaciones}}
         \label{pivot}
       \end{center}
     \end{figure}
     
     
-    \vspace{0.3in}
     \subsection{Tipos de OLAP}
     
     \subsubsection{ROLAP}
     
-    El \textbf{ROLAP} (acrónimo de Relational OnLine Analytical Processing), cuya traducción al castellano es \textbf{Procesamiento Analítico
-    Relacional En Línea}, consiste en sistemas y herramientas OLAP construidas sobre una base de datos relacional. Al trabajar con ROLAP se deben
-    tener en cuenta las siguientes ventajas y desventajas:
+    El \textbf{Procesamiento Analítico Relacional En Línea} (\textbf{ROLAP}, acrónimo de \textit{Relational OnLine Analytical Processing}), consiste en sistemas
+    y herramientas OLAP construidas sobre una base de datos relacional. Al trabajar con ROLAP se deben tener en cuenta las siguientes ventajas y desventajas:
     
     \begin{itemize}
       \item \textbf{Ventajas:}
@@ -857,32 +867,31 @@
       \item \textbf{Desventajas:}
         \begin{itemize}
           \item Muchos desarrolladores de modelos dimensionales ROLAP ignoran el paso de creación de tablas agregadas, con lo cual el rendimiento de
-          una consulta se ve afectado debido a la necesidad de consultar las tablas con datos más detallados. Ésto puede evitarse parcialmente
-          añadiendo tablas agregadas, sin embargo no es práctico crear tablas agregadas para todas las combinaciones posibles de dimensiones/atributos.
+          una consulta se ve afectado ante la necesidad de consultar las tablas con los datos más detallados. Ésto puede evitarse parcialmente
+          añadiendo tablas agregadas, sin embargo no es práctico crear tablas agregadas para todas las combinaciones posibles de dimensiones/hechos.
           \item Los sistemas ROLAP se construyen sobre bases de datos de propósito general, por lo que hay algunas funcionalidades especiales, propias
           de las herramientas MOLAP, que no están disponibles en los sistemas ROLAP (tales como el indexado jerárquico especial). Sin embargo, las
-          herramientas ROLAP modernas suplen estas carencias con las continuas mejoras del lenguaje SQL, tales como los operadores CUBE y ROLLUP, las
-          vistas de cubo DB2, así como otras extensiones SQL OLAP. Estas mejoras SQL pueden mitigar en cierto nivel las diferencias frente a las
-          herramientas MOLAP.
+          herramientas ROLAP modernas suplen estas carencias con las continuas mejoras del lenguaje SQL, tales como los operadores CUBE y ROLLUP.
+          Estas mejoras SQL pueden mitigar en cierto nivel las diferencias frente a las herramientas MOLAP.
           \item Dado que las herramientas ROLAP se basan en SQL para todos sus cálculos, no son apropiadas cuando el modelo realiza muchos cómputos que
-          no una traducción simple al SQL (por ejemplo: presupuestos, asignaciones, informes financieros y otros escenarios).
+          no tienen una traducción simple al SQL (por ejemplo: presupuestos, asignaciones, informes financieros y otros escenarios).
         \end{itemize}
     \end{itemize}
     
-    En la Figura \ref{rolap} se puede observar como sería una estructura utilizando una herramienta ROLAP.
+    En la Figura \ref{rolap} se puede observar una posible estructura utilizando ROLAP.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{rolap}
-        \caption{Estructura de DW utilizando ROLAP} \cite{nagabhushana} Pag. 81.
+        \caption{Estructura de DW utilizando ROLAP. \cite[p.~81]{nagabhushana}.}
         \label{rolap}
       \end{center}
     \end{figure}
     
     \subsubsection{MOLAP}
     
-    El \textbf{Procesamiento Analítico Multidimensional En Línea} (más conocido por las siglas \textbf{MOLAP}) son las herramientas que ejecutan sus
-    cálculos sobre una base de datos multidimensional (MDDB) y por lo cual tienen algunas características a favor y otras en contra.
+    El \textbf{Procesamiento Analítico Multidimensional En Línea} (\textbf{MOLAP}, \textit{Multidimensional Online Analytical Processing}),
+    consiste en herramientas que ejecutan sus cálculos sobre una base de datos multidimensional (MDDB), cual tienen algunas características a favor y otras en contra.
     
     \begin{itemize}
       \item \textbf{Ventajas:}
@@ -894,7 +903,7 @@
         \end{itemize}
       \item \textbf{Desventajas:}
         \begin{itemize}
-          \item La etapa de procesamiento (carga de datos) puede ser bastante larga, sobre todo para grandes volúmenes de datos. Normalmente, esto se
+          \item La etapa de procesamiento (carga de datos) puede llevar mucho tiempo, sobre todo para grandes volúmenes de datos. Normalmente, esto se
           puede evitar con un procesamiento incremental, es decir, sólo procesar los datos que han cambiado (por lo general, datos nuevos) en lugar de
           reprocesar todo el conjunto de datos.
           \item Las herramientas MOLAP tradicionalmente tienen dificultades para consultar modelos con muchas dimensiones.
@@ -904,26 +913,25 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{molap}
-        \caption{Estructura de DW utilizando MOLAP} \cite{nagabhushana} Pag. 81.
+        \caption{Estructura de DW utilizando MOLAP. \cite[p.~81]{nagabhushana}.}
         \label{molap}
       \end{center}
     \end{figure}
     
-    En la Figura \ref{molap} se puede observar un ejemplo de estructura modalando la realidad con una herramienta MOLAP.
+    En la Figura \ref{molap} se puede observar una estructura MOLAP.
     
     \subsubsection{HOLAP}
 
     El coste adicional de los procesos ETL para migrar datos a una herramienta MOLAP y el pobre rendimiento de consulta en los sistemas ROLAP ha generado que la
-    mayoría de las herramientas comerciales OLAP usen un modelo \textbf{HOLAP (Hybrid OnLine Analytical Processing)}, el cual permite al diseñador del sistema
+    mayoría de las herramientas comerciales OLAP usen un modelo \textbf{HOLAP} (\textit{Hybrid OnLine Analytical Processing}), el cual permite al diseñador del sistema
     decidir qué porción de los datos serán almacenados en modo multidimensional (MOLAP) y qué porción en modo relacional (ROLAP). Al combinar ambas herramientas
     se obtiene la reducción de los tiempos que demanda la carga de datos (ROLAP) y las optimizaciones en cálculos complejos, lo que beneficia a la fluidez de la
-    navegación de los datos (MOLAP). En la Figura \ref{holap} se presenta un esquema modelado con una herramienta HOLAP, donde se puede observar como, dentro de
-    una misma arquitectura de DW, conviven ambas tecnologías.
+    navegación de los datos (MOLAP). En la Figura \ref{holap} vemos un modelo HOLAP, donde en una misma arquitectura, conviven ambas tecnologías.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{holap}
-        \caption{Estructura de DW utilizando HOLAP} \cite{nagabhushana} Pag. 82.
+        \caption{Estructura de DW utilizando HOLAP. \cite[p.~82]{nagabhushana}.}
         \label{holap}
       \end{center}
     \end{figure}
@@ -933,8 +941,8 @@
     \section{Estado del arte}
     
     En las siguientes secciones se desarrollaran temas que se encuentran actualmente en investigación. Los mismos fueron seleccionados por los autores
-    debido a la calidad de información que aportan y, en algunos casos, a la relación que se establece entre las bases de datos y temas afines la
-    Inteligencia Artificial.
+    debido a la calidad de información que aportan, y a la relación que se establece entre las bases de datos y temas de la matéria
+    \textit{Introducción a la Inteligencia Artificial} (lógica difusa, ontologías).
     
     \subsection{Diseño de un Data Warehouse} 
     
@@ -982,7 +990,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.6]{create_tables}
-        \caption{\textbf{Primer etapa:} Creación de tablas} \cite{ontologias} Pag. 20.
+        \caption{\textbf{Primer etapa:} Creación de tablas} \cite[p.~20]{ontologias}.
         \label{createTables}
       \end{center}
     \end{figure}
@@ -998,7 +1006,7 @@
     \begin{figure}[!htb]
       \begin{center}
         \includegraphics[scale=0.6]{sub_clase}
-        \caption{\textbf{Segundo etapa:} Detección de relaciones de subclase} \cite{ontologias} Pag. 20.
+        \caption{\textbf{Segundo etapa:} Detección de relaciones de subclase} \cite[p.~20]{ontologias}.
         \label{subClase}
       \end{center}
     \end{figure}
@@ -1015,7 +1023,7 @@
     \begin{figure}[!htb]
       \begin{center}
         \includegraphics[scale=0.6]{object_property}
-        \caption{\textbf{Tercer etapa:} Detección de propiedades de objeto} \cite{ontologias} Pag. 21.
+        \caption{\textbf{Tercer etapa:} Detección de propiedades de objeto} \cite[p.~21]{ontologias}.
         \label{objectProperty}
       \end{center}
     \end{figure}
@@ -1032,7 +1040,7 @@
     \begin{figure}[!htb]
       \begin{center}
         \includegraphics[scale=0.6]{data_property}
-        \caption{\textbf{Cuarta etapa:} Detección de propiedades de dato} \cite{ontologias} Pag. 21.
+        \caption{\textbf{Cuarta etapa:} Detección de propiedades de dato} \cite[p.~21]{ontologias}.
         \label{dataProperty}
       \end{center}
     \end{figure}
@@ -1053,7 +1061,7 @@
     \begin{figure}[!htb]
       \begin{center}
         \includegraphics[scale=0.4]{inserting_data}
-        \caption{\textbf{Quinta etapa:} Inserción de datos} \cite{ontologias} Pag. 22.
+        \caption{\textbf{Quinta etapa:} Inserción de datos} \cite[p.~22]{ontologias}.
         \label{insertingData}
       \end{center}
     \end{figure}
@@ -1107,7 +1115,7 @@
     \begin{figure}[!htb]
       \begin{center}
         \includegraphics[scale=0.25]{ww_arq}
-        \caption{Arquitectura genérica de un Web Warehouse} \cite{webwarehouse} Pag. 2.
+        \caption{Arquitectura genérica de un Web Warehouse} \cite[p.~2]{webwarehouse}.
         \label{ww_arq}
       \end{center}
     \end{figure}
@@ -1121,7 +1129,7 @@
     \begin{figure}[!htb]
       \begin{center}
         \includegraphics[scale=0.25]{lifecycle}
-        \caption{Ciclo de vida de un Web Warehouse} \cite{webwarehouse} Pag. 3.
+        \caption{Ciclo de vida de un Web Warehouse} \cite[p.~3]{webwarehouse}.
         \label{lifecycle}
       \end{center}
     \end{figure}
