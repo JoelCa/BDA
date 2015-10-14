@@ -102,8 +102,8 @@
   
     \section{Introducción} % Puede ir en una hoja nueva?
 
-    Desde que una empresa u organización es creada, ésta comienza a recabar información de las distintas transacciones que realiza, al relacionarse
-    con alguna entidad externa, o información respectiva a movimientos internos a la entidad, como por ejemplo el ingreso de personal, gastos administrativos,
+    Desde que una empresa u organización es creada, ésta comienza a recabar información, de las distintas transacciones que realiza, al relacionarse
+    con alguna entidad externa, o información respectiva a movimientos internos, como por ejemplo el ingreso de personal, gastos administrativos,
     etc. (cuando se habla de transacciones se hace referencia, por ejemplo, a la compra de materias primas de la empresa, venta de mercaderías a un tercero,
     etc.). Desde entonces, se utilizó toda esta información para analizarla y comenzar el proceso de toma de decisiones con el fin de generar un
     crecimiento de la entidad. Por ejemplo, luego de un análisis completo de las ventas realizadas en los últimos meses, se decide incrementar la 
@@ -112,7 +112,6 @@
     Un factor de gran importancia es el tiempo, ya que con el paso del tiempo la información almacenada se vuelve cada vez más grande 
     y por ende difícil de analizar. Y es aquí, donde surge el concepto \textit{Data Warehouse}, en el ámbito de las bases de datos.
 
-    \vspace{0.5in}
     \section{Data Warehouse: Conceptos fundamentales}
     
     Se denominada \textbf{Business Intelligence} (BI, inteligencia de negocios), al conjunto de estrategias que integran, por un lado el almacenamiento, y
@@ -332,7 +331,7 @@
     \begin{itemize}
       \item \textbf{Top Down:} Como se puede apreciar en la Figura \ref{top_down}, el DW es cargado a través de procesos ETL y luego éste alimenta a los
       diferentes DM, cada uno de los cuales recibirá los datos que correspondan al tema o departamento que traten. Esta forma de implementación cuenta
-      con la ventaja de no tener que incurrir en complicadas sincronizaciones de \textit{hechos}, pero requiere una gran inversión y más tiempo de
+      con la ventaja de no tener que incurrir en complicadas sincronizaciones de \textit{hechos}, pero requiere una gran inversión monetaria y más tiempo de
       construcción, que la arquitectura \textit{Bottom Up}.
       \item \textbf{Bottom Up:} En la Figura \ref{bottom_up} se ve claramente como los DM se cargan a través de procesos ETL, los cuales suministrarán la
       información adecuada a cada uno de ellos. En muchas ocasiones, los DM son implementados sin que exista el DW, ya que tienen sus mismas 
@@ -360,10 +359,10 @@
     \end{figure}
     
     
-    \subsection{Modelo dimensional}
+    \subsection{Modelo dimensional} \label{mod_dimensional}
     
-    El modelado dimensional es una técnica de diseño lógico de una base de datos, útil para el procesamiento OLAP, que tiene como ideas centrales el
-    rendimiento y la comprendión, por parte de los usuarios, de los datos en forma sencilla.
+    El \textbf{modelado dimensional o multidimensional}, es una técnica de diseño lógico de una base de datos, útil para el procesamiento OLAP, que tiene
+    como ideas centrales el rendimiento y la comprensión, por parte de los usuarios, de los datosen forma sencilla.
     
     Los conceptos fundamentales del modelo dimensional son:
     
@@ -380,10 +379,10 @@
     
     \subsection{Esquema dimensional}
     
-    Se sabe que la relación entre todas las tablas de una base de datos se denomina esquema de base de datos. Para un cierto grupo de bases de datos, en las
-    cuales se realizan consultas sobre datos históricos, generalmente se utilizan diseños llamados esquemas dimensionales. Un \textbf{esquema dimensional}
-    separa físicamente las medidas que cuantifican el negocio (hechos) de los elementos que los describen (dimensiones). Estos tipos de diseños pueden ser de
-    dos tipos:
+    Se sabe que la relación entre todas las tablas de una base de datos se denomina \textit{esquema de base de datos}. Para un cierto grupo de bases de datos, en las
+    cuales se realizan consultas sobre datos históricos, generalmente se utilizan diseños llamados \textbf{esquemas dimensionales}. Un esquema dimensional,
+    basado en los fundamentos del modelado dimensional, separa físicamente las medidas que cuantifican el negocio (hechos) de los elementos que los describen
+    (dimensiones). Este puede ser de dos tipos:
     
     \begin{itemize}
       \item \textbf{Físico:} Generalmente los objetos que contiene son en realidad tablas de una base de datos.
@@ -403,7 +402,8 @@
     de utilidad en el ambiente de negocios.
     
     Este esquema es ideal por su simplicidad y velocidad para ser usado en \textit{análisis multidimensionales}. Permite 
-    acceder tanto a datos agregados como de detalle. El diseño de esquemas en estrella permite implementar la funcionalidad de una \textit{base de datos 
+    acceder tanto a \textit{datos agregados} \footnote{Ver \ref{agregaciones}.}, como de detalle.
+    El diseño de esquemas en estrella permite implementar la funcionalidad de una \textit{base de datos 
     multidimensional} utilizando una clásica base de datos relacional (más extendidas que las multidimensionales). Otra razón para utilizar los esquemas en 
     estrella es su simplicidad desde el punto de vista del usuario final. Las consultas son simples, ya que las condiciones y las uniones (Join) 
     necesarias sólo involucran a la tabla de hechos y a las de dimensiones, sin necesidad de que se encadenen uniones y condiciones a dos o más niveles como 
@@ -540,7 +540,7 @@
       una visión de todas las dimensiones del modelo. Provee la base para el procesamiento analítico mediante un acceso flexible y simple a los datos de la 
       organización o empresa.
       \item \textbf{Manipulación intuitiva de los datos:} Lo que se intenta remarcar con esta regla es que tiene que la navegación de los datos debe ser
-      sencilla, para lo cual, la mayoría de las aplicaciones ofrecen el doble click o el drag and drop para acceder a los datos.
+      sencilla, para lo cual, la mayoría de las aplicaciones ofrecen el doble click o el \textit{drag and drop} para acceder a los datos.
       \item \textbf{Accesibilidad:} Esto está relacionado con el item anterior, salvo que de una forma un poco más abstracta. Lo que plantea es que se
       considera a las aplicaciones OLAP como el middleware (capa intermedia) entre las distintas fuentes de información y el usuario final.
       \item \textbf{Soporte de multi-usuario:} La aplicación OLAP debe soportar accesos concurrentes, lo que conlleva a mantener la integridad y seguridad
@@ -578,10 +578,9 @@
       forma en que el usuario lo desee, sin requerir conocimientos técnicos. Ésto podría incluir características como el análisis de series de tiempo,las
       asignaciones de costos, la conversión de moneda, búsqueda de objetivos, los cambios estructurales multidimensionales ad hoc, y otras funciones que
       dependen de la aplicación.
-      \item \textbf{Información:} Se está midiendo la capacidad de los distintos productos en términos de la cantidad de datos de entrada que puede manejar,
+      \item \textbf{Información:} Se mide la capacidad de los distintos productos en términos de la cantidad de datos de entrada que puede manejar,
       no de cuántos gigabytes utilizan para almacenarlo.
-      \item \textbf{Multidimensional:} El tipo de información con que se trata concuerda con el tipo de modelos dimensionales nombrados en las anteriores
-      secciones, con lo cual la estructura multidimensional subyacente queda al descubierto.
+      \item \textbf{Multidimensional:} El tipo de información que se trata concuerda con el modelo dimensional \footnote{Ver \ref{mod_dimensional}.}.
       \item \textbf{Compartida:} No todas las aplicaciones permiten la escritura de datos, pero si lo hace, el sistema debe ser capaz de manejar múltiples
       actualizaciones de manera oportuna.
     \end{itemize}
@@ -604,12 +603,16 @@
     \end{figure}
     
     
-    \subsection{Agregaciones}
+    \subsection{Agregaciones} \label{agregaciones}
     
-    El modelo dimensional permite optimizar el rendimiento de las consulta mediante la creación de tablas agregadas. El número de posibles agregaciones se
-    determina por las combinaciones posibles de las distintas granularidades de cada dimensión. Dado que sería muy costoso construir todas las agregaciones 
-    posibles, es una buena idea elegir un subconjunto de tablas sobre las cuales hacer agregaciones. La mejor manera de elegir este subconjunto y decidir qué 
-    agregaciones construir, es monitorear las consultas, y diseñar las agregaciones que coincidan con los patrones de consulta.\par
+    El modelo dimensional permite optimizar el rendimiento de aquellas consultas que requieren solo de datos sumarizados, o de alto nivel,
+    mediante la creación de tablas agregadas.
+    Un agregado es un resumen precalculado, almacenado por lo general en un esquema separado. Los agregados típicamente se calculan en base
+    a los registros en el nivel más detallado (o base) de su jerarquía.
+    El número de posibles agregaciones se determina por las combinaciones de las distintas granularidades de cada dimensión.
+    Dado que sería muy costoso construir todas las agregaciones  posibles, es una buena idea elegir un subconjunto de tablas sobre las cuales
+    hacer agregaciones. La mejor manera de elegir este subconjunto y decidir qué  agregaciones construir, es monitorear las consultas, y diseñar
+    las agregaciones que coincidan con los patrones de consulta.
     
     En las Figura \ref{sch_orig1}, se puede apreciar el esquema base sin agregaciones, y en la Figura \ref{sch_agg1} vemos el esquema
     donde los campos tienen un determinado nivel de agregación.
@@ -671,6 +674,10 @@
     
     \subsection{Hipercubo de datos}
     
+    OLAP utiliza \textbf{hipercubos} o \textbf{cubos}, de la misma manera que las bases de datos tradicionales utilizan tablas.
+    Toda la navegación, informes y análisis se hacen en términos de hipercubos.
+    Por lo tanto, un ``cubo'' de datos se refiere a una representación multidimensional de los datos en dicha forma (obviamente, sólo en el espacio tridimensional).
+    
     En la construcción de cubos OLAP, las tablas de dimensiones contienen atributos (o campos) que se utilizan para restringir y agrupar
     los datos almacenados en una tabla de hechos cuando se realizan consultas sobre dichos datos en un DW o DM. Los datos en las dimensiones son parámetros
     de los que dependen otros datos que serán objeto de estudio y análisis y que están contenidos en la tabla de hechos. Las tablas de dimensiones ayudan a
@@ -679,13 +686,16 @@
 
     El camino hacia la comprensión de los hipercubos no pasa a través de la longitud, ancho y alto de un cubo físico, el cubo es una metáfora visual. Hay
     límites naturales con respecto a lo que se puede hacer en una pantalla de dos dimensiones. Esta limitación ha hecho pensar largo y tendido a los
-    desarrolladores de software en busca de la forma óptima de representar la información, con más de dos dimensiones, en una pantalla de computadora plana a
-    efectos de su visualización y manipulación.
+    desarrolladores de software en busca de la forma óptima de representar la información, con más de dos dimensiones, en una pantalla de computadora plana,
+    a efectos de su visualización y manipulación.
     
     Utilizaremos el conjunto de datos de la Figura \ref{tab_cube}, para explicar la visualización de un cubo. Se puede observar una basta cantidad de
     métricas \textit{(Sales, Direct Costs, Indirect Costs, Total Costs y Margin)} y una única dimensión (\textit{Month}) que representa la dimensión de tiempo.
-    Es importante aclarar que el conjunto de métricas se considera como una dimensión en sí misma, con lo cual hay 2 dimensiones en el esquema de
-    los datos del ejemplo planteado. Al agregarse una tercera dimensión (\textit{Products}) se obtiene un cubo, en el cual cada celda contiene el valor para un un mes,
+    Es importante aclarar que el conjunto de métricas se considera como una dimensión en sí misma, con lo cual hay dos dimensiones en el esquema del ejemplo planteado.
+    Este enfoque de \textbf{dimensiones genéricas}, utiliza invariablemente una \textbf{dimensión de hechos}, o \textit{variable}.
+    Tratar a los hechos como miembros de una dimensión, implica la creación de una dimensión de datos. 
+    
+    Al agregarse una tercera dimensión (\textit{Products}) se obtiene un cubo, en el cual cada celda contiene el valor para un un mes,
     un producto y una métrica determinada, como se puede apreciar en la Figura \ref{cube_2}.
     
     \begin{figure}
@@ -707,7 +717,7 @@
     
     Una de las opciones para representar este cubo tridimensional en una pantalla de dos dimensiones , consiste en tomar una
     ``rebanada'' del mismo. Ésto consiste en fijar una de las dimensiones (por ejemplo, la de \textit{Products}) a un valor determinado, con lo cual se obtendrá una
-    tabla cuyas celdas contendran información para los cruces de los valores de las otras 2 dimensiones respecto al producto seleccionado. En la Figura
+    tabla cuyas celdas contendran información para los cruces de los valores de las otras dos dimensiones respecto al producto seleccionado. En la Figura
     \ref{cube_3} se puede observar la visualización del cubo de la Figura \ref{cube_2} habiendo seleccionado el producto \textit{shoes}. Al resultado obtenido se
     lo llama \textit{página} o \textit{rebanada}.
     
@@ -719,7 +729,7 @@
       \end{center}
     \end{figure}
     
-    % Ésto es verdad?
+    % ARREGLAR (quedé aca)
     Si se quiere añadir una cuarta dimensión al cubo, utilizando la técnica planteada hasta el momento, no será posible obtener una visualización del mismo en una
     pantalla de dos dimensiones. A partir de la anterior limitación, surge la necesidad de plantear una nueva estructura que permita la representación de los
     datos si que se restrinja la cantidad de dimensiones a utilizar, a éstas se las llama estructuras de tipo multidimensional (en inglés, Multidimensional Type
@@ -788,7 +798,7 @@
     \end{itemize}
     
     
-    \subsection{Operaciones}
+    \subsection{Operaciones sobre el cubo OLAP}
     
     Veremos las operaciones OLAP que los autores consideran más importantes, y junto con las mismas se ilustran
     ejemplos, en base a un cubo de tres dimensiones, \textit{Locations}, \textit{Time}, y \textit{Item}:
@@ -873,7 +883,7 @@
           de las herramientas MOLAP, que no están disponibles en los sistemas ROLAP (tales como el indexado jerárquico especial). Sin embargo, las
           herramientas ROLAP modernas suplen estas carencias con las continuas mejoras del lenguaje SQL, tales como los operadores CUBE y ROLLUP.
           Estas mejoras SQL pueden mitigar en cierto nivel las diferencias frente a las herramientas MOLAP.
-          \item Dado que las herramientas ROLAP se basan en SQL para todos sus cálculos, no son apropiadas cuando el modelo realiza muchos cómputos que
+          \item Dado que las herramientas ROLAP se basan en SQL para todos sus cálculos, no son apropiadas cuando se realizan muchos cómputos que
           no tienen una traducción simple al SQL (por ejemplo: presupuestos, asignaciones, informes financieros y otros escenarios).
         \end{itemize}
     \end{itemize}
