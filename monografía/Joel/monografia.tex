@@ -715,32 +715,33 @@
     \end{figure}
     
     
-    Una de las opciones para representar este cubo tridimensional en una pantalla de dos dimensiones , consiste en tomar una
-    ``rebanada'' del mismo. Ésto consiste en fijar una de las dimensiones (por ejemplo, la de \textit{Products}) a un valor determinado, con lo cual se obtendrá una
-    tabla cuyas celdas contendran información para los cruces de los valores de las otras dos dimensiones respecto al producto seleccionado. En la Figura
+    Para representar este cubo tridimensional en una pantalla de dos dimensiones, podemos tomar una ``rebanada'' del mismo.
+    Esto consiste en fijar una de las dimensiones (por ejemplo, \textit{Products}) a un valor determinado, con lo cual se obtendrá una
+    tabla cuyas celdas contendran información para los cruces de los valores de las otras dos dimensiones, respecto al producto seleccionado. En la Figura
     \ref{cube_3} se puede observar la visualización del cubo de la Figura \ref{cube_2} habiendo seleccionado el producto \textit{shoes}. Al resultado obtenido se
     lo llama \textit{página} o \textit{rebanada}.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.5]{cube_3}
-        \caption{\textbf{Visualización del cubo}, ``rebanada'' del cubo seleccionando un valor específico de la dimensión \textit{Product}.} \cite[p.~51]{olap_solutions}.
+        \caption{Visualización del cubo, mediante una página.} \cite[p.~51]{olap_solutions}.
         \label{cube_3}
       \end{center}
     \end{figure}
-    
-    % ARREGLAR (quedé aca)
-    Si se quiere añadir una cuarta dimensión al cubo, utilizando la técnica planteada hasta el momento, no será posible obtener una visualización del mismo en una
-    pantalla de dos dimensiones. A partir de la anterior limitación, surge la necesidad de plantear una nueva estructura que permita la representación de los
-    datos si que se restrinja la cantidad de dimensiones a utilizar, a éstas se las llama estructuras de tipo multidimensional (en inglés, Multidimensional Type
-    Structures) o MTS. Cada dimensión se representa por una línea y cada miembro dentro de la dimensión será representado por un intervalo o segmento. Para
-    clarificar la idea, se representará el ejemplo presentado en la Figura \ref{cube_2} utilizando estas estructuras. En la Figura \ref{cube_4} se puede observar
-    la completa representación.
-    
+
+    Si se quiere añadir una cuarta dimensión al cubo, el cubo como metáforavisual se rompe; no será posible obtener una visualización del mismo en una
+    pantalla de dos dimensiones. Entonces, en \cite{olap_solutions}, se sugiere una nueva estructura para representar los datos, o eventos generadores de datos,
+    que es capaz de reproducir cualquier número de dimensiones.
+    Se la llama, \textbf{Estructura de Tipo Multidimensional} (\textit{Multidimensional Type Structures}, o MTS).
+    Cada dimensión está representada por una línea. Cada miembro dentro de una dimensión está representado por un intervalo, dentro del segmento correspondiente.
+    Para el ejemplo presentado en la Figura \ref{cube_2}, tenemos tres líneas:
+    Una para el \textit{tiempo}, una de los \textit{productos}, y por último, una para las \textit{variables}.
+    Cualquier unión de los intervalos de cada una de los tres líneas, está conectada a un evento y a un elemento del cubo, ver Figura \ref{cube_4}.
+
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.6]{cube_4}
-        \caption{Ejemplo de representación utilizando \textbf{MTS}. \cite[p.~55]{olap_solutions}.}
+        \caption{Representación de los datos utilizando \textbf{MTS}. \cite[p.~55]{olap_solutions}.}
         \label{cube_4}
       \end{center}
     \end{figure}
@@ -748,12 +749,15 @@
     
     \subsection{Hipercubo en pantalla}
     
-    Para lograr que los datos se visualicen en pantalla de forma correcta, se deberá mapear las múltiples dimensiones lógicas en las dos dimensiones físicas
-    que utiliza el monitor, para ésto se debe comenzar por transformar dos dimensiones en una, ésto se logra anidando una dimensión dentro de la otra. En las
-    Figuras \ref{cube_5} y \ref{cube_6} se muestran dos formas distintas en las que se puede llevar a cabo éste procedimiento utilizando las dimensiones
-    \textit{Variable} y \textit{Product}. En la Figura \ref{cube_7}, vemos un escenario más elaborado en el que se agregan las dimensiones de
-    \textit{Stores} (Tiendas), \textit{Customers} (Tiendas) y \textit{Scenarios} (Tiendas), podemos apreciar múltiples anidamientos para 
-    obtener como resultado final una representación bidimensional de las seis dimensiones.
+    Para lograr que los datos se visualicen en la pantalla de forma correcta, se deberá mapear las múltiples dimensiones lógicas en las dos dimensiones físicas
+    que utiliza el monitor.
+    Mapear dos dimensiones en una dimensión, implica crear una versión unidimensional de las dos dimensiones.
+    El método típico consiste en anidar una dimensión dentro de la otra. En las Figuras \ref{cube_5} y \ref{cube_6} se muestran dos formas distintas en las que
+    se puede llevar a cabo éste procedimiento utilizando las dimensiones \textit{Variable} y \textit{Product}.
+    
+    La Figura \ref{cube_7}, muestra un escenario más elaborado en el que se agregan las dimensiones \textit{Stores} (Tiendas), \textit{Customers} (Tiendas)
+    y \textit{Scenarios} (Tiendas). Podemos apreciar el uso del MTS, y múltiples anidamientos, para obtener como resultado final una representación
+    bidimensional de las seis dimensiones, en base a filas, columnas y páginas.
     
     \begin{figure}
       \begin{center}
@@ -774,7 +778,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{cube_7}
-        \caption{Anidamiento de 6 dimensiones. \cite[p.~60]{olap_solutions}.}
+        \caption{Visualización en forma de grilla. \cite[p.~60]{olap_solutions}.}
         \label{cube_7}
       \end{center}
     \end{figure}
@@ -782,6 +786,7 @@
     
     La capacidad de cambiar fácilmente las vistas de los datos, mediante la reconfiguración de cómo se muestran las dimensiones, es uno de los grandes beneficios
     que proveen los sistemas multidimensionales, lo que es primordial en el momento en que los usuarios finales navegan en busca de información.
+    Esto se debe a la separación de la estructura de datos (MTS), de su visualización (grilla).
     
     \vspace{0.2in}
     Para realizar un análisis de los datos multidimensionales, son de mucha utilidad las siguientes reglas básicas:
@@ -954,8 +959,134 @@
     debido a la calidad de información que aportan, y a la relación que se establece entre las bases de datos y temas de la matéria
     \textit{Introducción a la Inteligencia Artificial} (lógica difusa, ontologías).
     
-    \subsection{Diseño de un Data Warehouse} 
+    \subsection{Diseño de un Data Warehouse}
+    El procedimiento, planteado en \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicada a fines analíticos.
+    Por lo tanto, su diseño debe seguir las fases de diseño de bases de datos tradicionales, es decir, la especificación de los requisitos, diseño conceptual, diseño 
+    lógico y diseño físico. Sin embargo, hay diferencias significativas entre las fases del diseño de bases de una datos tradicional y un DW, que se derivan de su
+    diferentes naturalezas. Ver Figura \ref{etapasDiseño}.
     
+    A continuación, se detalla cada etapa del diseño de un Data Warehouse, en base a lo recomendado en \cite{VaismanZimanyi14}.
+    
+    \begin{figure}
+      \includegraphics[scale=0.4]{diseno1}  
+      \caption{Etapas del diseño de una base de datos.}
+      \label{etapasDiseño}
+    \end{figure}
+    
+    \begin{itemize}
+      \item \textbf{Especificación de los requerimientos}:
+      Determina, entre otras cosas, qué datos deben estar disponibles y cómo deben organizarse. En esta fase, también se determinan las consultas de interés
+      para los usuarios. La fase de especificación de requisitos debe conducir al diseñador a descubrir los elementos esenciales de un esquema multidimensional,
+      como los hechos y sus dimensiones asociadas, que son necesarios para facilitar la manipulación y cálculos futuros. Esta fase establece una base para todas
+      las actividades futuras en el desarrollo del DW; tiene un impacto importante en el éxito del proyecto, ya que afecta directamente a los aspectos técnicos,
+      así como las estructuras de almacenamiento de datos y aplicaciones.
+      
+      \item \textbf{Diseño conceptual}:
+      La fase de especificación de requisitos, debe proporcionar los elementos necesarios para la construcción de un esquema conceptual inicial del Data warehouse.
+      El objetivo de este esquema es representar los requisitos de una manera clara y concisa, que puedan ser comprendidos por los usuarios. 
+      En \cite{VaismanZimanyi14} se propone el modelo \textbf{MultiDim} para definir los esquemas conceptuales, aunque también se pueden utilizar otros modelos
+      conceptuales que proporcionen una representación abstracta del esquema del DW.
+
+      Los datos contenidos en los sistemas de origen determina si el esquema conceptual propuesto se puede transformar en esquemas lógicos y físicos, los cuales se
+      alimentarán con los datos necesarios para el análisis.
+      Todos los elementos incluidos en el esquema conceptual se comparan con los datos en los sistemas de origen.
+      Debe especificarse el mapeo de todos los elementos del esquema multidimensional, con los datos en los sistemas de origen. Por ello, el refinamiento del esquema
+      conceptual puede requerir varias iteraciones.
+      
+      \item \textbf{Diseño lógico}:
+      Consiste en la transformación del esquema conceptual en un esquema lógico; y segundo, la especificación de los procesos ETL.
+      Por lo tanto, es necesario aplicar reglas que mapeen el esquema conceptual con un esquema lógico. Estas reglas de transformación, dependen del modelo conceptual
+      utilizado. En \cite{VaismanZimanyi14}, traducen el modelo conceptual MultiDim en el modelo relacional.
+      Por lo general, la representación lógica de un DW se basa en el modelo de datos relacional utilizando estructuras muldimensionales específicas, como los esquemas
+      estrella y copo de nieve.
+      
+      \item \textbf{Diseño físico}:
+      En ésta fase se deben considerar dos aspectos, la implementación tanto de los esquema del DW, como de los procesos ETL.
+      Durante la fase del diseño físico, el esquema lógico se convierte en una estructura de base de datos física.
+      Un diseño físico bien desarrollado debiera permitir gestionar grandes cantidades de datos, ya sea para actualizar el almacén de datos con nuevos datos de los
+      sistemas de origen, como para realizar operaciones complejas, que pueden incluir joins de muchas tablas, y mantener una gran cantidad de datos.
+      \end{itemize}      
+      
+      \subsubsection{Diseño conceptual: MultiDim}
+      
+      Un esquema conceptual es una descripción concisa de los requisitos del usuario, sin tener en cuenta los detalles de implementación.
+      
+      Los esquemas desarrollados mediante el uso de los modelos conceptuales, se puede asignar a varios modelos lógicos, tales como relacionales, objeto-relacional,
+      u objeto orientados a modelos, simplificando así las respuestas a los cambios en la tecnología utilizada.
+      Por otra parte, los modelos conceptuales facilitan el mantenimiento y evolución de las bases de datos, ya que se centran en los requisitos del usuario;
+      en consecuencia, proporcionan un mayor soporte ante posteriores cambios en los esquemas lógicos y físicos.
+      
+      Sin embargo, en \cite{VaismanZimanyi14} se aclara que no hay un modelo conceptual de datos multidimensionales universalmente aceptado.
+      Ante la falta de un modelo genérico, fácil de usar, y comprensible, el diseño del DW, por lo general, se realiza directamente a nivel lógico, en base
+      al esquema estrella y/o copo de nieve, lo que genera esquemas difíciles de entender para un usuario típico.
+      Proveer de extensiones a E/R y modelos UML para DWs, no son realmente una solución al problema, ya que en definitiva representan
+      conceptos de la tecnología relacional subyacentes y, que además, revelan sus propios problemas.
+      
+      Por lo tanto, en \cite{VaismanZimanyi14} se propone el modelo \textbf{MultiDim}, que es lo suficientemente potente como para representar a nivel conceptual
+      todos los elementos requeridos en el almacén de datos y aplicaciones OLAP, es decir, dimensiones, jerarquías y hechos asociados a medidas.
+      
+      \begin{figure}[h]
+        \begin{center}
+          \includegraphics[scale=0.4]{diseno2}
+          \caption{(a) Nivel, (b) jerarquía, (c) cardinalidades, (d) hecho con las medidas y niveles asociados, (e) tipos de medidas, (f) nombre de la jerarquía.}
+          \label{disenoNotaciones}
+        \end{center}
+      \end{figure}
+      
+      A continuación, se detallan las principales componentes del modelo:
+      
+      \begin{itemize}
+        \item Un \textbf{esquema} se compone de un conjunto de dimensiones y de un conjunto de hechos.
+        \item Una \textbf{dimensión} se compone de un nivel o una o más jerarquías.
+        \item Una \textbf{jerarquía} está a su vez compuesto por un conjunto de niveles. 
+        \item Un \textbf{nivel} es análogo a una entidad en el modelo E/R. En él se describe una serie de conceptos del mundo real que tienen
+        características similares. Tiene un conjunto de \textbf{atributos} que describen las características de sus miembros. Además, un nivel tiene uno o
+        varios \textbf{identificadores}, que identifican de forma única los miembros de un nivel, cada identificador se compone de uno o varios atributos.
+        \item Un \textbf{hecho} relaciona varios niveles. El mismo nivel puede participar varias veces con un hecho, mediante diferentes \textbf{roles}.
+        Cada rol se identifica por un nombre. Cada rol se identifica por un nombre y está representado por una relación, entre el nivel correspondiente y el hecho.
+        Un hecho puede contener atributos llamados \textbf{medidas}.
+        \item Las \textbf{medidas} contienen datos (usualmente numéricos), que son analizados mediante las diversas perspectivas, representadas por las dimensiones.
+        Se sumarizan a largo de dimensiones cuando se realizan operaciones roll-up. La \textbf{función de sumarización} asociada
+        con una medida se puede especificar junto al nombre de la medida (\textit{SUM}, por defecto). Las medidas pueden clasificarse como sigue,
+        de acuerdo a la función de sumarización suma:
+        \begin{itemize}
+          \item Medidas aditivas: pueden resumirse a lo largo de todas las dimensiones.
+          \item Medidas semiaditivas: se pueden resumir, a lo largo de algunas, no todas, las dimensiones.
+          \item Medidas no aditivas: no pueden resumirse, través de ninguna dimensión.
+        \end{itemize}
+        Además, las medidas y los atributos de nivel puden \textbf{derivarse}, es decir que se calculan en base a otras medidas o atributos en el esquema.
+        Por defecto, las medidas son aditivas.
+      \end{itemize}
+      
+      \begin{figure}
+        \begin{center}
+          \includegraphics[scale=0.4]{diseno3}
+          \caption{Ejemplo.}
+          \label{disenoEj1}
+        \end{center}
+      \end{figure}
+      
+      \begin{figure}
+        \begin{center}
+          \includegraphics[scale=0.4]{diseno4}
+          \caption{Ejemplo.}
+          \label{disenoEj2}
+        \end{center}
+      \end{figure}
+    
+      Dados dos niveles relacionados mediante una jerarquía, el nivel inferior se lo llama hijo y el nivel más alto se llama el padre.
+      Por lo tanto, las relaciones que componen las jerarquías se denominan relaciones padre-hijo.
+      
+      Las cardinalidades en las relaciones entre padres e hijos, indican el mínimo y el número máximo de miembros en un nivel que pueden estar relacionados
+      con un miembro en otro nivel.
+      Una dimensión puede contener varias jerarquías, cada uno expresa un criterio particular, según el fin del análisis; por lo tanto, se incluye el nombre
+      de la jerarquía para diferenciarlos. Si un solo nivel contiene atributos que forman una jerarquía, esto significa que el usuario no está interesado
+      en el empleo de esta jerarquía.
+      
+      En la Figura \ref{disenoNotaciones}, se puede ver algunas de las notaciones del modelo MultiDim. Mientras que en la Figuras \ref{disenoEj1} y \ref{disenoEj2},
+      se muestra ejemplos que utilizan el modelo.
+      
+  
     
     \subsection{Ontologías para la creación de un Data Warehouse}
     
