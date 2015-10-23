@@ -23,8 +23,7 @@
 \onehalfspacing                                           % Setea un punto y medio de separación entre líneas
 \setlength{\parskip}{6pt}                                 % Setea 6 puntos de separación entre párrafos
 \renewcommand{\figurename}{Figura}
-\renewcommand\refname{Referencias}
-\renewcommand\contentsname{Índice}
+
 \usepackage{hyperref} % For hyperlinks in the PDF
 \usepackage{csquotes}
 \usepackage[backend=bibtex,bibencoding=ascii, style=alphabetic-verb]{biblatex}
@@ -91,16 +90,25 @@
 
   % ############################ FIN CARATULA ############################
 
-  \newpage\null\thispagestyle{empty}\newpage
+
+  % ############################ INICIO RESUMEN ############################
+  % HACER
+  % ############################ FIN RESUMEN ############################
+
+
+  % ############################ INICIO ÍNDICE ############################
   
+  \newpage\null\thispagestyle{empty}\newpage
   \maketitle
   \tableofcontents
-
-  %\begin{flushleft}
-    
-    % Falta RESÚMEN
+  \newpage
   
-    \section{Introducción} % Puede ir en una hoja nueva?
+  % ############################ FIN ÍNDICE ############################
+
+  
+  % ############################ INICIO INTRODUCCIÓN ############################  
+  
+    \section{Introducción}
 
     Desde que una empresa u organización es creada, ésta comienza a recabar información, de las distintas transacciones que realiza, al relacionarse
     con alguna entidad externa, o información respectiva a movimientos internos, como por ejemplo el ingreso de personal, gastos administrativos,
@@ -111,7 +119,11 @@
     
     Un factor de gran importancia es el tiempo, ya que con el paso del tiempo la información almacenada se vuelve cada vez más grande 
     y por ende difícil de analizar. Y es aquí, donde surge el concepto \textit{Data Warehouse}, en el ámbito de las bases de datos.
+    
+  % ############################ FIN INTRODUCCIÓN ############################
 
+
+  % ############################ INICIO CONCEPTOS BÁSICOS ############################
     \section{Data Warehouse: Conceptos fundamentales}
     
     Se denominada \textbf{Business Intelligence} (BI, inteligencia de negocios), al conjunto de estrategias que integran, por un lado el almacenamiento, y
@@ -420,7 +432,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.7]{esquema_estrella}
-        \caption{Esquema de estrella. \cite{dim_models}}
+        \caption{Esquema de estrella. \cite[p.~38]{hefestov2}.}
         \label{star_sch}
       \end{center}
     \end{figure}
@@ -428,7 +440,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.2]{normalizacion}
-        \caption{Normalización de Productos. \cite{dim_models}}
+        \caption{Normalización de Productos. \cite[p.~38]{hefestov2}.}
         \label{normalizado}
       \end{center}
     \end{figure}
@@ -450,7 +462,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.7]{copoNieve}
-        \caption{Esquema copo de nieve. \cite{dim_models}}
+        \caption{Esquema copo de nieve. \cite[p.~39]{hefestov2}.}
         \label{snow_flk_sch}
       \end{center}
     \end{figure}
@@ -470,7 +482,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.25]{esquema_constelacion}
-        \caption{Esquema de constelación. \cite{dim_models}}
+        \caption{Esquema de constelación. \cite[p.~41]{hefestov2}.}
         \label{const_sch}
       \end{center}
     \end{figure}
@@ -950,9 +962,11 @@
         \label{holap}
       \end{center}
     \end{figure}
-    
-    
-    
+
+  % ############################ FIN CONCEPTOS BÁSICOS ############################
+
+  % ############################ INICIO ESTADO DEL ARTE ############################
+  
     \section{Estado del arte}
     
     En las siguientes secciones se desarrollaran temas que se encuentran actualmente en investigación. Los mismos fueron seleccionados por los autores
@@ -1028,7 +1042,8 @@
       \begin{figure}[h]
         \begin{center}
           \includegraphics[scale=0.4]{diseno2}
-          \caption{(a) Nivel, (b) jerarquía, (c) cardinalidades, (d) hecho con las medidas y niveles asociados, (e) tipos de medidas, (f) nombre de la jerarquía.}
+          \caption{(a) Nivel, (b) jerarquía, (c) cardinalidades, (d) hecho con las medidas y niveles asociados, (e) tipos de medidas, (f) nombre de la jerarquía.
+          \cite[p.~91]{VaismanZimanyi14}.}
           \label{disenoNotaciones}
         \end{center}
       \end{figure}
@@ -1061,7 +1076,7 @@
       \begin{figure}
         \begin{center}
           \includegraphics[scale=0.4]{diseno3}
-          \caption{Ejemplo.}
+          \caption{Ejemplo. \cite[p.~592]{VaismanZimanyi14}.}
           \label{disenoEj1}
         \end{center}
       \end{figure}
@@ -1069,7 +1084,7 @@
       \begin{figure}
         \begin{center}
           \includegraphics[scale=0.4]{diseno4}
-          \caption{Ejemplo.}
+          \caption{Ejemplo. \cite[p.~107]{VaismanZimanyi14}.}
           \label{disenoEj2}
         \end{center}
       \end{figure}
@@ -1215,6 +1230,114 @@
     
     \subsection{Fuzzy Data Warehouse}
     
+    \textbf{Fuzzy Data Warehouse} (FDW, almacén de datos difuso), es un \textit{Data Warehouse}, que contiene datos difusos, y que admite el procesamiento
+    de los datos difusos.
+    La incorporación de conceptos difusos, permite a los DWs, procesar los datos a mayor nivel de abstracción, y mejorar el análisis de datos imprecisos.
+    
+    Se trataron varios enfoques para integrar conceptos difusos en un almacén de datos y OLAP. 
+    En \cite{Fasel14} se explica que la mayoría de estos enfoques han sido desarrollados para un determinado campo de aplicación, y que a menudo establecen
+    restricciones en la aplicación de los conceptos difusos.
+    Otras alternativas, sustituyen los valores originales del almacén de datos con datos difusos, lo que imposibilita el analisis de los valores originales del
+    almacén de datos.
+    
+    Por ello en \cite{Fasel14}, se propone un modelo que aborda estos inconvenientes, proporcionando un método más flexible para integrar los conceptos difusos,
+    utilizando \textbf{meta tablas} \footnote{Ver \ref{MFDW}.}.
+    Lo que posibilita la integración de los datos difusos en cada nivel de la jerarquía de dimensiones, sin afectar la sumarización de la dimensión; donde los datos
+    difusos pueden no ser normalizados. 
+    Otra ventaja del modelo propuesto, es la capacidad de analizar el FDW simultáneamente en forma difuso y no difusa.
+    
+    \subsubsection{Lógica Difusa}
+    
+    Zadeh desarrolló en la teoría de conjuntos difusos un medio para representar el lenguaje natural matemáticamente. Define una \textbf{variable lingüística}, que tiene 
+    palabras o frases como sus valores. Los valores de la variable lingüística, llamados \textbf{términos lingüísticos}, se proyectan sobre un universo del discurso.
+    Se define a un conjunto borroso como sigue:
+        
+    \textbf{Conjunto difuso}. Un conjunto difuso $A$ en $M$, también llamado universo del discurso, es caracterizado por una función
+    $\mu_{A}(m)$, que asocia a cada elemento en $M$, un número en el intervalo $[0,1]$. Los números en el intervalo $[0,1]$ definen la pertenencia
+    de un elemento $m$ al conjunto difuso A, donde 1 implica plena pertenencia, y 0 implica ninguna pertenencia.
+    
+    El conjunto borroso se utilizan para definir el grado de pertenencia con la que un valor podría pertenecer a un término lingüístico.
+    
+    Una \textbf{variable lingüística} es una quintupla, $(X, T(X), G, M, F)$, definida como sigue:
+        
+    \begin{itemize}
+      \item $X$ es el nombre de la variable lingüística.
+      \item $T(X)$, es el conjunto de términos lingüísticos de X.
+      \item $G$ es regla sintáctica que genera el conjunto de términos lingüísticos.
+      \item $M$ es el universo de discurso.
+      \item $F$ es una regla semántica que define para cada término lingüístico, su significado en función de un subconjunto borroso en M.
+    \end{itemize}
+    
+    A modo de ejemplo, se tiene un conjuntos de películas, donde cada película tiene una duración específica, y se define una variable lingüística \textit{duration},
+    con el siguiente conjunto de términos lingüísticos: $\{ very\,short, short, medium, long, very\,long \}$.
+    En la Figura \ref{ejVarLinguistica}, se aprecia una posible representación gráfica de $duration$.
+    
+    \begin{figure}
+      \begin{center}
+        \includegraphics[scale=0.3]{fuzzy1}
+        \caption{Representación gráfica de la variable lingüística $duration$. \cite[p.~39]{Fasel14}.}
+        \label{ejVarLinguistica}
+      \end{center}
+    \end{figure}
+    
+    
+    \subsubsection{Modelo Fuzzy Data Warehouse} \label{MFDW}
+    
+    A continuación se presentan los conceptos básicos del meta modelo, propuesto en \cite{Fasel14}.
+    
+    \begin{itemize}
+    
+    \item El \textbf{atributo objetivo}, lo notamos $TA$, es un atributo, de una dimensión o hecho, que quiere ser clasificado como difuso.
+
+    \item El \textbf{atributo de pertenencia a una clase}, para un $TA$, es un atributo que tiene un conjunto de términos lingüísticos
+    $T_{1},T_{2}, \ldots , T_{k}$. Lo notamos $CMA_{TA}$.
+    
+    \item La \textbf{función de pertenencia}, para un término lingüístico $t$ en $CMA_{TA}$, $\mu_{t} : TA \rightarrow [0,1]$,
+    es utilizada para calcular los grados de pertenencia de los valores en $TA$, al término $t$.
+
+    \item El \textbf{atributo grado de pertenencia}, de un $TA$, lo notamos $MDA_{TA}$, tiene un conjunto de grados de pertenencia del $TA$,
+    para términos lingüísticos en $CMA_{TA}$.
+    
+    \item La \textbf{tabla de clasificación fuzzy}, $FCT$, es un tabla con dos atributos, los términos lingüísticos y sus identificadores.
+    Es decir, $FCT_{TA} = \{ ID, CMA_{TA} \}$.
+    
+    \item La \textbf{tabla de pertenencia fuzzy}, $FMT$, es una tabla que almacena el grado, en el que los valores del $TA$,
+    están relacionados con los términos lingüísticos.
+    
+    Es decir, $FMT_{TA} = \{ ID, ID \, de \, TA, ID \, de \, CMA_{TA}, MDA_{TA} \}$.
+  
+    \item El \textbf{Modelo Fuzzy Data Warehouse}, se define $FDW = \{Dim, Fact, FCT_{TA}, FMT_{TA} \}$.
+    
+    \end{itemize}
+    
+    En la Figura \ref{modeloFuzzy}, el lado izquierdo muestra cómo los conceptos fuzzy se integran con un DW clásico, mediante el uso de \textbf{meta tablas}.
+    Para cada atributo objetivo es posible añadir un modelo $FDW$ .
+    Por lo tanto, un DW clásico puede tener una o más meta tablas del modelo $FDW$.
+    
+    Además, los conceptos difusos pueden existir sin una variable lingüística. Esto es puede representar sin una tabla de clasificación fuzzy.
+    Cada tabla de clasificación fuzzy tiene una relación de uno o más, con la tabla de  pertencia fuzzy. En definitiva, el modelo $FDW$ se compone de una o más tablas
+    de  pertencia fuzzy, y cero o más tabla de clasificación fuzzy.
+    
+    Para proporcionar un DW funcional, el FDW tiene que apoyar las operaciones OLAP básicas. En \cite{Fasel14} se describe cómo las operaciones clásica tienen que
+    adaptarse para manejar conceptos difusos correctamente, y cómo la definición del cubo de datos tiene que ser ampliada con conceptos difusos.
+    
+    \begin{figure}
+      \begin{center}
+        \includegraphics[scale=0.4]{fuzzy2}
+        \caption{El meta modelo fuzzy data warehouse. \cite[p.~63]{Fasel14}.}
+        \label{modeloFuzzy}
+      \end{center}
+    \end{figure}
+    
+    En \cite{Fasel09} se propone un Fuzzy Data Warehouse para un sistema de análisis web, donde no es posible contar las visitas de distintos usuarios con precisión.
+
+    Se tiene una métrica (las visitas a páginas web) imprecisa. La clasificación de a los usuarios, está limita por su precisión.
+    Un usuario que tiene 75 visitas podría ser clasificado como un mal visitante, mientras que un visitante con 80 visitas podría ser clasificada como buena visitante.
+    A causa de la imprecisión de la métrica, un usuario podría ser clasificado en la clase equivocada. Por tanto, es difícil comparar los usuarios.
+    Mediante el uso de una clasificación difusa el usuario puede pertenecer a ambos términos lingüísticos al mismo tiempo.
+        
+    Entonces, el concepto difuso sobre las visitas a páginas web proporciona una clasificación más certera de los valores numéricos.
+    
     
     \subsection{Web Warehouse}
     
@@ -1308,55 +1431,21 @@
       \item \textbf{Unicidad:} No debe haber duplicidad en los datos.
       \item \textbf{Confiabilidad:} Los datos deben tener credibilidad y ser objetivos.
     \end{itemize}
-    
-    
-  %\end{flushleft}
-
-  \vspace{10in}
+  
+  % ############################ FIN ESTADO DEL ARTE ############################
+  
+  % ############################ INICIO CONCLUSIONES ############################
+  % HACER
+  % ############################ FIN CONCLUSIONES ############################
 
   % ############################ INICIO BIBLIOGRAFIA ############################
+  \section{Bibliografia}
 
-\printbibliography
+  \printbibliography
 
-%   \begin{thebibliography}{9}
-%     
-%     \bibitem{hefestov2}
-%     [Bernabeu, 2010] Ing. Bernabeu Ricardo Dario.
-%     \textit{HEFESTO: Metodología para la Construcción de un Data Warehouse}.
-%     
-%     \bibitem{dim_models}
-%     Modelos dimensionales.
-%     \textit{http://www.dataprix.net/node/16678}
-%     
-%     \bibitem{nagabhushana}
-%     [Nagabhushana, 2006] S. Nagabhushana.
-%     \textit{Data Warehousing: OLAP and Data Mining}.
-%     
-%     \bibitem{olap_solutions}
-%     [Thomsen, 2006] Erik Thomsen.
-%     \textit{OLAP Solutions: Building Multidimensional Information Systems. Second edition}.
-%     
-%     \bibitem{agg_tables}
-%     Pentaho Mondrian Documentation.
-%     \textit{http://mondrian.pentaho.com/documentation/aggregate\_tables.php}
-%     
-%     \bibitem{operaciones}
-%     Operaciones OLAP.
-%     \textit{http://www.tutorialspoint.com/dwh/dwh\_olap.htm}
-%     
-%     \bibitem{ontologias}
-%     [Talebzadeh, 2014] Shiva Talebzadeh, Mir Ali Seyyedi, Afshin Salajegheh.
-%     \textit{Automated Creating a Data Warehouse from Unstructured Semantic Data}.
-%     
-%     \bibitem{webwarehouse}
-%     [Marotta, 2012] Adriana Marotta, Laura González, Raúl Ruggia.
-%     \textit{A Quality Aware Service-oriented Web Warehouse Platform}.
-%     
-%   \end{thebibliography}
-  
   % ############################ FIN BIBLIOGRAFIA ############################
   
   
-  \printindex
+  \printindex %?
   
 \end{document}
