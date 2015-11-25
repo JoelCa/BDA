@@ -36,6 +36,14 @@
 \renewcommand\thesubfigure{(\alph{subfigure})}
 %\setcounter{chapter}{1}
 
+% Agrega un nivel más bajo de seccionamiento, que subsubsection.
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
 
 \title{}
 \author{}
@@ -92,7 +100,19 @@
 
 
   % ############################ INICIO RESUMEN ############################
-  % HACER
+    \section{Resumen}
+  
+    El Data Warehouse es una base de datos orientada a un dominio determinado, integrado, no volatil y variable en el tiempo, que ayuda a la toma de decisiones.
+    Estos datos se clasifican en dos grandes grupos: dimensiones y medidas, conceptos fundamentales del modelo dimensional. El cual ofrece los esquemas dimensionales
+    (esquema estrella, copo de nieve y constelación), para diseñar el Data Warehouse.
+    
+    Es posible explotar los datos almacenados de diversas formas:
+    reportes, Data Mining, Olap, etc. Olap permite la consulta de grandes cantidades de datos de forma efeciente y sencilla, a partir de la utización de cubos.
+    Estos se utilizan de la misma manera que las bases de datos relacionales utilizan tablas.
+    Es por ello, que todo el análisis se hace en términos de los cubos.
+    
+    Se distinguen dos grandes tipos de sistemas Olap: Rolap y Molap, cuya principal diferencia radica en el tipo de base de datos, con el que se implementa el
+    Data Warehouse.
   % ############################ FIN RESUMEN ############################
 
 
@@ -125,16 +145,17 @@
     método de diseño del Data Warehouse, y se explica por qué un Data Warehouse es una base de datos temporal.
     
     En la sección 3, se presentan las distintas características que definen a un producto OLAP (Reglas de Codd,y FASMI), las jerarquías y agregaciones, y
-    su uso para la optimización de la respuesta ante una consulta, la interpretación del cubo OLAP en dos dimensiones (en forma de grilla), las operaciones
-    básicas sobre el cubo OLAP, y las principales arquitecturas OLAP.
+    su uso en la optimización de las respuestas ante una consulta, la representación del cubo OLAP en dos dimensiones (en forma de grilla), las operaciones
+    básicas sobre el mismo, y las principales arquitecturas OLAP.
     
-    En la sección 4, se detallan cuatros temas en investigación relacionados con el Data Warehouse, los cuales son:
+    En la sección 4, se detallan cuatros temas en investigación relacionados al Data Warehouse, los cuales son:
     \begin{itemize}
       \item El modelo \textit{MultiDim}, como diseño conceptual del Data Warehouse.
-      \item El modelo de meta tablas \textit{Fuzzy Data Warehouse}, para integrar conceptos difusos en un Data Warehouse.
+      \item El uso de ontologías como base para el diseño del Data Warehouse.
+      \item El modelo de meta tablas \textit{Fuzzy Data Warehouse}, que integra conceptos difusos en un Data Warehouse.
+      \item Consideraciones respecto a la seguridad y calidad de los datos del Data Warehouse, cuyas fuentes de datos provienen de la web.
     \end{itemize}
     
-    %COMPLETAR
   % ############################ FIN INTRODUCCIÓN ############################
 
 
@@ -403,8 +424,7 @@
       Por ejemplo, si tenemos una dimensión país, dentro de la misma podríamos tener provincia y ciudad como dos niveles de granularidad. 
     \end{itemize}
     
-    
-    \subsection{Esquema dimensional}
+    \subsubsection{Esquema dimensional}
     
     Se sabe que la relación entre todas las tablas de una base de datos se denomina \textit{esquema de base de datos}. Para un cierto grupo de bases de datos, en las
     cuales se realizan consultas sobre datos históricos, generalmente se utilizan diseños llamados \textbf{esquemas dimensionales}. Un esquema dimensional,
@@ -418,10 +438,10 @@
     \end{itemize}
     
     
-    \subsection{Tipos de esquemas}
+    \subsubsection{Tipos de esquemas}
     
-    \subsubsection{Esquema de estrella}
-    
+    \paragraph{Esquema de estrella.}
+  
     Este tipo de esquemas tiene una tabla de hechos, rodeada de tablas de dimensiones. En la tabla de hechos habrá un campo por cada dimensión, que
     hace referencia a la clave primaria de la misma (a travez de la cual se podrá recuperar la información necesaria para cada hecho),
     y un campo por cada métrica que quiera ser evaluada. La combinación de los campos que referencian a las dimensiones forman, generalmente, la clave primaria de la
@@ -461,7 +481,7 @@
     \end{figure}
     
     
-    \subsubsection{Esquema copo de nieve}
+    \paragraph{Esquema copo de nieve.}
     
     Este es otro tipo de esquema, similar al esquema de estrella salvo por cierto detalle, las dimensiones pueden, a su vez, estar conectadas con otras 
     tablas de dimensiones. Es decir, habrá una tabla de hechos rodeada de tablas de dimensiones que nuevamente estén conectadas con otras tablas de 
@@ -483,7 +503,7 @@
     \end{figure}
     
     
-    \subsubsection{Esquema de constelación}
+    \paragraph{Esquema de constelación.}
     
     Se compone de varios esquemas estrella y/o de copo de nieve. Pueden tener más de una tabla de hechos y compartir dimensiones, entre los hechos.
     La posibilidad de tener más de una tabla de hechos permite que una de ellas sea la principal y las demás contengan diversas sumarizaciones de información
@@ -514,7 +534,7 @@
     considerar al DW como una base de datos temporal.
     
     
-    \subsection{Dimensión de tiempo}
+    \subsubsection{Dimensión de tiempo}
     
     En un DW, la creación y el mantenimiento de una tabla de dimensión \textbf{Tiempo} es obligatoria, y la definición de granularidad y estructuración de la misma 
     depende de la dinámica del negocio que se esté analizando. Toda la información del DW, como ya se ha explicado, posee su propio sello de 
@@ -774,7 +794,7 @@
     \end{figure}
     
     
-    \subsection{Hipercubo en pantalla}
+    \subsubsection{Hipercubo en pantalla}
     
     Para lograr que los datos se visualicen en la pantalla de forma correcta, se deberá mapear las múltiples dimensiones lógicas en las dos dimensiones físicas
     que utiliza el monitor.
@@ -1457,7 +1477,42 @@
   % ############################ FIN ESTADO DEL ARTE ############################
   
   % ############################ INICIO CONCLUSIONES ############################
-  % HACER
+
+  \section{Conclusiones}
+  
+  Se puede observar que la aplicación del modelo dimensional sobre el Data Warehouse, junto con las diversas formas de explotación de los datos, entre ellas
+  OLAP \footnote{Ver Figura \ref{dw_arq}.}, ofrece una solución que ayuda al usuario final en la toma de decisiones, respaldando las mismas con resultados concretos.
+  
+  La principal ventaja del enfoque dimensional, en contraposición al modelo normalizado, es el desarrollo de estructuras faciles de entender y usar para el
+  usuario final. Si se siguiera una normalización en tercera forma normal, debido al gran número de tablas que se crearian, podria ser engorroso para el
+  usuario establecer los joins necesarios, sobre las distintas fuentes de datos, que provean de información significativa, sin una compresición plena
+  de las estructuras de datos del Data Warehouse.
+  Además, tiende a proporcionar de una mayor performance, en la recuperación de los datos, gracias al grado de desnormalización de los datos.
+  
+  Por otro lado, se considera importante remarcar que las herramientos OLAP se adaptan mejor, en escenarios donde se requiera de tomas de decisiones,
+  que las herramientas OLTP, debido a sus diferentes naturalezas.
+  Los DWs están optimizados para patrones de busquedas analíticos, que en general consisten en la selección de campos determinados, que requieren de pocos
+  \texttt{``select *''}.
+  
+  A diferencias de las bases de datos operacionales que mantienen una fotografía del estado
+  de la organización, los DWs mantienen datos históricos, que se implementa a través de procesos ETL, los cuales migran periodicamente los datos de los sistemas
+  operacionales al Data Warehouse.
+  
+  En referencia al uso de ontologías aplicadas al diseño del DW, publicado en \cite{ontologias}, es importante aclarar que, si bien cada uno de los pasos del
+  algoritmo están bien diferenciados y detallados, no se explica como distinguir las dimensiones y los hechos de manera explícita, a partir de las clases
+  que componen la ontología resultante de aplicar el algoritmo. Por lo tanto, éste tema está abierto a futuras investigaciones.
+  
+  Daniel Fasel, en \cite {Fasel14}, destaca que el modelo de Fuzzy Data Warehouse, se basa en un enfoque relacional del DW.
+  Por ello, es necesario analizar en futuras investigaciones si la estructura de la tabla meta puede ser implementada en bases de datos multidimensionales,
+  o si sería necesaria una nueva implementación de los conceptos difusos.
+  Además, la estructura de meta tablas no prevee ningún control de versiones cronológico de datos difusos.
+  Es decir que, no es posible tener diferentes versiones de datos borrosos en diferentes puntos del tiempo.
+  
+  % TERMINAR, con limitaciones de MULTIDIM
+  
+  % Saqué información de https://en.wikipedia.org/wiki/Data_warehouse.
+  % De la sección "Dimensional vs. normalized approach for storage of data" y "Data warehouses versus operational systems".
+
   % ############################ FIN CONCLUSIONES ############################
 
   % ############################ INICIO BIBLIOGRAFIA ############################
