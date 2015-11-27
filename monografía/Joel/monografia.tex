@@ -99,23 +99,6 @@
   % ############################ FIN CARATULA ############################
 
 
-  % ############################ INICIO RESUMEN ############################
-    \section{Resumen}
-  
-    El Data Warehouse es una base de datos orientada a un dominio determinado, integrado, no volatil y variable en el tiempo, que ayuda a la toma de decisiones.
-    Estos datos se clasifican en dos grandes grupos: dimensiones y medidas, conceptos fundamentales del modelo dimensional. El cual ofrece los esquemas dimensionales
-    (esquema estrella, copo de nieve y constelación), para diseñar el Data Warehouse.
-    
-    Es posible explotar los datos almacenados de diversas formas:
-    reportes, Data Mining, Olap, etc. Olap permite la consulta de grandes cantidades de datos de forma efeciente y sencilla, a partir de la utización de cubos.
-    Estos se utilizan de la misma manera que las bases de datos relacionales utilizan tablas.
-    Es por ello, que todo el análisis se hace en términos de los cubos.
-    
-    Se distinguen dos grandes tipos de sistemas Olap: Rolap y Molap, cuya principal diferencia radica en el tipo de base de datos, con el que se implementa el
-    Data Warehouse.
-  % ############################ FIN RESUMEN ############################
-
-
   % ############################ INICIO ÍNDICE ############################
   
   \newpage\null\thispagestyle{empty}\newpage
@@ -124,6 +107,22 @@
   \newpage
   
   % ############################ FIN ÍNDICE ############################
+
+  % ############################ INICIO RESUMEN ############################
+    \section{Resumen}
+  
+    El Data Warehouse es una base de datos orientada a un dominio determinado, integrado, no volátil y variable en el tiempo, que ayuda a la toma de decisiones.
+    Estos datos se clasifican en dos grandes grupos: dimensiones y medidas, conceptos fundamentales del modelo dimensional. El cual ofrece los esquemas dimensionales
+    (esquema estrella, copo de nieve y constelación), para diseñar el Data Warehouse.
+    
+    Es posible explotar los datos almacenados de diversas formas:
+    reportes, Data Mining, Olap, etc. Olap permite la consulta de grandes cantidades de datos de forma eficiente y sencilla, a partir de la utilización de cubos.
+    Estos se utilizan de la misma manera que las bases de datos relacionales utilizan tablas.
+    Es por ello, que todo el análisis se hace en términos de los cubos.
+    
+    Se distinguen dos grandes tipos de sistemas Olap: Rolap y Molap, cuya principal diferencia radica en el tipo de base de datos, con el que se implementa el
+    Data Warehouse.
+  % ############################ FIN RESUMEN ############################
 
   
   % ############################ INICIO INTRODUCCIÓN ############################  
@@ -141,14 +140,14 @@
     y por ende difícil de analizar. A mediados de los 80' surge el concepto \textit{Data Warehouse}, como solución a éstos problemas,
     en el ámbito de las bases de datos.
     
-    En la sección 2, se abarca esencialmente: las definiciones de Data Warehouse y Data Mart, sus diferencias con OLTP, el modelo dimensional como
+    En la sección \ref{conceptos_fundamentales}, se abarca esencialmente: las definiciones de Data Warehouse y Data Mart, sus diferencias con OLTP, el modelo dimensional como
     método de diseño del Data Warehouse, y se explica por qué un Data Warehouse es una base de datos temporal.
     
-    En la sección 3, se presentan las distintas características que definen a un producto OLAP (Reglas de Codd,y FASMI), las jerarquías y agregaciones, y
+    En la sección \ref{OLAP}, se presentan las distintas características que definen a un producto OLAP (Reglas de Codd, y FASMI), las jerarquías y agregaciones, y
     su uso en la optimización de las respuestas ante una consulta, la representación del cubo OLAP en dos dimensiones (en forma de grilla), las operaciones
     básicas sobre el mismo, y las principales arquitecturas OLAP.
     
-    En la sección 4, se detallan cuatros temas en investigación relacionados al Data Warehouse, los cuales son:
+    En la sección \ref{estado_arte}, se detallan cuatros temas en investigación relacionados al Data Warehouse:
     \begin{itemize}
       \item El modelo \textit{MultiDim}, como diseño conceptual del Data Warehouse.
       \item El uso de ontologías como base para el diseño del Data Warehouse.
@@ -156,11 +155,13 @@
       \item Consideraciones respecto a la seguridad y calidad de los datos del Data Warehouse, cuyas fuentes de datos provienen de la web.
     \end{itemize}
     
+    Finalmente el sección \ref{conclusiones}, se encuentran las conclusiones.
+    
   % ############################ FIN INTRODUCCIÓN ############################
 
 
   % ############################ INICIO CONCEPTOS BÁSICOS ############################
-    \section{Data Warehouse: Conceptos fundamentales}
+    \section{Data Warehouse: Conceptos fundamentales} \label{conceptos_fundamentales}
     
     Se denominada \textbf{Business Intelligence} (BI, inteligencia de negocios), al conjunto de estrategias que integran, por un lado el almacenamiento, y
     por el otro, el procesamiento de grandes cantidades de datos, con el principal objetivo de generar conocimiento y decisiones en tiempo real, mediante 
@@ -177,8 +178,7 @@
     A continuación, presentamos dos definiciones de \textit{Data Warehouse}.
 
     \begin{itemize}
-      \item \textbf{Bill Inmon}, uno de los pioneros en el ámbito de los DW, los define en base a las características que éste debe respetar, las mismas son
-      las siguientes:
+      \item \textbf{Bill Inmon}, uno de los pioneros en el ámbito de los DW, los define en base a las características que éste debe respetar, las mismas son:
       \begin{itemize}
         \item \textbf{Integrado:} Se integran datos provenientes de múltiples fuentes, posiblemente distintas. Como se verá más adelante, el hecho de tener
         en consideración las fuentes heterogéneas es un punto muy importante al momento de obtener información.
@@ -209,7 +209,7 @@
     \begin{itemize}
       \item Lo primero que se puede notar en la Figura \ref{dw_arq} son las fuentes de datos, referenciadas en la primera propiedad presentada en la
       definición de Bill Inmon. Las distintas fuentes (posiblemente heterogéneas), son un factor a tenerse en cuenta cuando los
-      datos son extraidos. Por ejemplo, la fuente de datos A pueden ser archivos planos de texto, la B archivos \textit{excel} y la C una base de datos 
+      datos son extraídos. Por ejemplo, la fuente de datos A pueden ser archivos planos de texto, la B archivos \textit{excel} y la C una base de datos 
       transaccional.
     
       \item Luego se observa el módulo \textbf{ETL}, acrónimo en inglés de \textbf{Extraction, Transformation and Loading} (Extracción, Transformación y Carga).
@@ -226,7 +226,7 @@
     \end{itemize}
 
     Todos y cada uno de los pasos, módulos y técnicas a los que se hicieron referencia al explicar la arquitectura de DW tienen como finalidad
-    proveer de métodos y procedimientos sencillos con los cuales el usuario final pueda consultar la información almacenada, sin ningun conocimiento técnico y,
+    proveer de métodos y procedimientos sencillos con los cuales el usuario final pueda consultar la información almacenada, sin ningún conocimiento técnico y,
     además, pueda obtener la que le sea de utilidad para llevar a cabo un proceso de toma de decisiones simple y con mayor respaldo.
     
     
@@ -238,20 +238,18 @@
     Las aplicaciones OLTP tienen un alto rendimiento en la inserción o actualización intensiva de una base de datos. Estas aplicaciones son utilizadas
     simultáneamente por centenares de usuarios. Además, tienen como objetivos clave la disponibilidad, velocidad, concurrencia y recuperación.
     Por ejemplo, la aplicación que gestiona a determinado cajero automático de un banco, al tener que estar constantemente actualizando registros de una
-    base de datos debido a las repititivas operaciones de depósitos o giros bancarios, es un claro ejemplo de una aplicación de procesamiento de
+    base de datos debido a las repetitivas operaciones de depósitos o giros bancarios, es un claro ejemplo de una aplicación de procesamiento de
     transacciones comerciales.
     En definitiva, los sistemas OLTP son bases de datos orientadas al procesamiento de transacciones, entendiéndose una transacción como un proceso
     atómico (que debe ser validado con un commit, o invalidado con un rollback), y que puede involucrar operaciones de inserción, modificación y
     borrado de datos.\par
     
-    Como se mencionó previamente, una de las formas de explotación de los datos almacenados en el DW es mediante OLAP, con lo cual creemos útil
-    comparar los dos tipos de procesamiento. En la Figura \ref{oltp_vs_olap} se establece una comparación entre OLAP y OLTP,
-    que considera los siguientes aspectos:
+    En la Figura \ref{oltp_vs_olap} se establece una comparación entre DW y OLTP, que considera los siguientes aspectos:
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.39]{OltpVSDW3}
-        \caption{Cuadro comparativo entre el análisis OLTP y OLAP. \cite[p.~42]{hefestov2}.}
+        \caption{Cuadro comparativo entre OLTP y DW. \cite[p.~42]{hefestov2}.}
         \label{oltp_vs_olap}
       \end{center}
     \end{figure}
@@ -338,7 +336,7 @@
       \item Gran rigidez a la hora de extraer datos, de manera que el usuario tiene que ceñirse a los informes predefinidos que se configuraron en el
       momento de la implementación, y que no siempre responden a sus dudas reales.
       \item Necesidad de conocimientos técnicos. Para la generación de nuevos informes o métricas suele resultar ineludible acudir al departamento técnico,
-      solicitando una consulta adecuada para obetener los datos necesarios de la base de datos.
+      solicitando una consulta adecuada para obtener los datos necesarios de la base de datos.
       \item Largos tiempos de respuesta, ya que las consultas complejas de datos suelen implicar la unión de tablas operacionales de gran tamaño, lo que se
       traduce en una incómoda espera que dificulta la fluidez del trabajo.
       \item Deterioro en el rendimiento del sistema de información. Cuando la base de datos consultada, para generar informes o ratios de negocio, es la
@@ -385,7 +383,7 @@
       información adecuada a cada uno de ellos. En muchas ocasiones, los DM son implementados sin que exista el DW, ya que tienen sus mismas 
       características pero con la particularidad de que están enfocados en un tema específico, con lo cual el volumen de datos es mucho menor y, por ende,
       el manejo de los datos es más sencillo. Luego de haber sido creados y cargados todos los DM, se procede a su integración para obtener el
-      respositorio central. La ventaja que trae aparejada este modelo es que cada DM se crea y pone en funcionamiento en un corto lapso de tiempo y se
+     repositorio central. La ventaja que trae aparejada este modelo es que cada DM se crea y pone en funcionamiento en un corto lapso de tiempo y se
       puede tener una pequeña solución a un costo no tan elevado. Luego que todos los DM estén puestos en marcha, se puede decidir si construir el DW o no.
       El mayor inconveniente está dado en tener que sincronizar los \textit{hechos} al momento de la consolidación del depósito central.
     \end{itemize}
@@ -410,7 +408,7 @@
     \subsection{Modelo dimensional} \label{mod_dimensional}
     
     El \textbf{modelado dimensional o multidimensional}, es una técnica de diseño lógico de una base de datos, útil para el procesamiento OLAP, que tiene
-    como ideas centrales el rendimiento y la comprensión, por parte de los usuarios, de los datosen forma sencilla.
+    como ideas centrales el rendimiento y la comprensión, por parte de los usuarios, de los datos en forma sencilla.
     
     Los conceptos fundamentales del modelo dimensional son:
     
@@ -432,18 +430,18 @@
     (dimensiones). Este puede ser de dos tipos:
     
     \begin{itemize}
-      \item \textbf{Físico:} Generalmente los objetos que contiene son en realidad tablas de una base de datos.
-      \item \textbf{Lógico:} Los hechos y las dimensiones se representan como entidades y atributos independientes a una base de datos y por lo tanto,
-      se pueden transformar en un esquema dimensional físico para cualquier base de datos.
+      \item \textbf{Físico:} Generalmente los objetos que contienen son en realidad tablas de una base de datos, gestionada por una tecnología específica.
+      \item \textbf{Lógico:} Los hechos y las dimensiones se representan como entidades y atributos independientes de base de datos en particular,
+      y por lo tanto, se pueden transformar en un esquema dimensional físico para cualquier base de datos.
     \end{itemize}
     
+    \subsubsection{Tipos de esquemas lógicos}
     
-    \subsubsection{Tipos de esquemas}
-    
-    \paragraph{Esquema de estrella.}
+    \paragraph{Esquema de estrella}
   
-    Este tipo de esquemas tiene una tabla de hechos, rodeada de tablas de dimensiones. En la tabla de hechos habrá un campo por cada dimensión, que
-    hace referencia a la clave primaria de la misma (a travez de la cual se podrá recuperar la información necesaria para cada hecho),
+    Una posible representación relacional del modelo multidimensional esta dado por el esquema estrella.
+    Este tipo de esquema tiene una tabla de hechos, rodeada de tablas de dimensiones. En la tabla de hechos habrá un campo por cada dimensión, que
+    hace referencia a la clave primaria de la misma (a través de la cual se podrá recuperar la información necesaria para cada hecho),
     y un campo por cada métrica que quiera ser evaluada. La combinación de los campos que referencian a las dimensiones forman, generalmente, la clave primaria de la
     tabla de hechos. Por otra parte, cada dimensión tendrá su campo clave y otros campos en los que se almacenan las correspondientes descripciones que son 
     de utilidad en el ambiente de negocios.
@@ -481,13 +479,13 @@
     \end{figure}
     
     
-    \paragraph{Esquema copo de nieve.}
+    \paragraph{Esquema copo de nieve}
     
     Este es otro tipo de esquema, similar al esquema de estrella salvo por cierto detalle, las dimensiones pueden, a su vez, estar conectadas con otras 
     tablas de dimensiones. Es decir, habrá una tabla de hechos rodeada de tablas de dimensiones que nuevamente estén conectadas con otras tablas de 
     dimensiones, mediante una relación muchos a uno. Cada una de las dimensiones conectadas con otra dimensión representan un nivel jerárquico para la dimensión en 
     sí misma (por ejemplo, para la dimensión país, podríamos tener una tabla para país, otra para provincia y otra para ciudad). En el ejemplo de la Figura 
-    \ref{snow_flk_sch} se ve claramente que una dimensión se implementa con más de una tabla. La razón de ésto es buscar la normalización de las tablas, con 
+    \ref{snow_flk_sch} se ve claramente que una dimensión se implementa con más de una tabla. La razón de esto es buscar la normalización de las tablas, con 
     lo cual se logra reducir espacio de almacenamiento al eliminar redundancia en los datos. Al tener una dimensión (la cual sería representada por una tabla 
     en la base de datos) representada por varias tablas, se facilita su mantenimiento.
     
@@ -503,7 +501,7 @@
     \end{figure}
     
     
-    \paragraph{Esquema de constelación.}
+    \paragraph{Esquema de constelación}
     
     Se compone de varios esquemas estrella y/o de copo de nieve. Pueden tener más de una tabla de hechos y compartir dimensiones, entre los hechos.
     La posibilidad de tener más de una tabla de hechos permite que una de ellas sea la principal y las demás contengan diversas sumarizaciones de información
@@ -523,129 +521,19 @@
     \end{figure}
     
     
-    \subsection{Bases de datos temporales}
-    
-    Una \textbf{base de datos temporal} es una base de datos que trata con especial énfasis aspectos temporales, teniendo un modelo de datos temporal y una versión
-    temporal del lenguaje de consulta estructurado.
-    
-    Los datos almacenados en una base de datos temporal tienen un asociado un período de tiempo que expresa su validez. Las bases de datos convencionales
-    consideran que los datos almacenados en ella son válidos, sin importar el tiempo, ya que no mantienen un registro de los estados pasados o futuros de
-    la base de datos. En cambio, las bases de datos temporales hacen posible almacenar diferentes estados de la base de datos. Por ésto, podemos
-    considerar al DW como una base de datos temporal.
-    
-    
-    \subsubsection{Dimensión de tiempo}
-    
-    En un DW, la creación y el mantenimiento de una tabla de dimensión \textbf{Tiempo} es obligatoria, y la definición de granularidad y estructuración de la misma 
-    depende de la dinámica del negocio que se esté analizando. Toda la información del DW, como ya se ha explicado, posee su propio sello de 
-    tiempo, el cual determina la ocurrencia de un hecho específico, representando de esta manera, diferentes versiones de una misma situación.Al momento de 
-    implementar la dimensión como una tabla en una base de datos se debe tener especial cuidado con el campo clave que se elige ya que esto puede influir 
-    mucho en el espacio que se ocupará en disco y los tiempos de respuesta.\par
-    
-    A continuación se detallan las representaciones más frecuentes del tipo de dato utilizado para la clave:
-    
-    \begin{itemize}
-      \item \textbf{Date:} Si se usa Date como tipo para  el campo clave, costaría mucho espacio en comparación con un entero y los tiempos de respuesta se
-      relentizarán ya que para los motores de consulta es más costosa la comparación con este tipo de campos que con uno entero.
-      \item \textbf{Entero:}
-      \begin{itemize}
-        \item Se puede utilizar un campo autoincremental, el cual tiene la siguiente forma: 1, 2, 3, \dots con lo cual el costo de almacenamiento en disco
-        se reduciría considerablemente y los tiempos de respuesta bajan ya que la comparación entre enteros no es algo costoso. Sin embargo, con esta representación se
-        torna confuso saber con qué fecha se está trabajando.
-        \item Una mejor opción es utilizar un campo de la forma yyyyMMdd, por ejemplo 20150315, ya que se obtienen los mismos benefícios que los planteados
-        en el item anterior a lo que se suma una mejor comprensión a la hora de visualizar los registros.
-      \end{itemize}
-    \end{itemize}
-    
-    
-    \section{OnLine Analytical Processing}
-    
-    Más conocido por su acrónimo OLAP (Procesamiento Analítico En Línea), es una solución utilizada en el campo de la inteligencia de negocios, cuyo 
-    objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla. Utiliza estructuras multidimensionales (cubos OLAP) que 
-    contienen datos resumidos de grandes bases de datos.
-    
-    Como se explico anteriormente, en una base de datos transaccional, normalmente se estructuran las tablas con un modelo normalizado, lo cual favorece a
-    la explotación OLTP, en cambio, las bases de datos configuradas para OLAP utilizan un modelo de datos multidimensional, lo que permite consultas 
-    analíticas complejas, con tiempos de ejecución más reducidos, que su contrapartida OLTP.
-
-    Las técnicas OLAP, e incluso OLTP fueron iniciadas por E.F. Codd \footnote{El Dr. Codd fue un investigador de base de datos, muy conocido a partir de la
-    década de 1960. Es considerado el inventor del modelo de base de datos relacional en 1969.}, considerado el padre de las bases de datos
-    relacionales. Las aplicaciones típicas de OLAP se circunscriben en los siguientes ámbitos: informes de negocio de ventas, marketing, informes de gestión,
-    gestión del rendimiento empresarial (BMP), presupuestos y previsiones, informes financieros, etc.
-    
-    
-    \subsection{Reglas de Codd}
-    
-    En 1993, E.F. Codd \& Associates publicó un informe, encargado por Arbor Software (ahora Hyperion Solutions), titulado ``Providing OLAP to User-Analysts:
-    An IT Mandate''.
-    En un comienzo Codd definió 12 reglas con el fin de evitar que la visión que él tenía sobre las bases de datos relacionales se perdiera, y con el correr
-    de los años se extendieron a 18 \footnote{Se pueden observar en \cite[p.~205]{nagabhushana}}. A continuación se detallan las reglas más importantes 
-    para los autores:
-    
-    \begin{itemize}
-      \item \textbf{Visión multidimensional:} Las bases de datos OLAP siguen el modelo dimensional. Por lotanto, OLAP debe ofrecer al usuario final
-      una visión de todas las dimensiones del modelo. Provee la base para el procesamiento analítico mediante un acceso flexible y simple a los datos de la 
-      organización o empresa.
-      \item \textbf{Manipulación intuitiva de los datos:} Lo que se intenta remarcar con esta regla es que tiene que la navegación de los datos debe ser
-      sencilla, para lo cual, la mayoría de las aplicaciones ofrecen el doble click o el \textit{drag and drop} para acceder a los datos.
-      \item \textbf{Accesibilidad:} Esto está relacionado con el item anterior, salvo que de una forma un poco más abstracta. Lo que plantea es que se
-      considera a las aplicaciones OLAP como el middleware (capa intermedia) entre las distintas fuentes de información y el usuario final.
-      \item \textbf{Soporte de multi-usuario:} La aplicación OLAP debe soportar accesos concurrentes, lo que conlleva a mantener la integridad y seguridad
-      de la misma.
-      \item \textbf{Información separada del origen de datos:} Esto hace referencia a lo explicado en la arquitectura de DW, ya que se almacena toda la
-      información que se va a analizar en el repositorio central, el cual se encuentra separado las fuentes de datos.
-      \item \textbf{Flexibilidad ante valores nulos:} Esto punto se refiere a que ante la presencia de valores nulos (posiblemente por no estar informados)
-      se diferencien de los valores en 0, lo cual influye en gran medida en los cálculos matemáticos (por ejemplo, podrían no ser considerados en el cálculos
-      de promedios). Por otro lado, se debe ofrecer la posibilidad de excluir estos valores para que solamente se visualicen los valores realmente
-      importantes.
-      \item \textbf{Rendimiento uniforme:} Sin importar la cantidad de dimensiones ni el tamaño que tenga la base de datos, el rendimiento no debe verse
-      afectado significativamente.
-      \item \textbf{Dimensiones y niveles de agregación ilimitados:} Técnicamente ningún producto puede satisfacer esta regla ya que no se disponen de
-      recursos ilimitados. De todos modos, en general, la cantidad de dimensiones y los niveles de agregación varían dependiendo del negocio u organización.
-      Son pocas las aplicaciones que necesitan más de 10 dimensiones y jerarquías con más de 6 niveles. Codd sugiere un máximo de entre 15 y 20 dimensiones.
-      En cualquier caso, se debe tener en cuenta que la herramienta que se compre tiene sus limitaciones.
-    \end{itemize}
-    
-    
-    \subsection{FASMI}
-    
-    Las reglas de Codd fueron inadecuadas para detectar ``productos OLAP'', por lo que los investigadores se vieron obligados a crear su propia
-    definición. La definición debía que ser simple, memorable e independiente del producto, lo que resultó en la prueba FASMI \footnote{Explicada en
-    \cite{nagabhushana} Pág. 204.}, Fast Analysis of Shared Multidimentional Information (Análisis Rápido de Información 
-    Multidimensional Compartida). Cada componente de esta sigla tiene un significado particular y son explicadas a continuación:
-    
-    \begin{itemize}
-      \item \textbf{Rápido:} Los vendedores recurren a una amplia variedad de técnicas para lograr este objetivo, incluyendo formas especializadas de
-      almacenamiento de datos, extensos cálculos previos y requisitos de hardware específicos, pero se cree que ningún producto esté aún completamente
-      optimizado en cuanto al tiempo de respuesta, por lo que éste punto se encuentra en un estado de desarrollo.
-      El OLAP Survey \footnote{Encuesta a través de los principales productos OLAP, duranter 5 años (2001 a 2005).} encontró
-      que la lentitud de las respuestas a las consultas, son el problema técnico más frecuente en los productos OLAP, claramente muchas implementaciones
-      no superan esta prueba.
-      \item \textbf{Análisis:} Los productos deben permitir al usuario definir nuevos cálculos \textit{ad hoc} como parte del análisis e informar los datos de la
-      forma en que el usuario lo desee, sin requerir conocimientos técnicos. Ésto podría incluir características como el análisis de series de tiempo,las
-      asignaciones de costos, la conversión de moneda, búsqueda de objetivos, los cambios estructurales multidimensionales ad hoc, y otras funciones que
-      dependen de la aplicación.
-      \item \textbf{Información:} Se mide la capacidad de los distintos productos en términos de la cantidad de datos de entrada que puede manejar,
-      no de cuántos gigabytes utilizan para almacenarlo.
-      \item \textbf{Multidimensional:} El tipo de información que se trata concuerda con el modelo dimensional \footnote{Ver \ref{mod_dimensional}.}.
-      \item \textbf{Compartida:} No todas las aplicaciones permiten la escritura de datos, pero si lo hace, el sistema debe ser capaz de manejar múltiples
-      actualizaciones de manera oportuna.
-    \end{itemize}
-     
-    
     \subsection{Jerarquías}
     
     Las dimensiones en general, tienen distintos niveles \footnote{Se detalla en \cite[p.~94]{olap_solutions}}, los cuales representan las
     múltiples granularidades de la dimensión (menor o mayor nivel de detalle). Estos niveles forman parte de una jerarquía. El ejemplo más simple de
     jerarquía es el de la dimensión de tiempo, la cual puede ser: \textbf{Año > Mes > Día}. Tanto en la dimensión de
     tiempo como en cualquier otra existe la posibilidad de definir distintas jerarquías. Dos ejemplos sencillos se ilustran en la Figura
-    \ref{jerarquias}.
+    \ref{jerarquías}.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.5]{jerarquias}
         \caption{Jerarquías de \textit{Tiempo} y \textit{Ubicación}. \cite[p.~94]{olap_solutions}.}
-        \label{jerarquias}
+        \label{jerarquías}
       \end{center}
     \end{figure}
     
@@ -680,9 +568,9 @@
       \end{center}
     \end{figure}
     
-    
-    Los esquemas agregados proporcionan mejoras en el rendimiento, ya que la cantidad de registros se reduce consirablemente respecto al esquema base. El
-    uso más común de los agregados es tomar una dimensión determinada y cambiar su granularidad. Al hacer ésto, la tabla de hechos debe ser parcialmente
+
+    Los esquemas agregados proporcionan mejoras en el rendimiento, ya que la cantidad de registros se reduce considerablemente respecto al esquema base. El
+    uso más común de los agregados es tomar una dimensión determinada y cambiar su granularidad. Al hacer esto, la tabla de hechos debe ser parcialmente
     resumida para adaptarse a la nueva dimensión. Se crean así, nuevas tablas de dimensión y de hechos, que encajan en el nuevo nivel de granularidad deseado.
     
     En la Figura \ref{sch_orig2} vemos, a modo ejemplo, un esquema copo de nieve con una tabla de hechos y 3 dimensiones.\footnote{Notar que la
@@ -717,6 +605,115 @@
     Tener datos agregados en el modelo dimensional hace al entorno más complejo. Para que esta complejidad sea transparente al usuario, se utiliza
     una funcionalidad conocida como \textit{navegación de agregados}, la cual es implementada por el motor OLAP, que permite consultar las
     tablas dimensionales y de hechos, con el nivel de granularidad correcto.
+    
+    \subsection{Bases de datos temporales}
+    
+    Una \textbf{base de datos temporal} es una base de datos que trata con especial énfasis aspectos temporales, teniendo un modelo de datos temporal y una versión
+    temporal del lenguaje de consulta estructurado.
+    
+    Los datos almacenados en una base de datos temporal tienen un asociado un período de tiempo que expresa su validez. Las bases de datos convencionales
+    consideran que los datos almacenados en ella son válidos, sin importar el tiempo, ya que no mantienen un registro de los estados pasados o futuros de
+    la base de datos. En cambio, las bases de datos temporales hacen posible almacenar diferentes estados de la base de datos. Por esto, podemos
+    considerar al DW como una base de datos temporal.
+    
+    
+    \subsubsection{Dimensión de tiempo}
+    
+    En un DW, la creación y el mantenimiento de una tabla de dimensión \textbf{Tiempo} es obligatoria, y la definición de granularidad y estructuración de la misma 
+    depende de la dinámica del negocio que se esté analizando. Toda la información del DW, como ya se ha explicado, posee su propio sello de 
+    tiempo, el cual determina la ocurrencia de un hecho específico, representando de esta manera, diferentes versiones de una misma situación.Al momento de 
+    implementar la dimensión como una tabla en una base de datos se debe tener especial cuidado con el campo clave que se elige ya que esto puede influir 
+    mucho en el espacio que se ocupará en disco y los tiempos de respuesta.\par
+    
+    A continuación se detallan las representaciones más frecuentes del tipo de dato utilizado para la clave:
+    
+    \begin{itemize}
+      \item \textbf{Date:} Si se usa Date como tipo para  el campo clave, costaría mucho espacio en comparación con un entero y los tiempos de respuesta se
+      relentizarán ya que para los motores de consulta es más costosa la comparación con este tipo de campos que con uno entero.
+      \item \textbf{Entero:}
+      \begin{itemize}
+        \item Se puede utilizar un campo auto incremental, el cual tiene la siguiente forma: 1, 2, 3, \dots con lo cual el costo de almacenamiento en disco
+        se reduciría considerablemente y los tiempos de respuesta bajan ya que la comparación entre enteros no es algo costoso. Sin embargo, con esta representación se
+        torna confuso saber con qué fecha se está trabajando.
+        \item Una mejor opción es utilizar un campo de la forma yyyyMMdd, por ejemplo 20150315, ya que se obtienen los mismos beneficios que los planteados
+        en el item anterior a lo que se suma una mejor comprensión a la hora de visualizar los registros.
+      \end{itemize}
+    \end{itemize}
+    
+    
+    \section{OnLine Analytical Processing} \label{OLAP}
+    
+    Más conocido por su acrónimo OLAP (Procesamiento Analítico En Línea), es una solución utilizada en el campo de la inteligencia de negocios, cuyo 
+    objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla. Utiliza estructuras multidimensionales (cubos OLAP) que 
+    contienen datos resumidos de grandes bases de datos.
+    
+    Como se explico anteriormente, en una base de datos transaccional, normalmente se estructuran las tablas con un modelo normalizado, lo cual favorece a
+    la explotación OLTP, en cambio, las bases de datos configuradas para OLAP utilizan un modelo de datos multidimensional, lo que permite consultas 
+    analíticas complejas, con tiempos de ejecución más reducidos, que su contrapartida OLTP.
+
+    Las técnicas OLAP, e incluso OLTP fueron iniciadas por E.F. Codd \footnote{El Dr. Codd fue un investigador de base de datos, muy conocido a partir de la
+    década de 1960. Es considerado el inventor del modelo de base de datos relacional en 1969.}, considerado el padre de las bases de datos
+    relacionales. Las aplicaciones típicas de OLAP se circunscriben en los siguientes ámbitos: informes de negocio de ventas, marketing, informes de gestión,
+    gestión del rendimiento empresarial (BMP), presupuestos y previsiones, informes financieros, etc.
+    
+    
+    \subsection{Reglas de Codd}
+    
+    En 1993, E.F. Codd \& Associates publicó un informe, encargado por Arbor Software (ahora Hyperion Solutions), titulado ``Providing OLAP to User-Analysts:
+    An IT Mandate''.
+    En un comienzo Codd definió 12 reglas con el fin de evitar que la visión que él tenía sobre las bases de datos relacionales se perdiera, y con el correr
+    de los años se extendieron a 18 \footnote{Se pueden observar en \cite[p.~205]{nagabhushana}}. A continuación se detallan las reglas más importantes 
+    para los autores:
+    
+    \begin{itemize}
+      \item \textbf{Visión multidimensional:} Las bases de datos OLAP siguen el modelo dimensional. Por lo tanto, OLAP debe ofrecer al usuario final
+      una visión de todas las dimensiones del modelo. Provee la base para el procesamiento analítico mediante un acceso flexible y simple a los datos de la 
+      organización o empresa.
+      \item \textbf{Manipulación intuitiva de los datos:} Lo que se intenta remarcar con esta regla es que tiene que la navegación de los datos debe ser
+      sencilla, para lo cual, la mayoría de las aplicaciones ofrecen el doble click o el \textit{drag and drop} para acceder a los datos.
+      \item \textbf{Accesibilidad:} Esto está relacionado con el ítem anterior, salvo que de una forma un poco más abstracta. Lo que plantea es que se
+      considera a las aplicaciones OLAP como el middleware (capa intermedia) entre las distintas fuentes de información y el usuario final.
+      \item \textbf{Soporte de multi-usuario:} La aplicación OLAP debe soportar accesos concurrentes, lo que conlleva a mantener la integridad y seguridad
+      de la misma.
+      \item \textbf{Información separada del origen de datos:} Esto hace referencia a lo explicado en la arquitectura de DW, ya que se almacena toda la
+      información que se va a analizar en el repositorio central, el cual se encuentra separado las fuentes de datos.
+      \item \textbf{Flexibilidad ante valores nulos:} Esto punto se refiere a que ante la presencia de valores nulos (posiblemente por no estar informados)
+      se diferencien de los valores en 0, lo cual influye en gran medida en los cálculos matemáticos (por ejemplo, podrían no ser considerados en el cálculos
+      de promedios). Por otro lado, se debe ofrecer la posibilidad de excluir estos valores para que solamente se visualicen los valores realmente
+      importantes.
+      \item \textbf{Rendimiento uniforme:} Sin importar la cantidad de dimensiones ni el tamaño que tenga la base de datos, el rendimiento no debe verse
+      afectado significativamente.
+      \item \textbf{Dimensiones y niveles de agregación ilimitados:} Técnicamente ningún producto puede satisfacer esta regla ya que no se disponen de
+      recursos ilimitados. De todos modos, en general, la cantidad de dimensiones y los niveles de agregación varían dependiendo del negocio u organización.
+      Son pocas las aplicaciones que necesitan más de 10 dimensiones y jerarquías con más de 6 niveles. Codd sugiere un máximo de entre 15 y 20 dimensiones.
+      En cualquier caso, se debe tener en cuenta que la herramienta que se compre tiene sus limitaciones.
+    \end{itemize}
+    
+    
+    \subsection{FASMI}
+    
+    Las reglas de Codd fueron inadecuadas para detectar ``productos OLAP'', por lo que los investigadores se vieron obligados a crear su propia
+    definición. La definición debía que ser simple, memorable e independiente del producto, lo que resultó en la prueba FASMI \footnote{Explicada en
+    \cite{nagabhushana} Pág. 204.}, Fast Analysis of Shared Multidimentional Information (Análisis Rápido de Información 
+    Multidimensional Compartida). Cada componente de esta sigla tiene un significado particular y son explicadas a continuación:
+    
+    \begin{itemize}
+      \item \textbf{Rápido:} Los vendedores recurren a una amplia variedad de técnicas para lograr este objetivo, incluyendo formas especializadas de
+      almacenamiento de datos, extensos cálculos previos y requisitos de hardware específicos, pero se cree que ningún producto esté aún completamente
+      optimizado en cuanto al tiempo de respuesta, por lo que éste punto se encuentra en un estado de desarrollo.
+      El OLAP Survey \footnote{Encuesta a través de los principales productos OLAP, durante 5 años (2001 a 2005).} encontró
+      que la lentitud de las respuestas a las consultas, son el problema técnico más frecuente en los productos OLAP, claramente muchas implementaciones
+      no superan esta prueba.
+      \item \textbf{Análisis:} Los productos deben permitir al usuario definir nuevos cálculos \textit{ad hoc} como parte del análisis e informar los datos de la
+      forma en que el usuario lo desee, sin requerir conocimientos técnicos. Esto podría incluir características como el análisis de series de tiempo,las
+      asignaciones de costos, la conversión de moneda, búsqueda de objetivos, los cambios estructurales multidimensionales ad hoc, y otras funciones que
+      dependen de la aplicación.
+      \item \textbf{Información:} Se mide la capacidad de los distintos productos en términos de la cantidad de datos de entrada que puede manejar,
+      no de cuántos gigabytes utilizan para almacenarlo.
+      \item \textbf{Multidimensional:} El tipo de información que se trata concuerda con el modelo dimensional \footnote{Ver \ref{mod_dimensional}.}.
+      \item \textbf{Compartida:} No todas las aplicaciones permiten la escritura de datos, pero si lo hace, el sistema debe ser capaz de manejar múltiples
+      actualizaciones de manera oportuna.
+    \end{itemize}
     
     
     \subsection{Hipercubo de datos}
@@ -764,7 +761,7 @@
     
     Para representar este cubo tridimensional en una pantalla de dos dimensiones, podemos tomar una ``rebanada'' del mismo.
     Esto consiste en fijar una de las dimensiones (por ejemplo, \textit{Products}) a un valor determinado, con lo cual se obtendrá una
-    tabla cuyas celdas contendran información para los cruces de los valores de las otras dos dimensiones, respecto al producto seleccionado. En la Figura
+    tabla cuyas celdas contendrán información para los cruces de los valores de las otras dos dimensiones, respecto al producto seleccionado. En la Figura
     \ref{cube_3} se puede observar la visualización del cubo de la Figura \ref{cube_2} habiendo seleccionado el producto \textit{shoes}. Al resultado obtenido se
     lo llama \textit{página} o \textit{rebanada}.
     
@@ -776,7 +773,7 @@
       \end{center}
     \end{figure}
 
-    Si se quiere añadir una cuarta dimensión al cubo, el cubo como metáforavisual se rompe; no será posible obtener una visualización del mismo en una
+    Si se quiere añadir una cuarta dimensión al cubo, el cubo como metáfora visual se rompe; no será posible obtener una visualización del mismo en una
     pantalla de dos dimensiones. Entonces, en \cite{olap_solutions}, se sugiere una nueva estructura para representar los datos, o eventos generadores de datos,
     que es capaz de reproducir cualquier número de dimensiones.
     Se la llama, \textbf{Estructura de Tipo Multidimensional} (\textit{Multidimensional Type Structures}, o MTS).
@@ -856,10 +853,10 @@
     ejemplos, en base a un cubo de tres dimensiones, \textit{Locations}, \textit{Time}, y \textit{Item}:
     
     \begin{itemize}
-      \item \textbf{Slice:} En esta operación se selecciona un valor particular de una de las dimensiones del cubo, buscando con ésto obtener una ``rebanada'' del
+      \item \textbf{Slice:} En esta operación se selecciona un valor particular de una de las dimensiones del cubo, buscando con esto obtener una ``rebanada'' del
       mismo. Ver Figura \ref{slice}.
-      \item \textbf{Dice:} Se seleccionan valores específicos de dos o más dimensiones, y así se obteniene un subcubo del cubo original. Ver Figura \ref{dice}.
-      \item \textbf{Drill Down:} Esta operación ofrece más detalle de la información visualizada, previo a ser aplicada. Ésto puede
+      \item \textbf{Dice:} Se seleccionan valores específicos de dos o más dimensiones, y así se obtiene un subcubo del cubo original. Ver Figura \ref{dice}.
+      \item \textbf{Drill Down:} Esta operación ofrece más detalle de la información visualizada, previo a ser aplicada. Esto puede
       lograrse de dos formas, bajar un nivel en la jerarquía de una dimensión en particular o añadir otra dimensión, para sumar aún más información sobre el contexto.
       Ver Figura \ref{drill_down}.
       \item \textbf{Drill up:} En contraposición con la operación anterior, \textit{drill up} permite visualizar menos información, lo cual puede realizarse
@@ -921,7 +918,7 @@
     \begin{itemize}
       \item \textbf{Ventajas:}
         \begin{itemize}
-          \item Existe una gran variedad de herramientas de carga de datos para sistemas relacionales. Con ésto se consigue que los tiempos de carga
+          \item Existe una gran variedad de herramientas de carga de datos para sistemas relacionales. Con esto se consigue que los tiempos de carga
           sean, generalmente, mucho menores que con las cargas MOLAP (lo cual se definirá a continuación) automatizadas.
           \item Los datos se almacenan en una base de datos relacional estándar que puede ser accedida por cualquier herramienta de generación de
           informes SQL (reporting).
@@ -929,7 +926,7 @@
       \item \textbf{Desventajas:}
         \begin{itemize}
           \item Muchos desarrolladores de modelos dimensionales ROLAP ignoran el paso de creación de tablas agregadas, con lo cual el rendimiento de
-          una consulta se ve afectado ante la necesidad de consultar las tablas con los datos más detallados. Ésto puede evitarse parcialmente
+          una consulta se ve afectado ante la necesidad de consultar las tablas con los datos más detallados. Esto puede evitarse parcialmente
           añadiendo tablas agregadas, sin embargo no es práctico crear tablas agregadas para todas las combinaciones posibles de dimensiones/hechos.
           \item Los sistemas ROLAP se construyen sobre bases de datos de propósito general, por lo que hay algunas funcionalidades especiales, propias
           de las herramientas MOLAP, que no están disponibles en los sistemas ROLAP (tales como el indexado jerárquico especial). Sin embargo, las
@@ -1002,14 +999,16 @@
 
   % ############################ INICIO ESTADO DEL ARTE ############################
   
-    \section{Estado del arte}
+    \section{Estado del arte} \label{estado_arte}
     
     En las siguientes secciones se desarrollaran temas que se encuentran actualmente en investigación. Los mismos fueron seleccionados por los autores
-    debido a la calidad de información que aportan, y a la relación que se establece entre las bases de datos y temas de la matéria
+    debido a la calidad de información que aportan, y a la relación que se establece entre las bases de datos y temas de la materia
     \textit{Introducción a la Inteligencia Artificial} (lógica difusa, ontologías).
     
     \subsection{Diseño de un Data Warehouse}
-    El procedimiento, planteado en \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicada a fines analíticos.
+    
+    El procedimiento, planteado en el libro \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicada
+    a fines analíticos.
     Por lo tanto, su diseño debe seguir las fases de diseño de bases de datos tradicionales, es decir, la especificación de los requisitos, diseño conceptual, diseño 
     lógico y diseño físico. Sin embargo, hay diferencias significativas entre las fases del diseño de bases de una datos tradicional y un DW, que se derivan de su
     diferentes naturalezas. Ver Figura \ref{etapasDiseño}.
@@ -1071,7 +1070,7 @@
       Proveer de extensiones a E/R y modelos UML para DWs, no son realmente una solución al problema, ya que en definitiva representan
       conceptos de la tecnología relacional subyacentes y, que además, revelan sus propios problemas.
       
-      Por lo tanto, en \cite{VaismanZimanyi14} se propone el modelo \textbf{MultiDim}, que es lo suficientemente potente como para representar a nivel conceptual
+      Por lo tanto, se propone el modelo \textbf{MultiDim}, que es lo suficientemente potente como para representar a nivel conceptual
       todos los elementos requeridos en el almacén de datos y aplicaciones OLAP, es decir, dimensiones, jerarquías y hechos asociados a medidas.
       
       \begin{figure}[h]
@@ -1083,7 +1082,7 @@
         \end{center}
       \end{figure}
       
-      A continuación, se detallan las principales componentes del modelo:
+      A continuación, se detallan las principales componentes del modelo, para más información ver \cite{VaismanZimanyi14}, capítulo 4.
       
       \begin{itemize}
         \item Un \textbf{esquema} se compone de un conjunto de dimensiones y de un conjunto de hechos.
@@ -1104,7 +1103,7 @@
           \item Medidas semiaditivas: se pueden resumir, a lo largo de algunas, no todas, las dimensiones.
           \item Medidas no aditivas: no pueden resumirse, través de ninguna dimensión.
         \end{itemize}
-        Además, las medidas y los atributos de nivel puden \textbf{derivarse}, es decir que se calculan en base a otras medidas o atributos en el esquema.
+        Además, las medidas y los atributos de nivel pueden \textbf{derivarse}, es decir que se calculan en base a otras medidas o atributos en el esquema.
         Por defecto, las medidas son aditivas.
       \end{itemize}
       
@@ -1162,7 +1161,7 @@
     \end{itemize}
     
     
-    Habiéndose presentado las anteriores definiciones, se procederá a detallar el algoritmo en cuetión. El mismo consta de las siguientes etapas:
+    Habiéndose presentado las anteriores definiciones, se procederá a detallar el algoritmo en cuestión. El mismo consta de las siguientes etapas:
     
     \begin{itemize}
       \item \textbf{Creación de tablas}
@@ -1191,7 +1190,7 @@
     Ahora se debe centrar la atención en buscar relaciones entre clases del tipo \textbf{subclaseDe}, también conocidas como \textbf{Es\_Un}. Estas
     relaciones expresan que una determinada clase es subclase de otra más abstracta. La subclase hereda todas las propiedades de su clase padre.
     Entonces, cuando se navega toda la ontología y se encuentra este tipo de relación entre dos clases, se tiene que crear una clave foránea (foreing
-    key) en la tabla padre y generar una relación uno a muchos entre ambas tablas. Para comprender mejor esta instancia del algoritmo observese la
+    key) en la tabla padre y generar una relación uno a muchos entre ambas tablas. Para comprender mejor esta instancia del algoritmo obsérvese la
     Figura \ref{subClase}.
    
     \begin{figure}[!htb]
@@ -1247,7 +1246,7 @@
     dominio de la propiedad de datos padre. De forma similar, teniendo en vista las propiedades de objetos,  se identifica la tabla dominio (en su defecto, la 
     tabla dominio de la propiedad padre) y se actualiza la fila correspondiente al individuo de la clase dominio, en la columna con el mismo nombre que la
     propiedad, con el valor del individuo de la clase rango. En caso que no exista la columna en la tabla dominio, ésta es creada y se realiza el procedimiento
-    antes descripto. El diagrama de la Figura \ref{insertingData} ilustra de forma más detallada lo recien explicado, incluyendo cada uno de los pasos a seguir.
+    antes descripto. El diagrama de la Figura \ref{insertingData} ilustra de forma más detallada lo recién explicado, incluyendo cada uno de los pasos a seguir.
     
     \begin{figure}[!htb]
       \begin{center}
@@ -1272,7 +1271,7 @@
     Se trataron varios enfoques para integrar conceptos difusos en un almacén de datos y OLAP. 
     En \cite{Fasel14} se explica que la mayoría de estos enfoques han sido desarrollados para un determinado campo de aplicación, y que a menudo establecen
     restricciones en la aplicación de los conceptos difusos.
-    Otras alternativas, sustituyen los valores originales del almacén de datos con datos difusos, lo que imposibilita el analisis de los valores originales del
+    Otras alternativas, sustituyen los valores originales del almacén de datos con datos difusos, lo que imposibilita el análisis de los valores originales del
     almacén de datos.
     
     Por ello en \cite{Fasel14}, se propone un modelo que aborda estos inconvenientes, proporcionando un método más flexible para integrar los conceptos difusos,
@@ -1350,8 +1349,8 @@
     Por lo tanto, un DW clásico puede tener una o más meta tablas del modelo $FDW$.
     
     Además, los conceptos difusos pueden existir sin una variable lingüística. Esto es puede representar sin una tabla de clasificación fuzzy.
-    Cada tabla de clasificación fuzzy tiene una relación de uno o más, con la tabla de  pertencia fuzzy. En definitiva, el modelo $FDW$ se compone de una o más tablas
-    de  pertencia fuzzy, y cero o más tabla de clasificación fuzzy.
+    Cada tabla de clasificación fuzzy tiene una relación de uno o más, con la tabla de  pertenencia fuzzy. En definitiva, el modelo $FDW$ se compone de una o más tablas
+    de  pertenencia fuzzy, y cero o más tabla de clasificación fuzzy.
     
     Para proporcionar un DW funcional, el FDW tiene que apoyar las operaciones OLAP básicas. En \cite{Fasel14} se describe cómo las operaciones clásica tienen que
     adaptarse para manejar conceptos difusos correctamente, y cómo la definición del cubo de datos tiene que ser ampliada con conceptos difusos.
@@ -1372,13 +1371,6 @@
     Mediante el uso de una clasificación difusa el usuario puede pertenecer a ambos términos lingüísticos al mismo tiempo.
         
     Entonces, el concepto difuso sobre las visitas a páginas web proporciona una clasificación más certera de los valores numéricos.
-
-%     Desventaja del modelo fuzzy data warehouse
-%     El modelo de Fuzzy Data Warehouse, se basa en un enfoque relacional para los almacenes de datos.
-%     Por ello, es necesario analizar en futuras investigaciones si la estructura de la tabla meta puede ser implementado en bases de datos multidimensionales,
-%     o si sería necesaria  una nueva implementación de conceptos difuso.
-%     La estructura de meta tablas no prevee ningún control de versiones cronológico de datos difusos. Es decir que, no es posible tener diferentes versiones de datos
-%     borrosos en diferentes puntos del tiempo.
     
     
     \subsection{Web Warehouse}
@@ -1397,18 +1389,18 @@
     La arquitectura del WW se puede dividir en algunos módulos, cada uno de ellos con tareas específicas:
     
     \begin{itemize}
-      \item \textbf{Módulo DSI:} De la sigla en ingles Data Service Infrastructure (ó infraestructura de servicio de datos). Este módulo tiene 3 tareas
+      \item \textbf{Módulo DSI:} De la sigla en ingles Data Service Infrastructure (o infraestructura de servicio de datos). Este módulo tiene 3 tareas
       principales:
         \begin{itemize}
-          \item Proveer un mecanismo para extraer datos de los diferentes tipos WDS (Web Data Source ó, su traducción al castellano, fuentes de datos web) y
-          mostrarlos a todos ellos como DS homogéneos (Data Service ó servicio de datos). Los DS son los encargados de acceder y extraer la información de la web.
+          \item Proveer un mecanismo para extraer datos de los diferentes tipos WDS (Web Data Source o, su traducción al castellano, fuentes de datos web) y
+          mostrarlos a todos ellos como DS homogéneos (Data Service o servicio de datos). Los DS son los encargados de acceder y extraer la información de la web.
           \item Monitorear los DS y periódicamente controlar la calidad de los datos que ingresan. Estos controles son realizados por ciertos DS que son
-          invocados por el móludo QM (Quality Measurement ó de medición de calidad) e incluyen el almacenamiento de metadatos de DQ (Data Quality ó calidad de
-          datos) y QoS (Quality of Service ó calidad de servicio).
+          invocados por el móludo QM (Quality Measurement o de medición de calidad) e incluyen el almacenamiento de metadatos de DQ (Data Quality o calidad de
+          datos) y QoS (Quality of Service o calidad de servicio).
           \item Provee mecanismos para reaccionar ante la degradación de un DS, ya que si ésto sucede, los datos perderán relevancia.
         \end{itemize}
       \item \textbf{Módulo integrador:} Este módulo lleva a cabo la integración de datos y provee los mismos en un formato normalizado, construyendo con ellos la
-      IDB (Integrated Data Base ó base de datos integrada). Sus principales objetivos son la selección de los DS con el fin de obtener calidad en los datos
+      IDB (Integrated Data Base o base de datos integrada). Sus principales objetivos son la selección de los DS con el fin de obtener calidad en los datos
       extraidos de la web, integración de datos y la generación de metadatos de esos datos integrados.
       \item \textbf{Módulos ETL y OLAP:} Estos módulos realizan las tareas usuales salvo que deben propagar los metadatos de la calidad de datos.
       \item \textbf{Módulo DWQM:} Es la sigla para Data Warehouse Quality Measurement ó medición de calidad del DW. Como lo indica su nombre, es el módulo
@@ -1466,7 +1458,7 @@
     datos se plantean 6 factores que, a juzgar por los autores, engloban todos los aspectos referentes al tema, los cuales son:
     
     \begin{itemize}
-      \item \textbf{Presición:} Sintáctica y semánticamente correctos.
+      \item \textbf{Precisión:} Sintáctica y semánticamente correctos.
       \item \textbf{Completitud:} Cuan densos son los datos, es decir, cuanto cubren de todo lo que se necesita.
       \item \textbf{Frescura:} Periodicidad con que se cargan los datos, límite de tiempo luego del cual los datos dejan de ser válidos.
       \item \textbf{Consistencia:} Los datos deben ser consistentes respecto del dominio en que se trabaja.
@@ -1478,24 +1470,24 @@
   
   % ############################ INICIO CONCLUSIONES ############################
 
-  \section{Conclusiones}
+  \section{Conclusiones} \label{conclusiones}
   
   Se puede observar que la aplicación del modelo dimensional sobre el Data Warehouse, junto con las diversas formas de explotación de los datos, entre ellas
   OLAP \footnote{Ver Figura \ref{dw_arq}.}, ofrece una solución que ayuda al usuario final en la toma de decisiones, respaldando las mismas con resultados concretos.
   
-  La principal ventaja del enfoque dimensional, en contraposición al modelo normalizado, es el desarrollo de estructuras faciles de entender y usar para el
-  usuario final. Si se siguiera una normalización en tercera forma normal, debido al gran número de tablas que se crearian, podria ser engorroso para el
-  usuario establecer los joins necesarios, sobre las distintas fuentes de datos, que provean de información significativa, sin una compresición plena
+  La principal ventaja del enfoque dimensional, en contraposición al modelo normalizado, es el desarrollo de estructuras fáciles de entender y usar para el
+  usuario final. Si se siguiera una normalización en tercera forma normal, debido al gran número de tablas que se crearían, podría ser engorroso para el
+  usuario establecer los joins necesarios, sobre las distintas fuentes de datos, que provean de información significativa, sin una comprensión plena
   de las estructuras de datos del Data Warehouse.
   Además, tiende a proporcionar de una mayor performance, en la recuperación de los datos, gracias al grado de desnormalización de los datos.
   
-  Por otro lado, se considera importante remarcar que las herramientos OLAP se adaptan mejor, en escenarios donde se requiera de tomas de decisiones,
+  Por otro lado, se considera importante remarcar que las herramientas OLAP se adaptan mejor, en escenarios donde se requiera de tomas de decisiones,
   que las herramientas OLTP, debido a sus diferentes naturalezas.
-  Los DWs están optimizados para patrones de busquedas analíticos, que en general consisten en la selección de campos determinados, que requieren de pocos
+  Los DWs están optimizados para patrones de búsquedas analíticos, que en general consisten en la selección de campos determinados, que requieren de pocos
   \texttt{``select *''}.
   
   A diferencias de las bases de datos operacionales que mantienen una fotografía del estado
-  de la organización, los DWs mantienen datos históricos, que se implementa a través de procesos ETL, los cuales migran periodicamente los datos de los sistemas
+  de la organización, los DWs mantienen datos históricos, que se implementa a través de procesos ETL, los cuales migran periódicamente los datos de los sistemas
   operacionales al Data Warehouse.
   
   En referencia al uso de ontologías aplicadas al diseño del DW, publicado en \cite{ontologias}, es importante aclarar que, si bien cada uno de los pasos del
@@ -1505,10 +1497,8 @@
   Daniel Fasel, en \cite {Fasel14}, destaca que el modelo de Fuzzy Data Warehouse, se basa en un enfoque relacional del DW.
   Por ello, es necesario analizar en futuras investigaciones si la estructura de la tabla meta puede ser implementada en bases de datos multidimensionales,
   o si sería necesaria una nueva implementación de los conceptos difusos.
-  Además, la estructura de meta tablas no prevee ningún control de versiones cronológico de datos difusos.
+  Además, la estructura de meta tablas no contempla ningún control de versiones cronológico de datos difusos.
   Es decir que, no es posible tener diferentes versiones de datos borrosos en diferentes puntos del tiempo.
-  
-  % TERMINAR, con limitaciones de MULTIDIM
   
   % Saqué información de https://en.wikipedia.org/wiki/Data_warehouse.
   % De la sección "Dimensional vs. normalized approach for storage of data" y "Data warehouses versus operational systems".
