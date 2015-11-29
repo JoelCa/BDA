@@ -112,16 +112,22 @@
     \section{Resumen}
   
     El Data Warehouse es una base de datos orientada a un dominio determinado, integrado, no volátil y variable en el tiempo, que ayuda a la toma de decisiones.
-    Estos datos se clasifican en dos grandes grupos: dimensiones y medidas, conceptos fundamentales del modelo dimensional. El cual ofrece los esquemas dimensionales
-    (esquema estrella, copo de nieve y constelación), para diseñar el Data Warehouse.
+    Sus datos se clasifican en dos grandes grupos: dimensiones y medidas, conceptos fundamentales del modelo dimensional, sobre el cual se define el
+    Data Warehouse. Este modelo ofrece distintos esquemas lógicos
+    (esquema estrella, copo de nieve y constelación), para diseñar el Data Warehouse. 
     
-    Es posible explotar los datos almacenados de diversas formas:
-    reportes, Data Mining, Olap, etc. Olap permite la consulta de grandes cantidades de datos de forma eficiente y sencilla, a partir de la utilización de cubos.
+    Los datos almacenados en el Data Warehouse pueden explotarse de diversas formas:
+    reportes, Data Mining, OLAP, etc. OLAP permite la consulta de grandes cantidades de datos de forma eficiente y sencilla, a partir de la utilización de 
+    estructuras multidimensionales, llamadas cubos OLAP.
     Estos se utilizan de la misma manera que las bases de datos relacionales utilizan tablas.
     Es por ello, que todo el análisis se hace en términos de los cubos.
     
-    Se distinguen dos grandes tipos de sistemas Olap: Rolap y Molap, cuya principal diferencia radica en el tipo de base de datos, con el que se implementa el
-    Data Warehouse.
+    Una característica fundamental de los sistemas OLAP es permitir la visión de los datos en distintas perspectivas y niveles de detalle, el cual
+    puede ser materializado, a partir de la explotación de las dimensiones y sus jerarquías, logrando así un entorno de análisis interactivo.
+    Son las operaciones OLAP, como \textit{drill-up}, \textit{drill-down}, las que se proveen esta funcionalidad.
+    
+    Se distinguen dos grandes tipos de sistemas OLAP: Rolap y Molap, cuya principal diferencia radica en el tipo de base de datos, con el que se implementa el
+    Data Warehouse. Además, tenemos Holap, que combina ambos enfoques.
   % ############################ FIN RESUMEN ############################
 
   
@@ -130,22 +136,30 @@
     \section{Introducción}
 
     Desde que una empresa u organización es creada, ésta comienza a recabar información, de las distintas transacciones que realiza, al relacionarse
-    con alguna entidad externa, o información respectiva a movimientos internos, como por ejemplo el ingreso de personal, gastos administrativos,
+    con alguna entidad externa, o efectuar movimientos internos, como por ejemplo el ingreso de personal, gastos administrativos,
     etc. (cuando se habla de transacciones se hace referencia, por ejemplo, a la compra de materias primas de la empresa, venta de mercaderías a un tercero,
     etc.). Desde entonces, se utilizó toda esta información para analizarla y comenzar el proceso de toma de decisiones con el fin de generar un
     crecimiento de la entidad. Por ejemplo, luego de un análisis completo de las ventas realizadas en los últimos meses, se decide incrementar la 
     productividad de un determinado producto habiendo llegado a la conclusión de que fue el más vendido.
     
-    Un factor de gran importancia es el tiempo, ya que con el paso del tiempo la información almacenada se vuelve cada vez más grande,
-    y por ende difícil de analizar. A mediados de los 80' surge el concepto \textit{Data Warehouse}, como solución a éstos problemas,
-    en el ámbito de las bases de datos.
+    A principios de los 90', como consecuencia del auge de la competitividad, las organizaciones requirieron sofisticados análisis de los datos que sustenten
+    el proceso de toma de decisiones. Las bases de datos transaccionales u operacionales no satisfacen esta demanda, ya que estas fueron diseñadas y
+    optimizadas para soportar operaciones de negocios diarias, cuyo principal objetivo es asegurar el acceso concurrente de múltiples usuarios, proporcionando
+    técnicas de recuperación, que garanticen la consistencia de los datos.
     
-    En la sección \ref{conceptos_fundamentales}, se abarca esencialmente: las definiciones de Data Warehouse y Data Mart, sus diferencias con OLTP, el modelo dimensional como
-    método de diseño del Data Warehouse, y se explica por qué un Data Warehouse es una base de datos temporal.
+    Además, un factor de gran importancia es el tiempo, ya que con el paso del tiempo la información almacenada se vuelve cada vez más grande,
+    y por ende difícil de analizar.
     
-    En la sección \ref{OLAP}, se presentan las distintas características que definen a un producto OLAP (Reglas de Codd, y FASMI), las jerarquías y agregaciones, y
-    su uso en la optimización de las respuestas ante una consulta, la representación del cubo OLAP en dos dimensiones (en forma de grilla), las operaciones
-    básicas sobre el mismo, y las principales arquitecturas OLAP.
+    %Las bases de datos operacionales tienen datos detallados, no históricos.
+    
+    Como una solución a estos inconvenientes surge el concepto de \textit{Data Warehouse}, en el ámbito de las bases de datos.
+    
+    En la sección \ref{conceptos_fundamentales}, se abarca esencialmente: las definiciones de Data Warehouse y Data Mart, sus diferencias con OLTP,
+    el modelo dimensional como método de diseño del Data Warehouse, las jerarquías y agregaciones, su uso en la optimización de las respuestas ante una consulta,
+    y por último se explica por qué un Data Warehouse es una base de datos temporal.
+    
+    En la sección \ref{OLAP}, se presentan las distintas características que definen a un producto OLAP (Reglas de Codd, y FASMI), la representación del cubo OLAP en
+    dos dimensiones (en forma de grilla), las operaciones básicas sobre el mismo, y las principales arquitecturas OLAP (ROLAP, MOLAP, HOLAP).
     
     En la sección \ref{estado_arte}, se detallan cuatros temas en investigación relacionados al Data Warehouse:
     \begin{itemize}
@@ -175,7 +189,7 @@
     \subsection{Data Warehouse}
     
     El concepto \textbf{Data Warehouse} (DW, almacén de datos), es una solución dentro del campo de inteligencia de negocios.
-    A continuación, presentamos dos definiciones de \textit{Data Warehouse}.
+    A continuación, presentamos dos definiciones de Data Warehouse.
 
     \begin{itemize}
       \item \textbf{Bill Inmon}, uno de los pioneros en el ámbito de los DW, los define en base a las características que éste debe respetar, las mismas son:
@@ -214,14 +228,15 @@
     
       \item Luego se observa el módulo \textbf{ETL}, acrónimo en inglés de \textbf{Extraction, Transformation and Loading} (Extracción, Transformación y Carga).
       En esta instancia es donde se aplican diversas técnicas para extraer la información obtenida de
-      los diversos orígenes de datos. Luego, se realizan variadas transformaciones (dependiendo de la realidad en que se
-      trabaja) para depurar e integrar los datos para cargarlos en un único repositorio central, con el fin de que en posteriores etapas se pueda obtener
-      la información de forma sencilla y conociendo una única realidad. (se hace énfasis en esto último debido a que pueden darse situaciones de
-      inconsistencia en los datos. Por ejemplo, 2 sectores de la empresa en cuestión informan valores distintos para la venta de un producto en el mismo
-      período de tiempo).
+      los diversos orígenes de datos. Luego, son realizadas variadas transformaciones (dependiendo de la realidad en que se
+      trabaja) para depurar e integrar los datos en un único repositorio central, con el fin de que en etapas posteriores se pueda obtener
+      información de forma sencilla, conociendo una única realidad. Si no se tiene en cuenta esto último, pueden darse situaciones de
+      inconsistencia en los datos.
+      %Por ejemplo, 2 sectores de la empresa en cuestión informan valores distintos para la venta de un producto en el mismo
+      %período de tiempo.
     
       \item Seguido al módulo de ETL se observa el repositorio central donde se almacenan los datos depurados y listos para ser explotados utilizando
-      diferentes técnicas. Si bien las que aparecen en la Figura \ref{dw_arq} son \textbf{OLAP} y \textbf{Data Mining}, existen muchas otras formas de 
+      diferentes técnicas. Si bien las técnicas que aparecen en la Figura \ref{dw_arq} son \textbf{OLAP} y \textbf{Data Mining}, existen muchas otras formas de 
       explotación, sobre las cuales no se entrará en detalles. Por ejemplo, construcción de reportes operativos, tableros de control, etc.
     \end{itemize}
 
@@ -232,19 +247,18 @@
     
     \subsection{OLTP}
     
-    Estas siglas componen el acrónimo de \textit{OnLine Transaction Processing} (Procesamiento de Transacciones En Línea). Es un tipo
-    de procesamiento que facilita y administra aplicaciones transaccionales, usualmente para entrada y recuperación de datos y procesamiento de
-    transacciones.
-    Las aplicaciones OLTP tienen un alto rendimiento en la inserción o actualización intensiva de una base de datos. Estas aplicaciones son utilizadas
-    simultáneamente por centenares de usuarios. Además, tienen como objetivos clave la disponibilidad, velocidad, concurrencia y recuperación.
-    Por ejemplo, la aplicación que gestiona a determinado cajero automático de un banco, al tener que estar constantemente actualizando registros de una
-    base de datos debido a las repetitivas operaciones de depósitos o giros bancarios, es un claro ejemplo de una aplicación de procesamiento de
-    transacciones comerciales.
-    En definitiva, los sistemas OLTP son bases de datos orientadas al procesamiento de transacciones, entendiéndose una transacción como un proceso
+    Estas siglas componen el acrónimo de \textit{OnLine Transaction Processing} (Procesamiento de Transacciones En Línea).
+    Los sistemas OLTP son bases de datos orientadas al procesamiento de transacciones.
+    Entendiéndose una transacción como un proceso
     atómico (que debe ser validado con un commit, o invalidado con un rollback), y que puede involucrar operaciones de inserción, modificación y
-    borrado de datos.\par
+    borrado de datos.
+    Las aplicaciones OLTP tienen un alto rendimiento en la inserción o actualización intensiva de una base de datos. Son utilizadas
+    simultáneamente por centenares de usuarios. Además, tienen como objetivos clave la disponibilidad, velocidad, concurrencia y recuperación.
     
-    En la Figura \ref{oltp_vs_olap} se establece una comparación entre DW y OLTP, que considera los siguientes aspectos:
+    Un claro ejemplo de un sistema de procesamiento de transacciones comerciales, es el cajero automático de un banco, que debe estar constantemente actualizando
+    registros de una base de datos, ante las repetitivas operaciones de depósitos o giros bancarios.
+    
+    En la Figura \ref{oltp_vs_olap} se establece una comparación entre DW y OLTP, a continuación se analizan en detalle sus diferencias.
     
     \begin{figure}
       \begin{center}
@@ -293,7 +307,7 @@
       \item \textbf{Acciones disponibles:}
         \begin{itemize}
           \item \textbf{Transaccional:} Alta, baja, modificación y consulta (insert, delete, update y select) son las acciones básicas.
-          \item \textbf{DW:} Carga (Alta) y consulta, las bajas y modificaciones no se realizan debido a que queremos preservar la no volatilidad de los
+          \item \textbf{DW:} Carga (Alta) y consulta, las bajas y modificaciones no se realizan debido a que se quiere preservar la no volatilidad de los
           datos.
         \end{itemize}
       \item \textbf{Número de transacciones:}
@@ -328,9 +342,7 @@
         \end{itemize}
     \end{itemize}
     
-    Debido a que los datos que son de utilidad (para el fin buscado) son los que contienen información histórica, y concluyendo que OLAP es el tipo
-    de procesamiento que corresponde a estos datos (lo cual se deduce de la comparación anterior), a continuación se detallan algunas desventajas del
-    procesamiento OLTP para clarificar aún más la diferencia entre ambos tipos de procesamiento:
+    Se presentan algunas desventajas del sistema OLTP, para clarificar aún más la diferencia entre ambos tipos de procesamiento:
     
     \begin{itemize}
       \item Gran rigidez a la hora de extraer datos, de manera que el usuario tiene que ceñirse a los informes predefinidos que se configuraron en el
@@ -351,8 +363,8 @@
       tenga acceso a la información que necesita para que su trabajo sea lo más eficiente posible. Por ejemplo, en una organización compuesta por
       diferentes sectores A, B y C, una persona del sector A no debería poder acceder la información de los demás sectores ya que la misma probablemente
       no sea de relevancia para los fines que busca.
-      \item Ausencia de información histórica. Los datos almacenados en los sistemas operacionales están diseñados para llevar la empresa al día, pero no
-      permiten contrastar la situación actual con una situación retrospectiva de años atrás.
+%       \item Ausencia de información histórica. Los datos almacenados en los sistemas operacionales están diseñados para llevar la empresa al día, pero no
+%       permiten contrastar la situación actual con una situación retrospectiva de años atrás.
     \end{itemize}
     
 
@@ -383,8 +395,8 @@
       información adecuada a cada uno de ellos. En muchas ocasiones, los DM son implementados sin que exista el DW, ya que tienen sus mismas 
       características pero con la particularidad de que están enfocados en un tema específico, con lo cual el volumen de datos es mucho menor y, por ende,
       el manejo de los datos es más sencillo. Luego de haber sido creados y cargados todos los DM, se procede a su integración para obtener el
-     repositorio central. La ventaja que trae aparejada este modelo es que cada DM se crea y pone en funcionamiento en un corto lapso de tiempo y se
-      puede tener una pequeña solución a un costo no tan elevado. Luego que todos los DM estén puestos en marcha, se puede decidir si construir el DW o no.
+      repositorio central. La ventaja que trae aparejada este modelo es que cada DM se crea y pone en funcionamiento en un corto lapso de tiempo y se
+      puede tener una pequeña solución a un costo no tan elevado. Una vez que todos los DM estén en marcha, se puede decidir si construir el DW o no.
       El mayor inconveniente está dado en tener que sincronizar los \textit{hechos} al momento de la consolidación del depósito central.
     \end{itemize}
     
@@ -415,7 +427,7 @@
     \begin{itemize}
       \item \textbf{Hechos:} Son las medidas de negocios (o indicadores de negocios) que el usuario final quiere observar y sobre los cuales quiere tener
       conocimientos.
-      \item \textbf{Dimensiones:} Éstas son las características que le dan contexto a lo que se quiere observar (hechos).
+      \item \textbf{Dimensiones:} Estas son las características que le dan contexto a lo que se quiere observar (hechos).
       Las dimensiones contienen datos cualitativos. Por ejemplo, si uno quiere observar el hecho total 
       vendido, las posibles dimensiones que le dan contexto a esta métrica son el tiempo, el negocio y la ciudad en que se ubica. Si bien cada dimensión hace
       referencia a un concepto específico aportando el contexto en el que se quiere observar el hecho, éste puede estructurarse con un orden jerárquico.
