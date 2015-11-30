@@ -661,8 +661,8 @@
     
     \section{OnLine Analytical Processing} \label{OLAP}
     
-    Más conocido por su acrónimo \textbf{OLAP} (Procesamiento Analítico En Línea), es una solución utilizada en el campo de la inteligencia de negocios, cuyo 
-    objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla. Utiliza estructuras multidimensionales (cubos OLAP) que 
+    Más conocido por su acrónimo \textbf{OLAP} (Procesamiento Analítico en Línea), es una solución utilizada en el campo de la inteligencia de negocios, cuyo 
+    principal objetivo es permitir la consulta de grandes cantidades de datos de forma eficiente y sencilla. Utiliza estructuras multidimensionales (cubos) que 
     contienen datos resumidos de grandes bases de datos.
     
     Como se explico anteriormente, en una base de datos transaccional, normalmente se estructuran las tablas con un modelo normalizado, lo cual favorece a
@@ -704,14 +704,14 @@
       \item \textbf{Dimensiones y niveles de agregación ilimitados:} Técnicamente ningún producto puede satisfacer esta regla ya que no se disponen de
       recursos ilimitados. De todos modos, en general, la cantidad de dimensiones y los niveles de agregación varían dependiendo del negocio u organización.
       Son pocas las aplicaciones que necesitan más de 10 dimensiones y jerarquías con más de 6 niveles.
-      En cualquier caso, se deben tener en cuenta las limitaciones de la herramienta que se utilize.
+      En cualquier caso, se debe tener en cuenta las limitaciones de la herramienta que se utiliza.
     \end{itemize}
     
     
     \subsection{FASMI}
     
     Las reglas de Codd fueron inadecuadas para detectar ``productos OLAP'', por lo que los investigadores se vieron obligados a crear su propia
-    definición. La definición debía que ser simple, memorable e independiente del producto, lo que resultó en la prueba FASMI \footnote{Explicada en
+    definición. La definición debía que ser simple, memorable e independiente del producto, lo que resultó en la prueba \textbf{FASMI} \footnote{Explicada en
     \cite{nagabhushana} Pág. 204.}, Fast Analysis of Shared Multidimentional Information (Análisis Rápido de Información 
     Multidimensional Compartida). Cada componente de esta sigla tiene un significado particular, y se explican a continuación:
     
@@ -745,6 +745,9 @@
     de los que dependen otros datos que serán objeto de estudio y análisis y que están contenidos en la tabla de hechos. Las tablas de dimensiones ayudan a
     realizar un estudio/análisis aportando información sobre los datos de la tabla de hechos, por lo que puede decirse que en un cubo OLAP, la tabla de
     hechos contiene los datos de interés y las tablas de dimensiones contienen metadatos sobre los hechos.
+
+
+    \subsubsection{Hipercubo en pantalla}
 
     El camino hacia la comprensión de los hipercubos no pasa a través de la longitud, ancho y alto de un cubo físico, el cubo es una metáfora visual. Hay
     límites naturales con respecto a lo que se puede hacer en una pantalla de dos dimensiones. Esta limitación ha hecho pensar largo y tendido a los
@@ -809,8 +812,6 @@
     \end{figure}
     
     
-    \subsubsection{Hipercubo en pantalla}
-    
     Para lograr que los datos se visualicen en la pantalla de forma correcta, se deberá mapear las múltiples dimensiones lógicas en las dos dimensiones físicas
     que utiliza el monitor.
     Mapear dos dimensiones en una dimensión, implica crear una versión unidimensional de las dos dimensiones.
@@ -819,7 +820,7 @@
     
     La Figura \ref{cube_7}, muestra un escenario más elaborado en el que se agregan las dimensiones \textit{Stores} (Tiendas), \textit{Customers} (Tiendas)
     y \textit{Scenarios} (Tiendas). Podemos apreciar el uso del MTS, y múltiples anidamientos, para obtener como resultado final una representación
-    bidimensional de las seis dimensiones, en base a filas, columnas y páginas.
+    bidimensional de las seis dimensiones, en base a filas, columnas y páginas (visualización en forma de grilla, vista clásica de OLAP).
     
     \begin{figure}
       \begin{center}
@@ -851,7 +852,7 @@
     Esto se debe a la separación de la estructura de datos (MTS), de su visualización (grilla).
     
     \vspace{0.2in}
-    Para realizar un análisis de los datos multidimensionales, son de mucha utilidad las siguientes reglas básicas:
+    Para realizar un análisis de los datos multidimensionales, son de utilidad las siguientes reglas básicas:
     
     \begin{itemize}
       \item Tratar de utilizar \textit{páginas}, lo cual permite visualizar la información de mayor relevancia en la pantalla.
@@ -867,15 +868,15 @@
     
     \subsection{Operaciones sobre el cubo OLAP}
     
-    Veremos las operaciones OLAP que los autores consideran más importantes, y junto con las mismas se ilustran
+    Se presentan las operaciones OLAP que los autores consideran más relevantes, y junto a las mismas se ilustran
     ejemplos, en base a un cubo de tres dimensiones, \textit{Locations}, \textit{Time}, y \textit{Item}:
     
     \begin{itemize}
       \item \textbf{Slice:} En esta operación se selecciona un valor particular de una de las dimensiones del cubo, buscando con esto obtener una ``rebanada'' del
       mismo. Ver Figura \ref{slice}.
       \item \textbf{Dice:} Se seleccionan valores específicos de dos o más dimensiones, y así se obtiene un subcubo del cubo original. Ver Figura \ref{dice}.
-      \item \textbf{Drill Down:} Esta operación ofrece más detalle de la información visualizada, previo a ser aplicada. Esto puede
-      lograrse de dos formas, bajar un nivel en la jerarquía de una dimensión en particular o añadir otra dimensión, para sumar aún más información sobre el contexto.
+      \item \textbf{Drill Down:} Esta operación ofrece más detalle de la información visualizada. Esto puede
+      lograrse de dos formas, bajar un nivel en la jerarquía de una dimensión en particular, o añadir otra dimensión, para sumar aún más información sobre el contexto.
       Ver Figura \ref{drill_down}.
       \item \textbf{Drill up:} En contraposición con la operación anterior, \textit{drill up} permite visualizar menos información, lo cual puede realizarse
       subiendo un nivel en la jerarquía de una dimensión o eliminando alguna de las dimensiones. De ésta forma, se obtiene información con un nivel más alto
@@ -930,21 +931,21 @@
     
     \subsubsection{ROLAP}
     
-    El \textbf{Procesamiento Analítico Relacional En Línea} (\textbf{ROLAP}, acrónimo de \textit{Relational OnLine Analytical Processing}), consiste en sistemas
+    El \textbf{Procesamiento Analítico Relacional en Línea} (\textbf{ROLAP}, acrónimo de \textit{Relational OnLine Analytical Processing}), consiste en sistemas
     y herramientas OLAP construidas sobre una base de datos relacional. Al trabajar con ROLAP se deben tener en cuenta las siguientes ventajas y desventajas:
     
     \begin{itemize}
       \item \textbf{Ventajas:}
         \begin{itemize}
           \item Existe una gran variedad de herramientas de carga de datos para sistemas relacionales. Con esto se consigue que los tiempos de carga
-          sean, generalmente, mucho menores que con las cargas MOLAP (lo cual se definirá a continuación) automatizadas.
+          sean, generalmente, mucho menores que las cargas MOLAP.
           \item Los datos se almacenan en una base de datos relacional estándar que puede ser accedida por cualquier herramienta de generación de
           informes SQL (reporting).
         \end{itemize}
       \item \textbf{Desventajas:}
         \begin{itemize}
           \item Muchos desarrolladores de modelos dimensionales ROLAP ignoran el paso de creación de tablas agregadas, con lo cual el rendimiento de
-          una consulta se ve afectado ante la necesidad de consultar las tablas con los datos más detallados. Esto puede evitarse parcialmente
+          una consulta se ve afectada, ante la necesidad de consultar las tablas con los datos más detallados. Esto puede evitarse parcialmente
           añadiendo tablas agregadas, sin embargo no es práctico crear tablas agregadas para todas las combinaciones posibles de dimensiones/hechos.
           \item Los sistemas ROLAP se construyen sobre bases de datos de propósito general, por lo que hay algunas funcionalidades especiales, propias
           de las herramientas MOLAP, que no están disponibles en los sistemas ROLAP (tales como el indexado jerárquico especial). Sin embargo, las
@@ -955,26 +956,26 @@
         \end{itemize}
     \end{itemize}
     
-    En la Figura \ref{rolap} se puede observar una posible estructura utilizando ROLAP.
+    En la Figura \ref{rolap} se puede observar una posible estructura ROLAP.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{rolap}
-        \caption{Estructura de DW utilizando ROLAP. \cite[p.~81]{nagabhushana}.}
+        \caption{Estructura del DW utilizando ROLAP. \cite[p.~81]{nagabhushana}.}
         \label{rolap}
       \end{center}
     \end{figure}
     
     \subsubsection{MOLAP}
     
-    El \textbf{Procesamiento Analítico Multidimensional En Línea} (\textbf{MOLAP}, \textit{Multidimensional Online Analytical Processing}),
-    consiste en herramientas que ejecutan sus cálculos sobre una base de datos multidimensional (MDDB), cual tienen algunas características a favor y otras en contra.
+    El \textbf{Procesamiento Analítico Multidimensional en Línea} (\textbf{MOLAP}, \textit{Multidimensional Online Analytical Processing}),
+    consiste en herramientas que ejecutan sus cálculos sobre una base de datos multidimensional (MDDB). Esto tienen algunas características a favor y otras en contra.
     
     \begin{itemize}
       \item \textbf{Ventajas:}
         \begin{itemize}
           \item Consultas rápidas debido a ciertas optimizaciones de rendimiento, indexación multidimensional y memoria caché.
-          \item Ocupa menor tamaño en disco en comparación con los datos almacenados en base de datos relacional debido a técnicas de compresión.
+          \item Ocupa menor tamaño en disco, en comparación con los datos almacenados en base de datos relacionalm debido a técnicas de compresión.
           \item Automatización del procesamiento de los datos agregados de mayor nivel.
           \item Muy compacto para conjuntos de datos de pocas dimensiones.
         \end{itemize}
@@ -990,7 +991,7 @@
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{molap}
-        \caption{Estructura de DW utilizando MOLAP. \cite[p.~81]{nagabhushana}.}
+        \caption{Estructura del DW utilizando MOLAP. \cite[p.~81]{nagabhushana}.}
         \label{molap}
       \end{center}
     \end{figure}
@@ -999,16 +1000,18 @@
     
     \subsubsection{HOLAP}
 
-    El coste adicional de los procesos ETL para migrar datos a una herramienta MOLAP y el pobre rendimiento de consulta en los sistemas ROLAP ha generado que la
+    El coste adicional de los procesos ETL para migrar datos a una herramienta MOLAP, y el pobre rendimiento de las consulta en los sistemas ROLAP, ha generado que la
     mayoría de las herramientas comerciales OLAP usen un modelo \textbf{HOLAP} (\textit{Hybrid OnLine Analytical Processing}), el cual permite al diseñador del sistema
     decidir qué porción de los datos serán almacenados en modo multidimensional (MOLAP) y qué porción en modo relacional (ROLAP). Al combinar ambas herramientas
     se obtiene la reducción de los tiempos que demanda la carga de datos (ROLAP) y las optimizaciones en cálculos complejos, lo que beneficia a la fluidez de la
-    navegación de los datos (MOLAP). En la Figura \ref{holap} vemos un modelo HOLAP, donde en una misma arquitectura, conviven ambas tecnologías.
+    navegación de los datos (MOLAP).
+    
+    En la Figura \ref{holap} vemos un sistema HOLAP, donde en una misma arquitectura, conviven ambas tecnologías.
     
     \begin{figure}
       \begin{center}
         \includegraphics[scale=0.4]{holap}
-        \caption{Estructura de DW utilizando HOLAP. \cite[p.~82]{nagabhushana}.}
+        \caption{Estructura del DW utilizando HOLAP. \cite[p.~82]{nagabhushana}.}
         \label{holap}
       \end{center}
     \end{figure}
@@ -1025,13 +1028,13 @@
     
     \subsection{Diseño de un Data Warehouse}
     
-    El procedimiento, planteado en el libro \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos dedicada
+    El procedimiento, planteado en el libro \cite{VaismanZimanyi14}, se basa en la suposición de que los DWs son un tipo particular de bases de datos,  dedicada
     a fines analíticos.
     Por lo tanto, su diseño debe seguir las fases de diseño de bases de datos tradicionales, es decir, la especificación de los requisitos, diseño conceptual, diseño 
-    lógico y diseño físico. Sin embargo, hay diferencias significativas entre las fases del diseño de bases de una datos tradicional y un DW, que se derivan de su
+    lógico y diseño físico. Sin embargo, hay diferencias significativas entre las fases del diseño de una base de datos tradicional, y un DW, que se derivan de sus
     diferentes naturalezas. Ver Figura \ref{etapasDiseño}.
     
-    A continuación, se detalla cada etapa del diseño de un Data Warehouse, en base a lo recomendado en \cite{VaismanZimanyi14}.
+    A continuación, se detalla cada etapa del diseño de un Data Warehouse, según lo recomendado en \cite{VaismanZimanyi14}.
     
     \begin{figure}
       \includegraphics[scale=0.4]{diseno1}  
@@ -1045,7 +1048,7 @@
       para los usuarios. La fase de especificación de requisitos debe conducir al diseñador a descubrir los elementos esenciales de un esquema multidimensional,
       como los hechos y sus dimensiones asociadas, que son necesarios para facilitar la manipulación y cálculos futuros. Esta fase establece una base para todas
       las actividades futuras en el desarrollo del DW; tiene un impacto importante en el éxito del proyecto, ya que afecta directamente a los aspectos técnicos,
-      así como las estructuras de almacenamiento de datos y aplicaciones.
+      así como a las estructuras de almacenamiento de datos y aplicaciones.
       
       \item \textbf{Diseño conceptual}:
       La fase de especificación de requisitos, debe proporcionar los elementos necesarios para la construcción de un esquema conceptual inicial del Data warehouse.
@@ -1078,7 +1081,7 @@
       Un esquema conceptual es una descripción concisa de los requisitos del usuario, sin tener en cuenta los detalles de implementación.
       
       Los esquemas desarrollados mediante el uso de los modelos conceptuales, se puede asignar a varios modelos lógicos, tales como relacionales, objeto-relacional,
-      u objeto orientados a modelos, simplificando así las respuestas a los cambios en la tecnología utilizada.
+      u orientado a objetos, simplificando así las respuestas a los cambios en la tecnología utilizada.
       Por otra parte, los modelos conceptuales facilitan el mantenimiento y evolución de las bases de datos, ya que se centran en los requisitos del usuario;
       en consecuencia, proporcionan un mayor soporte ante posteriores cambios en los esquemas lógicos y físicos.
       
@@ -1110,16 +1113,16 @@
         características similares. Tiene un conjunto de \textbf{atributos} que describen las características de sus miembros. Además, un nivel tiene uno o
         varios \textbf{identificadores}, que identifican de forma única los miembros de un nivel, cada identificador se compone de uno o varios atributos.
         \item Un \textbf{hecho} relaciona varios niveles. El mismo nivel puede participar varias veces con un hecho, mediante diferentes \textbf{roles}.
-        Cada rol se identifica por un nombre. Cada rol se identifica por un nombre y está representado por una relación, entre el nivel correspondiente y el hecho.
+        Cada rol se identifica por un nombre, y está representado por una relación, entre el nivel correspondiente y el hecho.
         Un hecho puede contener atributos llamados \textbf{medidas}.
         \item Las \textbf{medidas} contienen datos (usualmente numéricos), que son analizados mediante las diversas perspectivas, representadas por las dimensiones.
-        Se sumarizan a largo de dimensiones cuando se realizan operaciones roll-up. La \textbf{función de sumarización} asociada
+        Se sumarizan a largo de dimensiones cuando se realizan operaciones \textit{drill-up}. La \textbf{función de sumarización} asociada
         con una medida se puede especificar junto al nombre de la medida (\textit{SUM}, por defecto). Las medidas pueden clasificarse como sigue,
         de acuerdo a la función de sumarización suma:
         \begin{itemize}
           \item Medidas aditivas: pueden resumirse a lo largo de todas las dimensiones.
           \item Medidas semiaditivas: se pueden resumir, a lo largo de algunas, no todas, las dimensiones.
-          \item Medidas no aditivas: no pueden resumirse, través de ninguna dimensión.
+          \item Medidas no aditivas: no pueden resumirse, a través de ninguna dimensión.
         \end{itemize}
         Además, las medidas y los atributos de nivel pueden \textbf{derivarse}, es decir que se calculan en base a otras medidas o atributos en el esquema.
         Por defecto, las medidas son aditivas.
@@ -1292,23 +1295,24 @@
     Otras alternativas, sustituyen los valores originales del almacén de datos con datos difusos, lo que imposibilita el análisis de los valores originales del
     almacén de datos.
     
-    Por ello en \cite{Fasel14}, se propone un modelo que aborda estos inconvenientes, proporcionando un método más flexible para integrar los conceptos difusos,
-    utilizando \textbf{meta tablas} \footnote{Ver \ref{MFDW}.}.
+    Por ello en \cite{Fasel14}, se propone un modelo que aborda estos inconvenientes, proporcionando un método más flexible, para integrar los conceptos difusos,
+    utilizando \textbf{meta tablas} \footnote{Ver sección \ref{MFDW}.}.
     Lo que posibilita la integración de los datos difusos en cada nivel de la jerarquía de dimensiones, sin afectar la sumarización de la dimensión; donde los datos
     difusos pueden no ser normalizados. 
-    Otra ventaja del modelo propuesto, es la capacidad de analizar el FDW simultáneamente en forma difuso y no difusa.
+    Otra ventaja del modelo propuesto, es la capacidad de analizar el FDW simultáneamente en forma difusa y no difusa.
     
     \subsubsection{Lógica Difusa}
     
-    Zadeh desarrolló en la teoría de conjuntos difusos un medio para representar el lenguaje natural matemáticamente. Define una \textbf{variable lingüística}, que tiene 
-    palabras o frases como sus valores. Los valores de la variable lingüística, llamados \textbf{términos lingüísticos}, se proyectan sobre un universo del discurso.
+    Zadeh desarrolló, en la teoría de conjuntos difusos, un medio para representar el lenguaje natural matemáticamente. Define una \textbf{variable lingüística},
+    que tiene  palabras o frases como sus valores. Mientras que, los valores de la variable lingüística, llamados \textbf{términos lingüísticos}, se proyectan sobre un universo
+    del discurso.
     Se define a un conjunto borroso como sigue:
         
     \textbf{Conjunto difuso}. Un conjunto difuso $A$ en $M$, también llamado universo del discurso, es caracterizado por una función
     $\mu_{A}(m)$, que asocia a cada elemento en $M$, un número en el intervalo $[0,1]$. Los números en el intervalo $[0,1]$ definen la pertenencia
     de un elemento $m$ al conjunto difuso A, donde 1 implica plena pertenencia, y 0 implica ninguna pertenencia.
     
-    El conjunto borroso se utilizan para definir el grado de pertenencia con la que un valor podría pertenecer a un término lingüístico.
+    El conjunto borroso se utilizan para definir el grado de pertenencia con el que un valor del universo podría pertenecer a un término lingüístico.
     
     Una \textbf{variable lingüística} es una quintupla, $(X, T(X), G, M, F)$, definida como sigue:
         
@@ -1320,8 +1324,8 @@
       \item $F$ es una regla semántica que define para cada término lingüístico, su significado en función de un subconjunto borroso en M.
     \end{itemize}
     
-    A modo de ejemplo, se tiene un conjuntos de películas, donde cada película tiene una duración específica, y se define una variable lingüística \textit{duration},
-    con el siguiente conjunto de términos lingüísticos: $\{ very\,short, short, medium, long, very\,long \}$.
+    A modo de ejemplo, se presenta el siguiente escenario: se tiene un conjuntos de películas, donde cada película tiene una duración específica, y se define una
+    variable lingüística \textit{duration}, con el siguiente conjunto de términos lingüísticos: $\{ very\,short, short, medium, long, very\,long \}$.
     En la Figura \ref{ejVarLinguistica}, se aprecia una posible representación gráfica de $duration$.
     
     \begin{figure}
@@ -1367,10 +1371,10 @@
     Por lo tanto, un DW clásico puede tener una o más meta tablas del modelo $FDW$.
     
     Además, los conceptos difusos pueden existir sin una variable lingüística. Esto es puede representar sin una tabla de clasificación fuzzy.
-    Cada tabla de clasificación fuzzy tiene una relación de uno o más, con la tabla de  pertenencia fuzzy. En definitiva, el modelo $FDW$ se compone de una o más tablas
+    Cada tabla de clasificación fuzzy tiene una relación de uno o más, con la tabla de  pertenencia fuzzy. En definitiva, el modelo FDW se compone de una o más tablas
     de  pertenencia fuzzy, y cero o más tabla de clasificación fuzzy.
     
-    Para proporcionar un DW funcional, el FDW tiene que apoyar las operaciones OLAP básicas. En \cite{Fasel14} se describe cómo las operaciones clásica tienen que
+    Para proporcionar un DW funcional, el FDW tiene que apoyar las operaciones OLAP básicas. En \cite{Fasel14} se describe cómo las operaciones OLAP tienen que
     adaptarse para manejar conceptos difusos correctamente, y cómo la definición del cubo de datos tiene que ser ampliada con conceptos difusos.
     
     \begin{figure}
@@ -1382,13 +1386,13 @@
     \end{figure}
     
     En \cite{Fasel09} se propone un Fuzzy Data Warehouse para un sistema de análisis web, donde no es posible contar las visitas de distintos usuarios con precisión.
-
     Se tiene una métrica (las visitas a páginas web) imprecisa. La clasificación de a los usuarios, está limita por su precisión.
     Un usuario que tiene 75 visitas podría ser clasificado como un mal visitante, mientras que un visitante con 80 visitas podría ser clasificada como buena visitante.
     A causa de la imprecisión de la métrica, un usuario podría ser clasificado en la clase equivocada. Por tanto, es difícil comparar los usuarios.
     Mediante el uso de una clasificación difusa el usuario puede pertenecer a ambos términos lingüísticos al mismo tiempo.
-        
-    Entonces, el concepto difuso sobre las visitas a páginas web proporciona una clasificación más certera de los valores numéricos.
+    
+    En el ejemplo anterior, vemos como el uso de conceptos difusos (en este caso aplicado sobre las visitas a páginas web), proporciona una clasificación más certera
+    de los valores numéricos.
     
     
     \subsection{Web Warehouse}
@@ -1491,32 +1495,33 @@
   \section{Conclusiones} \label{conclusiones}
   
   Se puede observar que la aplicación del modelo dimensional sobre el Data Warehouse, junto con las diversas formas de explotación de los datos, entre ellas
-  OLAP \footnote{Ver Figura \ref{dw_arq}.}, ofrece una solución que ayuda al usuario final en la toma de decisiones, respaldando las mismas con resultados concretos.
+  OLAP \footnote{Ver Figura \ref{dw_arq}.}, ofrecen una solución que ayuda al usuario final en la toma de decisiones, respaldando las mismas con resultados concretos.
   
   La principal ventaja del enfoque dimensional, en contraposición al modelo normalizado, es el desarrollo de estructuras fáciles de entender y usar para el
   usuario final. Si se siguiera una normalización en tercera forma normal, debido al gran número de tablas que se crearían, podría ser engorroso para el
   usuario establecer los joins necesarios, sobre las distintas fuentes de datos, que provean de información significativa, sin una comprensión plena
   de las estructuras de datos del Data Warehouse.
-  Además, tiende a proporcionar de una mayor performance, en la recuperación de los datos, gracias al grado de desnormalización de los datos.
+  Además, el modelado dimensional tiende a proporcionar una mayor performance, en la recuperación de los datos, gracias al grado de desnormalización de los datos.
   
   Por otro lado, se considera importante remarcar que las herramientas OLAP se adaptan mejor, en escenarios donde se requiera de tomas de decisiones,
   que las herramientas OLTP, debido a sus diferentes naturalezas.
-  Los DWs están optimizados para patrones de búsquedas analíticos, que en general consisten en la selección de campos determinados, que requieren de pocos
-  \texttt{``select *''}.
-  
-  A diferencias de las bases de datos operacionales que mantienen una fotografía del estado
-  de la organización, los DWs mantienen datos históricos, que se implementa a través de procesos ETL, los cuales migran periódicamente los datos de los sistemas
+ 
+  A diferencias de las bases de datos operacionales, que mantienen una fotografía del estado
+  de la organización, los DWs mantienen datos históricos, que se implementan a través de procesos ETL, los cuales migran periódicamente los datos de los sistemas
   operacionales al Data Warehouse.
+  Además, los DWs están optimizados para patrones de búsquedas analíticos, que en general consisten en la selección de campos determinados, que requieren de pocos
+  \texttt{``select *''}.
+ 
   
   En referencia al uso de ontologías aplicadas al diseño del DW, publicado en \cite{ontologias}, es importante aclarar que, si bien cada uno de los pasos del
   algoritmo están bien diferenciados y detallados, no se explica como distinguir las dimensiones y los hechos de manera explícita, a partir de las clases
   que componen la ontología resultante de aplicar el algoritmo. Por lo tanto, éste tema está abierto a futuras investigaciones.
   
   Daniel Fasel, en \cite {Fasel14}, destaca que el modelo de Fuzzy Data Warehouse, se basa en un enfoque relacional del DW.
-  Por ello, es necesario analizar en futuras investigaciones si la estructura de la tabla meta puede ser implementada en bases de datos multidimensionales,
+  Por ello, es necesario analizar en futuras investigaciones si la estructura de la meta tabla puede ser implementada en bases de datos multidimensionales,
   o si sería necesaria una nueva implementación de los conceptos difusos.
-  Además, la estructura de meta tablas no contempla ningún control de versiones cronológico de datos difusos.
-  Es decir que, no es posible tener diferentes versiones de datos borrosos en diferentes puntos del tiempo.
+  Además, las meta tablas no contemplan ningún control de versiones cronológico de datos difusos.
+  Es decir que, no es posible tener diferentes versiones de los datos borrosos, en distintos puntos del tiempo.
   
   % Saqué información de https://en.wikipedia.org/wiki/Data_warehouse.
   % De la sección "Dimensional vs. normalized approach for storage of data" y "Data warehouses versus operational systems".
